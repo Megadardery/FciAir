@@ -57,6 +57,26 @@
             this.txtSearchBarF = new System.Windows.Forms.TextBox();
             this.listVFlights = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btneraseAC = new System.Windows.Forms.Button();
+            this.chckUpdateAC = new System.Windows.Forms.CheckBox();
+            this.btnAddAC = new System.Windows.Forms.Button();
+            this.cbosearchAC = new System.Windows.Forms.ComboBox();
+            this.btnsearchAC = new System.Windows.Forms.Button();
+            this.gbxAC = new System.Windows.Forms.GroupBox();
+            this.txtPIDAC = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblAdminAC = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtAdminIDAC = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblACID = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtsearchAC = new System.Windows.Forms.TextBox();
+            this.listVAC = new System.Windows.Forms.ListView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -66,33 +86,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblIDAdmin = new System.Windows.Forms.Label();
             this.btnBackAdmin = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.txtAdminIDAC = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblACID = new System.Windows.Forms.Label();
-            this.btneraseAC = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.chckUpdateAC = new System.Windows.Forms.CheckBox();
-            this.btnAddAC = new System.Windows.Forms.Button();
-            this.cbosearchAC = new System.Windows.Forms.ComboBox();
-            this.btnsearchAC = new System.Windows.Forms.Button();
-            this.gbxAC = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtsearchAC = new System.Windows.Forms.TextBox();
-            this.listVAC = new System.Windows.Forms.ListView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblAdminAC = new System.Windows.Forms.Label();
-            this.txtPIDAC = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.ACtab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbxF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSeats)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.gbxAC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // ACtab
@@ -158,7 +158,7 @@
             this.cboSearchF.Name = "cboSearchF";
             this.cboSearchF.Size = new System.Drawing.Size(95, 21);
             this.cboSearchF.TabIndex = 14;
-            this.cboSearchF.Text = "Search With";
+            this.cboSearchF.Text = "Search by";
             this.cboSearchF.SelectedIndexChanged += new System.EventHandler(this.cboSearch_SelectedIndexChanged);
             // 
             // chkUpdateF
@@ -415,6 +415,189 @@
             this.tabPage2.Text = "Aircrafts";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btneraseAC
+            // 
+            this.btneraseAC.Location = new System.Drawing.Point(346, 286);
+            this.btneraseAC.Name = "btneraseAC";
+            this.btneraseAC.Size = new System.Drawing.Size(75, 28);
+            this.btneraseAC.TabIndex = 24;
+            this.btneraseAC.Text = "Erase";
+            this.btneraseAC.UseVisualStyleBackColor = true;
+            // 
+            // chckUpdateAC
+            // 
+            this.chckUpdateAC.AutoSize = true;
+            this.chckUpdateAC.Location = new System.Drawing.Point(351, 343);
+            this.chckUpdateAC.Name = "chckUpdateAC";
+            this.chckUpdateAC.Size = new System.Drawing.Size(61, 17);
+            this.chckUpdateAC.TabIndex = 21;
+            this.chckUpdateAC.Text = "Update";
+            this.chckUpdateAC.UseVisualStyleBackColor = true;
+            // 
+            // btnAddAC
+            // 
+            this.btnAddAC.Location = new System.Drawing.Point(347, 366);
+            this.btnAddAC.Name = "btnAddAC";
+            this.btnAddAC.Size = new System.Drawing.Size(75, 28);
+            this.btnAddAC.TabIndex = 20;
+            this.btnAddAC.Text = "Add";
+            this.btnAddAC.UseVisualStyleBackColor = true;
+            // 
+            // cbosearchAC
+            // 
+            this.cbosearchAC.FormattingEnabled = true;
+            this.cbosearchAC.Location = new System.Drawing.Point(8, 7);
+            this.cbosearchAC.Name = "cbosearchAC";
+            this.cbosearchAC.Size = new System.Drawing.Size(95, 21);
+            this.cbosearchAC.TabIndex = 22;
+            this.cbosearchAC.Text = "Search by";
+            // 
+            // btnsearchAC
+            // 
+            this.btnsearchAC.Location = new System.Drawing.Point(346, 6);
+            this.btnsearchAC.Name = "btnsearchAC";
+            this.btnsearchAC.Size = new System.Drawing.Size(75, 22);
+            this.btnsearchAC.TabIndex = 23;
+            this.btnsearchAC.Text = "Search";
+            this.btnsearchAC.UseVisualStyleBackColor = true;
+            // 
+            // gbxAC
+            // 
+            this.gbxAC.Controls.Add(this.txtPIDAC);
+            this.gbxAC.Controls.Add(this.label4);
+            this.gbxAC.Controls.Add(this.lblAdminAC);
+            this.gbxAC.Controls.Add(this.label2);
+            this.gbxAC.Controls.Add(this.numericUpDown1);
+            this.gbxAC.Controls.Add(this.txtAdminIDAC);
+            this.gbxAC.Controls.Add(this.label7);
+            this.gbxAC.Controls.Add(this.label19);
+            this.gbxAC.Controls.Add(this.textBox2);
+            this.gbxAC.Controls.Add(this.lblACID);
+            this.gbxAC.Controls.Add(this.label11);
+            this.gbxAC.Controls.Add(this.label15);
+            this.gbxAC.Location = new System.Drawing.Point(9, 278);
+            this.gbxAC.Name = "gbxAC";
+            this.gbxAC.Size = new System.Drawing.Size(336, 116);
+            this.gbxAC.TabIndex = 19;
+            this.gbxAC.TabStop = false;
+            this.gbxAC.Text = "Aircraft";
+            // 
+            // txtPIDAC
+            // 
+            this.txtPIDAC.Location = new System.Drawing.Point(55, 89);
+            this.txtPIDAC.Name = "txtPIDAC";
+            this.txtPIDAC.Size = new System.Drawing.Size(105, 20);
+            this.txtPIDAC.TabIndex = 26;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Pilot ID :";
+            // 
+            // lblAdminAC
+            // 
+            this.lblAdminAC.AutoSize = true;
+            this.lblAdminAC.Location = new System.Drawing.Point(240, 92);
+            this.lblAdminAC.Name = "lblAdminAC";
+            this.lblAdminAC.Size = new System.Drawing.Size(67, 13);
+            this.lblAdminAC.TabIndex = 24;
+            this.lblAdminAC.Text = "Manged By :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(166, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Admin Name :";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(151, 36);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(73, 20);
+            this.numericUpDown1.TabIndex = 22;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // txtAdminIDAC
+            // 
+            this.txtAdminIDAC.Location = new System.Drawing.Point(239, 62);
+            this.txtAdminIDAC.Name = "txtAdminIDAC";
+            this.txtAdminIDAC.Size = new System.Drawing.Size(88, 20);
+            this.txtAdminIDAC.TabIndex = 21;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(166, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Manged By :";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(10, 39);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(135, 13);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "Maximum number of seats :";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(55, 62);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(105, 20);
+            this.textBox2.TabIndex = 19;
+            // 
+            // lblACID
+            // 
+            this.lblACID.AutoSize = true;
+            this.lblACID.Location = new System.Drawing.Point(174, 16);
+            this.lblACID.Name = "lblACID";
+            this.lblACID.Size = new System.Drawing.Size(41, 13);
+            this.lblACID.TabIndex = 4;
+            this.lblACID.Text = "bind ID";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 65);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Model :";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(105, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(63, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Aircraft ID : ";
+            // 
+            // txtsearchAC
+            // 
+            this.txtsearchAC.Location = new System.Drawing.Point(108, 7);
+            this.txtsearchAC.Name = "txtsearchAC";
+            this.txtsearchAC.Size = new System.Drawing.Size(237, 20);
+            this.txtsearchAC.TabIndex = 18;
+            // 
+            // listVAC
+            // 
+            this.listVAC.Location = new System.Drawing.Point(8, 33);
+            this.listVAC.Name = "listVAC";
+            this.listVAC.Size = new System.Drawing.Size(413, 239);
+            this.listVAC.TabIndex = 17;
+            this.listVAC.UseCompatibleStateImageBehavior = false;
+            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -506,189 +689,6 @@
             this.btnBackAdmin.Text = "Back";
             this.btnBackAdmin.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(151, 36);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(73, 20);
-            this.numericUpDown1.TabIndex = 22;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // txtAdminIDAC
-            // 
-            this.txtAdminIDAC.Location = new System.Drawing.Point(239, 62);
-            this.txtAdminIDAC.Name = "txtAdminIDAC";
-            this.txtAdminIDAC.Size = new System.Drawing.Size(88, 20);
-            this.txtAdminIDAC.TabIndex = 21;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(166, 65);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Manged By :";
-            // 
-            // lblACID
-            // 
-            this.lblACID.AutoSize = true;
-            this.lblACID.Location = new System.Drawing.Point(174, 16);
-            this.lblACID.Name = "lblACID";
-            this.lblACID.Size = new System.Drawing.Size(41, 13);
-            this.lblACID.TabIndex = 4;
-            this.lblACID.Text = "bind ID";
-            // 
-            // btneraseAC
-            // 
-            this.btneraseAC.Location = new System.Drawing.Point(346, 286);
-            this.btneraseAC.Name = "btneraseAC";
-            this.btneraseAC.Size = new System.Drawing.Size(75, 28);
-            this.btneraseAC.TabIndex = 24;
-            this.btneraseAC.Text = "Erase";
-            this.btneraseAC.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(55, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(105, 20);
-            this.textBox2.TabIndex = 19;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 65);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Model :";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(105, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 13);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Aircraft ID : ";
-            // 
-            // chckUpdateAC
-            // 
-            this.chckUpdateAC.AutoSize = true;
-            this.chckUpdateAC.Location = new System.Drawing.Point(351, 343);
-            this.chckUpdateAC.Name = "chckUpdateAC";
-            this.chckUpdateAC.Size = new System.Drawing.Size(61, 17);
-            this.chckUpdateAC.TabIndex = 21;
-            this.chckUpdateAC.Text = "Update";
-            this.chckUpdateAC.UseVisualStyleBackColor = true;
-            // 
-            // btnAddAC
-            // 
-            this.btnAddAC.Location = new System.Drawing.Point(347, 366);
-            this.btnAddAC.Name = "btnAddAC";
-            this.btnAddAC.Size = new System.Drawing.Size(75, 28);
-            this.btnAddAC.TabIndex = 20;
-            this.btnAddAC.Text = "Add";
-            this.btnAddAC.UseVisualStyleBackColor = true;
-            // 
-            // cbosearchAC
-            // 
-            this.cbosearchAC.FormattingEnabled = true;
-            this.cbosearchAC.Location = new System.Drawing.Point(8, 7);
-            this.cbosearchAC.Name = "cbosearchAC";
-            this.cbosearchAC.Size = new System.Drawing.Size(95, 21);
-            this.cbosearchAC.TabIndex = 22;
-            this.cbosearchAC.Text = "Search With";
-            // 
-            // btnsearchAC
-            // 
-            this.btnsearchAC.Location = new System.Drawing.Point(346, 6);
-            this.btnsearchAC.Name = "btnsearchAC";
-            this.btnsearchAC.Size = new System.Drawing.Size(75, 22);
-            this.btnsearchAC.TabIndex = 23;
-            this.btnsearchAC.Text = "Search";
-            this.btnsearchAC.UseVisualStyleBackColor = true;
-            // 
-            // gbxAC
-            // 
-            this.gbxAC.Controls.Add(this.txtPIDAC);
-            this.gbxAC.Controls.Add(this.label4);
-            this.gbxAC.Controls.Add(this.lblAdminAC);
-            this.gbxAC.Controls.Add(this.label2);
-            this.gbxAC.Controls.Add(this.numericUpDown1);
-            this.gbxAC.Controls.Add(this.txtAdminIDAC);
-            this.gbxAC.Controls.Add(this.label7);
-            this.gbxAC.Controls.Add(this.label19);
-            this.gbxAC.Controls.Add(this.textBox2);
-            this.gbxAC.Controls.Add(this.lblACID);
-            this.gbxAC.Controls.Add(this.label11);
-            this.gbxAC.Controls.Add(this.label15);
-            this.gbxAC.Location = new System.Drawing.Point(9, 278);
-            this.gbxAC.Name = "gbxAC";
-            this.gbxAC.Size = new System.Drawing.Size(336, 116);
-            this.gbxAC.TabIndex = 19;
-            this.gbxAC.TabStop = false;
-            this.gbxAC.Text = "Aircraft";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(10, 39);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(135, 13);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "Maximum number of seats :";
-            // 
-            // txtsearchAC
-            // 
-            this.txtsearchAC.Location = new System.Drawing.Point(108, 7);
-            this.txtsearchAC.Name = "txtsearchAC";
-            this.txtsearchAC.Size = new System.Drawing.Size(237, 20);
-            this.txtsearchAC.TabIndex = 18;
-            // 
-            // listVAC
-            // 
-            this.listVAC.Location = new System.Drawing.Point(8, 33);
-            this.listVAC.Name = "listVAC";
-            this.listVAC.Size = new System.Drawing.Size(413, 239);
-            this.listVAC.TabIndex = 17;
-            this.listVAC.UseCompatibleStateImageBehavior = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(166, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Admin Name :";
-            // 
-            // lblAdminAC
-            // 
-            this.lblAdminAC.AutoSize = true;
-            this.lblAdminAC.Location = new System.Drawing.Point(240, 92);
-            this.lblAdminAC.Name = "lblAdminAC";
-            this.lblAdminAC.Size = new System.Drawing.Size(67, 13);
-            this.lblAdminAC.TabIndex = 24;
-            this.lblAdminAC.Text = "Manged By :";
-            // 
-            // txtPIDAC
-            // 
-            this.txtPIDAC.Location = new System.Drawing.Point(55, 89);
-            this.txtPIDAC.Name = "txtPIDAC";
-            this.txtPIDAC.Size = new System.Drawing.Size(105, 20);
-            this.txtPIDAC.TabIndex = 26;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 92);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Pilot ID :";
-            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -710,9 +710,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericSeats)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.gbxAC.ResumeLayout(false);
             this.gbxAC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
