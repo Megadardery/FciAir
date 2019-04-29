@@ -81,5 +81,85 @@ namespace UI
         {
 
         }
+
+        private void txtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAircraftID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDDay_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDMonth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtADay_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAMonth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAYear_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddFlight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEraseFlight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericSeats_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
