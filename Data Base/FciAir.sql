@@ -7,20 +7,19 @@ use FciAir;
 /* Modified by:    Ahmed Nasr Eldardery                         */
 /*==============================================================*/
 
+drop table if exists Tickets;
 
-drop table if exists Admins;
-
-drop table if exists Aircrafts;
+drop table if exists Monitor;
 
 drop table if exists Customers;
 
 drop table if exists Flights;
 
-drop table if exists Monitor;
-
 drop table if exists Pilots;
 
-drop table if exists Tickets;
+drop table if exists Aircrafts;
+
+drop table if exists Admins;
 
 /*==============================================================*/
 /* Table: Admins                                                */
