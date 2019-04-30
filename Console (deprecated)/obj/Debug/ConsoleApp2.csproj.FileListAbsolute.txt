@@ -5,3 +5,10 @@ C:\Users\Abdo\Downloads\FCI\DB\1.1\ConsoleApp2\obj\Debug\ConsoleApp2.csprojAssem
 C:\Users\Abdo\Downloads\FCI\DB\1.1\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CoreCompileInputs.cache
 C:\Users\Abdo\Downloads\FCI\DB\1.1\ConsoleApp2\obj\Debug\ConsoleApp2.exe
 C:\Users\Abdo\Downloads\FCI\DB\1.1\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
+D:\Programming\Github\FciAir\Console\bin\Debug\ConsoleApp2.exe.config
+D:\Programming\Github\FciAir\Console\bin\Debug\ConsoleApp2.exe
+D:\Programming\Github\FciAir\Console\bin\Debug\ConsoleApp2.pdb
+D:\Programming\Github\FciAir\Console\obj\Debug\ConsoleApp2.csprojAssemblyReference.cache
+D:\Programming\Github\FciAir\Console\obj\Debug\ConsoleApp2.csproj.CoreCompileInputs.cache
+D:\Programming\Github\FciAir\Console\obj\Debug\ConsoleApp2.exe
+D:\Programming\Github\FciAir\Console\obj\Debug\ConsoleApp2.pdb
