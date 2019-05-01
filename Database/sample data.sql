@@ -1,3 +1,11 @@
+delete from [dbo].[Tickets]
+delete from [dbo].[Monitor]
+delete from [dbo].[Customers]
+delete from [dbo].[Flights]
+delete from [dbo].[Pilots]
+delete from [dbo].[Aircrafts]
+delete from [dbo].[Admins]
+
 insert into [dbo].[Admins] values ('Belal','Hamdy','belalhamdy','1234')
 insert into [dbo].[Admins] values ('ahmed','darder','drdr','1234')
 insert into [dbo].[Admins] values ('abdo','okasha','oksha','1234')
@@ -41,9 +49,9 @@ insert into [dbo].[Monitor] values (1,2)
 insert into [dbo].[Monitor] values (2,1)
 insert into [dbo].[Monitor] values (3,5)
 insert into [dbo].[Monitor] values (2,6)
-insert into [dbo].[Monitor] values (5,3)
-insert into [dbo].[Monitor] values (1,2)
-insert into [dbo].[Monitor] values (2,2)
+insert into [dbo].[Monitor] values (3,3)
+insert into [dbo].[Monitor] values (1,6)
+insert into [dbo].[Monitor] values (4,2)
 insert into [dbo].[Monitor] values (4,7)
 
 insert into [dbo].[Pilots] values (7,'Mahmoud','19900205',12000)
@@ -54,10 +62,10 @@ insert into [dbo].[Pilots] values (3,'Merna','19951010',20000)
 insert into [dbo].[Pilots] values (2,'Farah','19971111',10000)
 insert into [dbo].[Pilots] values (1,'Samir','19981215',12500)
 
-insert into [dbo].[Tickets] values (9,9,100,'child','first','20190419 07:34:09 AM')
+insert into [dbo].[Tickets] values (9,3,100,'child','first','20190419 07:34:09 AM')
 insert into [dbo].[Tickets] values (9,8,100,'child','first','20190419 09:34:09 AM')
 insert into [dbo].[Tickets] values (9,1,100,'child','first','20190419 11:34:09 AM')
-insert into [dbo].[Tickets] values (8,9,200,'infant','economy','20190420 07:34:09 AM')
+insert into [dbo].[Tickets] values (8,6,200,'infant','economy','20190420 07:34:09 AM')
 insert into [dbo].[Tickets] values (8,2,200,'infant','economy','20190420 11:34:09 AM')
 insert into [dbo].[Tickets] values (5,3,50,'Adult','first','20190419 07:34:09 AM')
 insert into [dbo].[Tickets] values (5,4,70,'Adult','first','20190419 09:34:09 AM')
