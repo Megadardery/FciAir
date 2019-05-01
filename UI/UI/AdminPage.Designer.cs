@@ -48,12 +48,12 @@
             this.btnsearchT = new System.Windows.Forms.Button();
             this.txtsearchT = new System.Windows.Forms.TextBox();
             this.lstTickets = new System.Windows.Forms.ListView();
-            this.cbosearchT = new System.Windows.Forms.ComboBox();
+            this.cmbSearchT = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnUpdateAC = new System.Windows.Forms.Button();
             this.btnAddAC = new System.Windows.Forms.Button();
-            this.cmbSearchAircraft = new System.Windows.Forms.ComboBox();
-            this.btnSearchAircraft = new System.Windows.Forms.Button();
+            this.cmbSearchAC = new System.Windows.Forms.ComboBox();
+            this.btnSearchAC = new System.Windows.Forms.Button();
             this.gbxAC = new System.Windows.Forms.GroupBox();
             this.btnEraseAC = new System.Windows.Forms.Button();
             this.txtModel = new System.Windows.Forms.TextBox();
@@ -68,7 +68,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblAircraftID = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtSearchAircraft = new System.Windows.Forms.TextBox();
+            this.txtSearchAC = new System.Windows.Forms.TextBox();
             this.lstAircrafts = new System.Windows.Forms.ListView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnClearF = new System.Windows.Forms.Button();
@@ -151,7 +151,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(308, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username :";
             // 
@@ -171,7 +171,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(313, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Admin ID :";
             // 
@@ -284,7 +284,7 @@
             this.tabPage4.Controls.Add(this.btnsearchT);
             this.tabPage4.Controls.Add(this.txtsearchT);
             this.tabPage4.Controls.Add(this.lstTickets);
-            this.tabPage4.Controls.Add(this.cbosearchT);
+            this.tabPage4.Controls.Add(this.cmbSearchT);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -320,23 +320,23 @@
             this.lstTickets.UseCompatibleStateImageBehavior = false;
             this.lstTickets.View = System.Windows.Forms.View.Details;
             // 
-            // cbosearchT
+            // cmbSearchT
             // 
-            this.cbosearchT.FormattingEnabled = true;
-            this.cbosearchT.Location = new System.Drawing.Point(6, 6);
-            this.cbosearchT.Name = "cbosearchT";
-            this.cbosearchT.Size = new System.Drawing.Size(95, 21);
-            this.cbosearchT.TabIndex = 26;
-            this.cbosearchT.Text = "Search by";
+            this.cmbSearchT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSearchT.FormattingEnabled = true;
+            this.cmbSearchT.Location = new System.Drawing.Point(6, 6);
+            this.cmbSearchT.Name = "cmbSearchT";
+            this.cmbSearchT.Size = new System.Drawing.Size(95, 21);
+            this.cmbSearchT.TabIndex = 26;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnUpdateAC);
             this.tabPage2.Controls.Add(this.btnAddAC);
-            this.tabPage2.Controls.Add(this.cmbSearchAircraft);
-            this.tabPage2.Controls.Add(this.btnSearchAircraft);
+            this.tabPage2.Controls.Add(this.cmbSearchAC);
+            this.tabPage2.Controls.Add(this.btnSearchAC);
             this.tabPage2.Controls.Add(this.gbxAC);
-            this.tabPage2.Controls.Add(this.txtSearchAircraft);
+            this.tabPage2.Controls.Add(this.txtSearchAC);
             this.tabPage2.Controls.Add(this.lstAircrafts);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -364,23 +364,23 @@
             this.btnAddAC.Text = "Add";
             this.btnAddAC.UseVisualStyleBackColor = true;
             // 
-            // cmbSearchAircraft
+            // cmbSearchAC
             // 
-            this.cmbSearchAircraft.FormattingEnabled = true;
-            this.cmbSearchAircraft.Location = new System.Drawing.Point(6, 6);
-            this.cmbSearchAircraft.Name = "cmbSearchAircraft";
-            this.cmbSearchAircraft.Size = new System.Drawing.Size(95, 21);
-            this.cmbSearchAircraft.TabIndex = 22;
-            this.cmbSearchAircraft.Text = "Search by";
+            this.cmbSearchAC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSearchAC.FormattingEnabled = true;
+            this.cmbSearchAC.Location = new System.Drawing.Point(6, 6);
+            this.cmbSearchAC.Name = "cmbSearchAC";
+            this.cmbSearchAC.Size = new System.Drawing.Size(95, 21);
+            this.cmbSearchAC.TabIndex = 22;
             // 
-            // btnSearchAircraft
+            // btnSearchAC
             // 
-            this.btnSearchAircraft.Location = new System.Drawing.Point(350, 6);
-            this.btnSearchAircraft.Name = "btnSearchAircraft";
-            this.btnSearchAircraft.Size = new System.Drawing.Size(72, 22);
-            this.btnSearchAircraft.TabIndex = 23;
-            this.btnSearchAircraft.Text = "Search";
-            this.btnSearchAircraft.UseVisualStyleBackColor = true;
+            this.btnSearchAC.Location = new System.Drawing.Point(350, 6);
+            this.btnSearchAC.Name = "btnSearchAC";
+            this.btnSearchAC.Size = new System.Drawing.Size(72, 22);
+            this.btnSearchAC.TabIndex = 23;
+            this.btnSearchAC.Text = "Search";
+            this.btnSearchAC.UseVisualStyleBackColor = true;
             // 
             // gbxAC
             // 
@@ -441,7 +441,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(17, 66);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(135, 13);
+            this.label19.Size = new System.Drawing.Size(139, 13);
             this.label19.TabIndex = 37;
             this.label19.Text = "Maximum number of seats :";
             // 
@@ -450,7 +450,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(168, 91);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 13);
+            this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 34;
             this.label7.Text = "Pilot Salary";
             // 
@@ -475,7 +475,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(168, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 27;
             this.label2.Text = "Pilot Birthdate:";
             // 
@@ -509,16 +509,16 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(105, 16);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 13);
+            this.label15.Size = new System.Drawing.Size(67, 13);
             this.label15.TabIndex = 3;
             this.label15.Text = "Aircraft ID : ";
             // 
-            // txtSearchAircraft
+            // txtSearchAC
             // 
-            this.txtSearchAircraft.Location = new System.Drawing.Point(107, 7);
-            this.txtSearchAircraft.Name = "txtSearchAircraft";
-            this.txtSearchAircraft.Size = new System.Drawing.Size(237, 20);
-            this.txtSearchAircraft.TabIndex = 18;
+            this.txtSearchAC.Location = new System.Drawing.Point(107, 7);
+            this.txtSearchAC.Name = "txtSearchAC";
+            this.txtSearchAC.Size = new System.Drawing.Size(237, 20);
+            this.txtSearchAC.TabIndex = 18;
             // 
             // lstAircrafts
             // 
@@ -570,12 +570,12 @@
             // 
             // cmbSearchF
             // 
+            this.cmbSearchF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSearchF.FormattingEnabled = true;
             this.cmbSearchF.Location = new System.Drawing.Point(6, 6);
             this.cmbSearchF.Name = "cmbSearchF";
             this.cmbSearchF.Size = new System.Drawing.Size(95, 21);
             this.cmbSearchF.TabIndex = 14;
-            this.cmbSearchF.Text = "Search by";
             // 
             // btnUpdateF
             // 
@@ -659,7 +659,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(8, 91);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(66, 13);
+            this.label14.Size = new System.Drawing.Size(68, 13);
             this.label14.TabIndex = 20;
             this.label14.Text = "Destination :";
             // 
@@ -668,7 +668,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(166, 39);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 13);
+            this.label12.Size = new System.Drawing.Size(84, 13);
             this.label12.TabIndex = 13;
             this.label12.Text = "RequiredSeats :";
             // 
@@ -693,7 +693,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(166, 91);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.Size = new System.Drawing.Size(69, 13);
             this.label9.TabIndex = 7;
             this.label9.Text = "DepartTime :";
             // 
@@ -711,7 +711,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(166, 66);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.Size = new System.Drawing.Size(65, 13);
             this.label13.TabIndex = 15;
             this.label13.Text = "ArriveTime :";
             // 
@@ -720,7 +720,7 @@
             this.label.AutoSize = true;
             this.label.Location = new System.Drawing.Point(105, 16);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(55, 13);
+            this.label.Size = new System.Drawing.Size(57, 13);
             this.label.TabIndex = 3;
             this.label.Text = "Flight ID : ";
             // 
@@ -729,7 +729,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(7, 39);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "Aircraft ID : ";
             // 
@@ -818,12 +818,12 @@
             // 
             // cmbSearchC
             // 
+            this.cmbSearchC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSearchC.FormattingEnabled = true;
             this.cmbSearchC.Location = new System.Drawing.Point(6, 6);
             this.cmbSearchC.Name = "cmbSearchC";
             this.cmbSearchC.Size = new System.Drawing.Size(95, 21);
             this.cmbSearchC.TabIndex = 30;
-            this.cmbSearchC.Text = "Search by";
             // 
             // tabPage5
             // 
@@ -876,7 +876,7 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(6, 22);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(52, 13);
+            this.label28.Size = new System.Drawing.Size(54, 13);
             this.label28.TabIndex = 27;
             this.label28.Text = "Flight ID: ";
             // 
@@ -971,7 +971,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(202, 55);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 13);
+            this.label16.Size = new System.Drawing.Size(79, 13);
             this.label16.TabIndex = 21;
             this.label16.Text = "Old Password :";
             // 
@@ -980,7 +980,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(6, 55);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(61, 13);
+            this.label17.Size = new System.Drawing.Size(62, 13);
             this.label17.TabIndex = 20;
             this.label17.Text = "Username :";
             // 
@@ -1005,7 +1005,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(6, 25);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(66, 13);
+            this.label21.Size = new System.Drawing.Size(68, 13);
             this.label21.TabIndex = 5;
             this.label21.Text = "First Name : ";
             // 
@@ -1063,7 +1063,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(202, 56);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 13);
+            this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 21;
             this.label10.Text = "Password :";
             // 
@@ -1072,7 +1072,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 56);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 20;
             this.label6.Text = "Username :";
             // 
@@ -1097,7 +1097,7 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(6, 25);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(66, 13);
+            this.label25.Size = new System.Drawing.Size(68, 13);
             this.label25.TabIndex = 5;
             this.label25.Text = "First Name : ";
             // 
@@ -1176,12 +1176,12 @@
         private System.Windows.Forms.Button btnsearchT;
         private System.Windows.Forms.TextBox txtsearchT;
         private System.Windows.Forms.ListView lstTickets;
-        private System.Windows.Forms.ComboBox cbosearchT;
+        private System.Windows.Forms.ComboBox cmbSearchT;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnEraseAC;
         private System.Windows.Forms.Button btnAddAC;
-        private System.Windows.Forms.ComboBox cmbSearchAircraft;
-        private System.Windows.Forms.Button btnSearchAircraft;
+        private System.Windows.Forms.ComboBox cmbSearchAC;
+        private System.Windows.Forms.Button btnSearchAC;
         private System.Windows.Forms.GroupBox gbxAC;
         private System.Windows.Forms.TextBox txtSalary;
         private System.Windows.Forms.Label label2;
@@ -1189,7 +1189,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblAircraftID;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtSearchAircraft;
+        private System.Windows.Forms.TextBox txtSearchAC;
         private System.Windows.Forms.ListView lstAircrafts;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnClearF;

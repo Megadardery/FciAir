@@ -53,3 +53,22 @@ D:\FciAir-master\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
 D:\FciAir-master\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
 D:\FciAir-master\UI\UI\obj\Debug\UI.exe
 D:\FciAir-master\UI\UI\obj\Debug\UI.pdb
+D:\SQL project\UI\UI\obj\Debug\UI.AdminPage.resources
+D:\SQL project\UI\UI\obj\Debug\UI.CustomerLogin.resources
+D:\SQL project\UI\UI\obj\Debug\UI.CustomerPage.resources
+D:\SQL project\UI\UI\obj\Debug\UI.CustomerSignUp.resources
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\bin\Debug\UI.exe.config
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\bin\Debug\UI.exe
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\bin\Debug\UI.pdb
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.AdminLogin.resources
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.AdminPage.resources
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.CustomerLogin.resources
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.CustomerPage.resources
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.CustomerSignUp.resources
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.HomePage.resources
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.Properties.Resources.resources
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.exe
+C:\Users\Abdo\Downloads\FCI\DB\p1\UI\UI\obj\Debug\UI.pdb

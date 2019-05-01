@@ -48,17 +48,36 @@ namespace UI
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
-            Logic.LoadListColumns(Program.dbms.GetTableColumns("Flights"), lstFlights);
+            List<string> cols;
+
+            cols = Program.dbms.GetTableColumns("Flights");
+            Logic.LoadListColumns(cols, lstFlights.Columns);
+            Logic.LoadListColumns(cols, cmbSearchF);
+
             Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
 
-            Logic.LoadListColumns(Program.dbms.GetTableColumns("Aircrafts"), lstAircrafts);
+
+            cols = Program.dbms.GetTableColumns("Aircrafts");
+            Logic.LoadListColumns(cols, lstAircrafts.Columns);
+            Logic.LoadListColumns(cols, cmbSearchAC);
+
             Logic.LoadListData(Program.dbms.GetTableData("Aircrafts"), lstAircrafts);
 
-            Logic.LoadListColumns(Program.dbms.GetTableColumns("Customers"), lstCustomers);
+
+            cols = Program.dbms.GetTableColumns("Customers");
+            Logic.LoadListColumns(cols, lstCustomers.Columns);
+            Logic.LoadListColumns(cols, cmbSearchC);
+
             Logic.LoadListData(Program.dbms.GetTableData("Customers"), lstCustomers);
 
-            Logic.LoadListColumns(Program.dbms.GetTableColumns("Tickets"), lstTickets);
+
+            cols = Program.dbms.GetTableColumns("Tickets");
+            Logic.LoadListColumns(cols, lstTickets.Columns);
+            Logic.LoadListColumns(cols, cmbSearchT);
+
             Logic.LoadListData(Program.dbms.GetTableData("Tickets"), lstTickets);
+
+
         }
 
         private void txtSearchF_TextChanged(object sender, EventArgs e)
@@ -88,21 +107,19 @@ namespace UI
             Program.dbms.DeleteFlight(ID);
 
             lstFlights.Items.RemoveAt(lstFlights.Items.IndexOf(lstFlights.SelectedItems[0]));
-            
-            ClearFlightData();
-            btnClearF.Enabled = btnEraseF.Enabled = false;
-            btnUpdateF.Text = "Add";
+
+            btnClearF.PerformClick();
         }
 
         private void btnUpdateF_Click(object sender, EventArgs e)
         {
-            if (lstFlights.SelectedItems.Count > 0) { }
-            //TODO Update Selected Item
+            if (lstFlights.SelectedItems.Count > 0)
+                Program.dbms.UpdateFlight(int.Parse(lblFlightID.Text),int.Parse(txtAircraftID.Text), dtpDepart.Value, dtpArrive.Value, (int)numRequiredSeats.Value, txtSource.Text, txtDestination.Text);
             else
                 Program.dbms.InsertFlight(int.Parse(txtAircraftID.Text),dtpDepart.Value,dtpArrive.Value,(int)numRequiredSeats.Value,txtSource.Text,txtDestination.Text);
 
-            Logic.LoadListColumns(Program.dbms.GetTableColumns("Flights"), lstFlights);
             Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
+            btnClearF.PerformClick();
         }
     }
 }
