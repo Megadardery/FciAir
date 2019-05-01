@@ -24,12 +24,18 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            AdminPage ap = new AdminPage();
+            ap.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
