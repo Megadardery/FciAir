@@ -46,5 +46,15 @@ namespace UI
         {
 
         }
+
+        private void CustomerPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

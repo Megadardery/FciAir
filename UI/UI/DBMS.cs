@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
+
 namespace UI
 {
     
@@ -149,6 +150,76 @@ namespace UI
             }
         }
 
+
+        public void UpdateAdmin(int ID,string fName, string lName,string userName,string pass)
+        {
+            string query = $"UPDATE Admins SET FirstName=@fName,LastName=@lName,Username=@userName,Password=@pass WHERE AdminID=@ID";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.Parameters.Add(new SqlParameter("@fName", fName));
+                cmd.Parameters.Add(new SqlParameter("@lName", lName));
+                cmd.Parameters.Add(new SqlParameter("@userName", userName));
+                cmd.Parameters.Add(new SqlParameter("@pass", pass));
+                cmd.Parameters.Add(new SqlParameter("@ID", ID));
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+        public void UpdateFlight(int ID,int AirID, DateTime depart,DateTime arrive ,int seat,string source,string dest)
+        {
+            string query = $"UPDATE Flights SET DepartTime=@depart,ArriveTime=@arrive,RequiredSeats=@seat,Source=@source,Destination=@dest,AircraftID=@AirID WHERE FlightID=@ID";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.Parameters.Add(new SqlParameter("@depart",depart ));
+                cmd.Parameters.Add(new SqlParameter("@arrive",arrive ));
+                cmd.Parameters.Add(new SqlParameter("@seat",seat ));
+                cmd.Parameters.Add(new SqlParameter("@source",source ));
+                cmd.Parameters.Add(new SqlParameter("@dest",dest ));
+                cmd.Parameters.Add(new SqlParameter("@AirID",AirID ));
+                cmd.Parameters.Add(new SqlParameter("@ID",ID ));
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+        public void UpdateCraft(int ID,int adminID,string model,string pName ,int seat,int salary,DateTime birth)
+        {
+            string query = $"UPDATE Aircraft,Pilots SET Model=@model,MaxSeat=@seat,RequiredSeat=@seat,Source=@source,Destination=@dest,AdminID=adminID WHERE AircraftID=@ID";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.Parameters.Add(new SqlParameter("@model",model ));
+                cmd.Parameters.Add(new SqlParameter("@pName",pName ));
+                cmd.Parameters.Add(new SqlParameter("@seat",seat ));
+                cmd.Parameters.Add(new SqlParameter("@salary",salary ));
+                cmd.Parameters.Add(new SqlParameter("@birth",birth ));
+                cmd.Parameters.Add(new SqlParameter("@ID",ID ));
+                cmd.Parameters.Add(new SqlParameter("@adminID",adminID ));
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+        public void UpdateCustomer(int ID, int passport, string fName, string lName, string userName,string pass, string nationality, DateTime birth)
+        {
+            string query = $"UPDATE Customer SET Passport=@passport,FirstName=@fName,LastName=@lName,Password=@pass,Birthdate=@birth,Nationality=nationality,Userename=@userName WHERE CustomerID=@ID";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.Parameters.Add(new SqlParameter("@passport", passport));
+                cmd.Parameters.Add(new SqlParameter("@fName", fName));
+                cmd.Parameters.Add(new SqlParameter("@lName", lName));
+                cmd.Parameters.Add(new SqlParameter("@passport", passport));
+                cmd.Parameters.Add(new SqlParameter("@pass", pass));
+                cmd.Parameters.Add(new SqlParameter("@birth", birth));
+                cmd.Parameters.Add(new SqlParameter("@ID", ID));
+                cmd.Parameters.Add(new SqlParameter("@nationality", nationality));
+                cmd.Parameters.Add(new SqlParameter("@userName", userName));
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+
         public void DeleteAircrafts(int[] idx)
         {
             string query = $"DELETE FROM Aircrafts WHERE AircraftID IN ({String.Join(",", idx)})";
@@ -173,7 +244,6 @@ namespace UI
                 cmd.ExecuteNonQuery();
             }
         }
-
 
     }
 }
