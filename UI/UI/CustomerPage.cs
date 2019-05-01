@@ -46,10 +46,5 @@ namespace UI
         {
 
         }
-
-        private void CustomerPage_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
