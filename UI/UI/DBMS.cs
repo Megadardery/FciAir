@@ -22,7 +22,29 @@ namespace UI
             co.ConnectionString = builder.ConnectionString;
             co.Open();
         }
-        
+
+        public int loginAdmin(string username, string pass)
+        {
+            string query = $"SELECT AdminID FROM Admins WHERE Username = @username AND Password = @pass";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                SqlDataReader reader = null;
+                try
+                {
+                    cmd.Parameters.Add(new SqlParameter("@username", username));
+                    cmd.Parameters.Add(new SqlParameter("@pass", pass));
+                    reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                        return (int)reader.GetValue(0);
+                    else
+                        return -1;
+                }
+                finally{
+                    reader.Close();
+                }
+            }
+        }
+
         public List<List<object>> GetTableData(string tablename, string where = "1=1")
         {
             var ret = new List<List<object>>();

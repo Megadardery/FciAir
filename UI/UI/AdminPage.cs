@@ -12,11 +12,13 @@ namespace UI
 {
     public partial class AdminPage : Form
     {
-        public AdminPage()
+        private int AdminID;
+        public AdminPage(int id)
         {
             InitializeComponent();
+            AdminID = id;
         }
-        
+
         private void ClearFlightData()
         {
             lblFlightID.Text = "";

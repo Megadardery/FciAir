@@ -9,6 +9,7 @@ namespace UI
     static class Program
     {
         public static DBMS dbms;
+        public static HomePage homePage;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -20,7 +21,9 @@ namespace UI
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomePage());
+
+            homePage = new HomePage();
+            Application.Run(homePage);
         }
     }
 }
