@@ -3,29 +3,19 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 
 namespace UI
 {
     
     class DBMS
     {
-        public string HashPassword(string pass)
-        {
-            byte[] passBytes = System.Text.Encoding.UTF8.GetBytes(pass);
-            byte[] hash = MD5.Create().ComputeHash(passBytes);
-
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("X2"));  //Convert the bytes to their HEX representation
-            }
-
-            return sb.ToString();
-            
-        }
-       
         private SqlConnection co;
+
+        /// <summary>
+        /// Establish a new instance of the Data Base Management System communicator.
+        /// This starts the connection to the DataSource "localhost" and to the database "FciAir"
+        /// </summary>
         public DBMS()
         {
             var builder = new SqlConnectionStringBuilder();
@@ -36,9 +26,36 @@ namespace UI
 
             co = new SqlConnection();
             co.ConnectionString = builder.ConnectionString;
-            co.Open();
-        }
 
+        
+            co.Open();
+    
+    
+        }
+        public static void CreateDatabase()
+        {
+            var builder = new SqlConnectionStringBuilder();
+            builder.IntegratedSecurity = true;
+
+            builder.DataSource = "localhost";
+
+            using (var myco = new SqlConnection())
+            {
+                myco.ConnectionString = builder.ConnectionString;
+                myco.Open();
+                using (var cmd = new SqlCommand(Properties.Resources.createDatabase, myco))
+                    cmd.ExecuteNonQuery();
+                using (var cmd = new SqlCommand(Properties.Resources.createDatabaseTables, myco))
+                    cmd.ExecuteNonQuery();
+
+                myco.Close();
+            }
+        }
+        public void CloseConnection()
+        {
+            co.Close();
+            co.Dispose();
+        }
         public bool CheckPassword(int ID, string pass)
         {
             string query = $"SELECT AdminID FROM Admins WHERE AdminID = @ID AND Password = @pass";
@@ -141,6 +158,7 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@username", username));
                 cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                 cmd.ExecuteNonQuery();
+                
             }
         }
         public void InsertAircraft(int adminID, int maxSeat, string model)
@@ -312,5 +330,60 @@ namespace UI
             }
         }
 
+        /// <summary>
+        /// Use the MD5 algorithm to hash the given password to a 256 bit (32 characters) hashed code.
+        /// </summary>
+        /// <param name="pass">The password to be hashed</param>
+        /// <returns>a string representing the uppercase hexadecimal representation of the MD5 Hash.</returns>
+        public string HashPassword(string pass)
+        {
+            byte[] passBytes = System.Text.Encoding.UTF8.GetBytes(pass);
+            byte[] hash = MD5.Create().ComputeHash(passBytes);
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));  //Convert the bytes to their HEX representation
+            }
+
+            return sb.ToString();
+
+        }
+
+        public enum SqlErrorNumber
+        {
+            ForeignKeyViolation = 547,      //either a reference to something that doesn't exist
+                                            //attempt to delete something that is referenced
+
+            Duplication = 2627,             //a primary key (or any unique attribute) already exists
+            Truncation = 8152,              //data is too long to be stored in the corresponding attribute
+            Unknown = 0                     //Other types of errors
+
+            /*
+             * Other interesting error codes
+            * 213 :     Column name or number of supplied values does not match table definition.
+            * 206 :     Operand type clash: int is incompatible with date
+            * 241 :     Conversion failed when converting date and/or time from character string.
+            * 245 :     Conversion failed when converting the varchar value to data type int.
+            * 515 :     Cannot insert the value NULL into column
+            */
+
+        }
+
+        public SqlErrorNumber ParseException(SqlException t)
+        {
+            switch (t.Number)
+            {
+                case (int)SqlErrorNumber.ForeignKeyViolation:
+                    return SqlErrorNumber.ForeignKeyViolation;
+                case (int)SqlErrorNumber.Duplication:
+                    return SqlErrorNumber.Duplication;
+                case (int)SqlErrorNumber.Truncation:
+                    return SqlErrorNumber.Truncation;
+                default:
+                    return SqlErrorNumber.Unknown;
+            }
+        }
     }
 }

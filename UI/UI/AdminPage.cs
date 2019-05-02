@@ -53,28 +53,28 @@ namespace UI
             List<string> cols;
 
             cols = Program.dbms.GetTableColumns("Flights");
-            Logic.LoadListColumns(cols, lstFlights.Columns);
+            Logic.LoadListColumns(cols, lstFlights);
             Logic.LoadListColumns(cols, cmbSearchF);
 
             Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
-
+            return;
             
             cols = Program.dbms.GetTableColumns("Aircrafts");
-            Logic.LoadListColumns(cols, lstAircrafts.Columns);
+            Logic.LoadListColumns(cols, lstAircrafts);
             Logic.LoadListColumns(cols, cmbSearchAC);
 
             Logic.LoadListData(Program.dbms.GetTableData("Aircrafts"), lstAircrafts);
 
 
             cols = Program.dbms.GetTableColumns("Customers");
-            Logic.LoadListColumns(cols, lstCustomers.Columns);
+            Logic.LoadListColumns(cols, lstCustomers);
             Logic.LoadListColumns(cols, cmbSearchC);
 
             Logic.LoadListData(Program.dbms.GetTableData("Customers"), lstCustomers);
 
 
             cols = Program.dbms.GetTableColumns("Tickets");
-            Logic.LoadListColumns(cols, lstTickets.Columns);
+            Logic.LoadListColumns(cols, lstTickets);
             Logic.LoadListColumns(cols, cmbSearchT);
 
             Logic.LoadListData(Program.dbms.GetTableData("Tickets"), lstTickets);

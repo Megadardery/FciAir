@@ -74,7 +74,7 @@
             this.MaximizeBox = false;
             this.Name = "HomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fci AIR";
+            this.Text = "FciSky";
             this.ResumeLayout(false);
             this.PerformLayout();
 

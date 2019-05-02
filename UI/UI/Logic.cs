@@ -8,15 +8,15 @@ namespace UI
 {
     class Logic
     {
-        public static void LoadListColumns(List<string> data, System.Windows.Forms.ListView.ColumnHeaderCollection ll)
+        public static void LoadListColumns(List<string> data, System.Windows.Forms.ListView ll)
         {
-            ll.Clear();
+            ll.Columns.Clear();
             
             foreach (var item in data)
             {
                 var t = new System.Windows.Forms.ColumnHeader();
                 t.Text = item;
-                ll.Add(t);
+                ll.Columns.Add(t);
             }
         }
         public static void LoadListColumns(List<string> data,System.Windows.Forms.ComboBox ll)
@@ -32,7 +32,7 @@ namespace UI
         public static void LoadListData(List<List<object>> data, System.Windows.Forms.ListView ll)
         {
             
-            ll.Clear();
+            ll.Items.Clear();
             foreach (var item in data)
             {
                 var t = new System.Windows.Forms.ListViewItem();

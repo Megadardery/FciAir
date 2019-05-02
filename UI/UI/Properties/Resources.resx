@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,98 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="createDatabase" xml:space="preserve">
+    <value>CREATE DATABASE FciAir</value>
+  </data>
+  <data name="createDatabaseTables" xml:space="preserve">
+    <value>use FciAir;
+
+create table Admins
+(
+   AdminID                      int                            identity(1,1)			  not null,
+   FirstName                    varchar(50)                    not null,
+   LastName                     varchar(50),
+   Username                     varchar(50)                    not null                    unique,
+   Password                     char(32)                       not null,
+   primary key (AdminID)
+);
+
+create table Aircrafts
+(
+   AircraftID                   int                            identity(1,1)			 not null,
+   AdminID                      int                            not null,
+   MaxSeats                     int,
+   Model                        varchar(50),
+   PilotName                         varchar(50)                    not null,
+   Birthdate                    date,
+   Salary                       float(8),
+   primary key (AircraftID)
+);
+
+create table Customers
+(
+   CustomerID                   int                            identity(1,1)			 not null,
+   FirstName                    varchar(50)                    not null,
+   LastName                     varchar(50),
+   Passport                     int                            not null,
+   Nationality                  varchar(50),
+   Birthdate                    date,
+   Username                     varchar(50)                    not null                    unique,
+   Password                     char(32)                       not null,
+   primary key (CustomerID)
+);
+
+create table Flights
+(
+   FlightID                     int                            identity(1,1)			 not null,
+   AircraftID                   int                            not null,
+   DepartTime                   datetime,
+   ArriveTime                   datetime,
+   RequiredSeats                int,
+   Source                       varchar(50),
+   Destination                  varchar(50),
+   primary key (FlightID)
+);
+create table Monitor
+(
+   AdminID                      int                            not null,
+   FlightID                     int                            not null,
+   primary key (AdminID, FlightID)
+);
+
+create table Tickets
+(
+   TicketID                     int                            identity(1,1)			 not null,
+   FlightID                     int                            not null,
+   CustomerID                   int                            not null,
+   Price						int							   not null,
+   AgeGroup						varchar(50),
+   Class                        varchar(50),
+   BookDate                     datetime,
+   primary key (TicketID)
+);
+
+alter table Aircrafts add constraint FK_ADD foreign key (AdminID)
+      references Admins (AdminID);
+
+alter table Flights add constraint FK_HAVE foreign key (AircraftID)
+      references Aircrafts (AircraftID);
+
+alter table Monitor add constraint FK_Monitor foreign key (AdminID)
+      references Admins (AdminID);
+
+alter table Monitor add constraint FK_Monitor2 foreign key (FlightID)
+      references Flights (FlightID);
+
+alter table Tickets add constraint FK_BOOK foreign key (CustomerID)
+      references Customers (CustomerID);
+
+alter table Tickets add constraint FK_FOR foreign key (FlightID)
+      references Flights (FlightID);</value>
+  </data>
 </root>
