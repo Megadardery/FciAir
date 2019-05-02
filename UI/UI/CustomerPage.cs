@@ -12,54 +12,12 @@ namespace UI
 {
     public partial class CustomerPage : Form
     {
-        public CustomerPage()
+        private int CustomerID;
+
+        public CustomerPage(int id)
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CustomerPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
+            CustomerID = id;
         }
     }
 }

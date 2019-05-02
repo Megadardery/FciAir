@@ -51,7 +51,6 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Customer";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -61,7 +60,6 @@
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Login as";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // HomePage
             // 
@@ -73,7 +71,6 @@
             this.Controls.Add(this.button1);
             this.Name = "HomePage";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.HomePage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

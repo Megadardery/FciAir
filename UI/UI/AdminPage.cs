@@ -58,7 +58,7 @@ namespace UI
 
             Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
 
-
+            
             cols = Program.dbms.GetTableColumns("Aircrafts");
             Logic.LoadListColumns(cols, lstAircrafts.Columns);
             Logic.LoadListColumns(cols, cmbSearchAC);
@@ -79,6 +79,14 @@ namespace UI
 
             Logic.LoadListData(Program.dbms.GetTableData("Tickets"), lstTickets);
 
+            lblIDAdmin.Text = AdminID.ToString();
+            List<object> userData = Program.dbms.GetTableData("Admins", $"AdminID = { AdminID }")[0];
+            lbluserAdmin.Text = userData[1].ToString();
+            txtMyFirstName.Text = userData[1].ToString();
+            txtMyLastName.Text = userData[2].ToString();
+            txtMyUsername.Text = userData[3].ToString();
+
+            Logic.LoadListData(Program.dbms.GetTableData("Monitor", $"AdminID = { AdminID }"), lstMyMonitors);
 
         }
 
@@ -122,6 +130,63 @@ namespace UI
 
             Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
             btnClearF.PerformClick();
+        }
+
+        private void lstAircrafts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstAircrafts.SelectedItems.Count > 0)
+            {
+                var ret = lstAircrafts.SelectedItems[0].SubItems;
+                lblAircraftID.Text = ret[0].Text;
+                numMaxSeats.Value = int.Parse(ret[2].Text);
+                txtModel.Text = ret[3].Text;
+                txtPilotName.Text = ret[4].Text;
+                dtpPilotBirthdate.Value = DateTime.Parse(ret[5].Text);
+                txtSalary.Text = ret[6].Text;
+            }
+            btnClearAC.Enabled = btnEraseAC.Enabled = true;
+            btnUpdateAC.Text = "Update";
+        }
+
+        private void AdminPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.homePage.Show();
+        }
+
+        private void lstMyMonitors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstMyMonitors.SelectedIndex > 0)
+                btnRemoveMonitor.Enabled = true;
+            else
+                btnRemoveMonitor.Enabled = false;
+        }
+
+        private void btnRemoveMonitor_Click(object sender, EventArgs e)
+        {
+            Program.dbms.DeleteMonitor(AdminID, int.Parse(lstMyMonitors.SelectedItem.ToString()));
+        }
+
+        private void txtFlightIDM_TextChanged(object sender, EventArgs e)
+        {
+            btnConfirmMonitor.Enabled = !(txtFlightIDM.Text == "");
+        }
+
+        private void btnConfirmMonitor_Click(object sender, EventArgs e)
+        {
+            Program.dbms.InsertMonitor(AdminID, int.Parse(txtFlightIDM.Text));
+            Logic.LoadListData(Program.dbms.GetTableData("Monitor", $"AdminID = { AdminID }"), lstMyMonitors);
+
+        }
+
+        private void btnSaveInfo_Click(object sender, EventArgs e)
+        {
+            bool correct = Program.dbms.CheckPassword(AdminID, txtMyOldPassword.Text);
+            if (!correct)
+            {
+                MessageBox.Show("You have entered your previous password incorrectly", "Incorrect Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            txtMyOldPassword.Clear();
+            txtMyNewPassword.Clear();
         }
     }
 }

@@ -17,25 +17,12 @@ namespace UI
             InitializeComponent();
         }
 
-        private void HomePage_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            AdminPage ap = new AdminPage();
-            ap.Show();
+            AdminLogin al = new AdminLogin();
+            al.Show();
+            this.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

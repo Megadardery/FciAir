@@ -19,7 +19,7 @@ namespace UI
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            int id = Program.dbms.loginAdmin(textBox1.Text, textBox2.Text);
+            int id = Program.dbms.LoginAdmin(txtUsername.Text, txtPassword.Text);
             if (id == -1)
             {
                 MessageBox.Show("Incorrect Username or password, Please double check them.", "Invalid Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -36,7 +36,7 @@ namespace UI
 
         private void Textboxes_TextChanged(object sender, EventArgs e)
         {
-            btnLogin.Enabled = !(textBox1.Text == "" || textBox2.Text== "" );
+            btnLogin.Enabled = !(txtUsername.Text == "" || txtPassword.Text== "" );
         }
 
         private void AdminLogin_FormClosed(object sender, FormClosedEventArgs e)

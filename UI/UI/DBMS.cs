@@ -1,13 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-
+using System.Security.Cryptography;
+using System.Text;
 
 namespace UI
 {
     
     class DBMS
     {
+        public string HashPassword(string pass)
+        {
+            byte[] passBytes = System.Text.Encoding.UTF8.GetBytes(pass);
+            byte[] hash = MD5.Create().ComputeHash(passBytes);
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));  //Convert the bytes to their HEX representation
+            }
+
+            return sb.ToString();
+            
+        }
        
         private SqlConnection co;
         public DBMS()
@@ -23,28 +39,58 @@ namespace UI
             co.Open();
         }
 
-        public int loginAdmin(string username, string pass)
+        public bool CheckPassword(int ID, string pass)
         {
-            string query = $"SELECT AdminID FROM Admins WHERE Username = @username AND Password = @pass";
+            string query = $"SELECT AdminID FROM Admins WHERE AdminID = @ID AND Password = @pass";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                SqlDataReader reader = null;
+                try
+                {
+                    cmd.Parameters.Add(new SqlParameter("@ID", ID));
+                    cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
+                    reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                finally
+                {
+                    reader.Close();
+                }
+            }
+        }
+        public int LoginAs(string mytype, string username, string pass)
+        {
+            string query = $"SELECT {mytype}ID FROM {mytype}s WHERE Username = @username AND Password = @pass";
             using (var cmd = new SqlCommand(query, co))
             {
                 SqlDataReader reader = null;
                 try
                 {
                     cmd.Parameters.Add(new SqlParameter("@username", username));
-                    cmd.Parameters.Add(new SqlParameter("@pass", pass));
+                    cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                     reader = cmd.ExecuteReader();
                     if (reader.Read())
                         return (int)reader.GetValue(0);
                     else
                         return -1;
                 }
-                finally{
+                finally
+                {
                     reader.Close();
                 }
             }
         }
-
+        public int LoginAdmin(string username, string pass)
+        {
+            return LoginAs("Admin", username, pass);
+        }
+        public int LoginCustomer(string username, string pass)
+        {
+            return LoginAs("Customer", username, pass);
+        }
         public List<List<object>> GetTableData(string tablename, string where = "1=1")
         {
             var ret = new List<List<object>>();
@@ -93,7 +139,7 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@fName", fName));
                 cmd.Parameters.Add(new SqlParameter("@lName", lName));
                 cmd.Parameters.Add(new SqlParameter("@username", username));
-                cmd.Parameters.Add(new SqlParameter("@pass", pass));
+                cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                 cmd.ExecuteNonQuery();
             }
         }
@@ -119,7 +165,7 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@nationality", nationality));
                 cmd.Parameters.Add(new SqlParameter("@birthdate", birthdate));
                 cmd.Parameters.Add(new SqlParameter("@username", username));
-                cmd.Parameters.Add(new SqlParameter("@pass", pass));
+                cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                 cmd.ExecuteNonQuery();
             }
         }
@@ -137,6 +183,8 @@ namespace UI
                 cmd.ExecuteNonQuery();
             }
         }
+
+
         public void InsertMonitor(int admin, int flight)
         {
             string query = $"INSERT INTO Monitor VALUES(@admin, @flight)";
@@ -147,18 +195,7 @@ namespace UI
                 cmd.ExecuteNonQuery();
             }
         }
-        public void InsertPilot(int ID, string name, DateTime date, double salary)
-        {
-            string query = $"INSERT INTO Pilots VALUES (@ID, @name, @date, @salary)";
-            using (var cmd = new SqlCommand(query, co))
-            {
-                cmd.Parameters.Add(new SqlParameter("@ID", ID));
-                cmd.Parameters.Add(new SqlParameter("@name", name));
-                cmd.Parameters.Add(new SqlParameter("@date", date));
-                cmd.Parameters.Add(new SqlParameter("@salary", salary));
-                cmd.ExecuteNonQuery();
-            }
-        }
+     
         public void InsertTicket(int flightID, int customerID, string Class, DateTime book)
         {
             string query = $"INSERT INTO Tickets VALUES (@flightID, @customerID, @Class, @book)";
@@ -181,7 +218,7 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@fName", fName));
                 cmd.Parameters.Add(new SqlParameter("@lName", lName));
                 cmd.Parameters.Add(new SqlParameter("@userName", userName));
-                cmd.Parameters.Add(new SqlParameter("@pass", pass));
+                cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                 cmd.Parameters.Add(new SqlParameter("@ID", ID));
                 cmd.ExecuteNonQuery();
             }
@@ -205,16 +242,16 @@ namespace UI
 
         }
 
-        public void UpdateCraft(int ID,int adminID,string model,string pName ,int seat,int salary,DateTime birth)
+        public void UpdateAirCraft(int ID,int adminID, int seat, string model,string pName, DateTime date,int salary)
         {
-            string query = $"UPDATE Aircraft,Pilots SET Model=@model,MaxSeat=@seat,RequiredSeat=@seat,Source=@source,Destination=@dest,AdminID=adminID WHERE AircraftID=@ID";
+            string query = $"UPDATE Aircraft SET AdminID = @adminID, Model=@model, MaxSeat=@seat,PilotName = @pname, Birthdate = @date, Salary = @salary WHERE AircraftID=@ID";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.Parameters.Add(new SqlParameter("@model",model ));
                 cmd.Parameters.Add(new SqlParameter("@pName",pName ));
                 cmd.Parameters.Add(new SqlParameter("@seat",seat ));
                 cmd.Parameters.Add(new SqlParameter("@salary",salary ));
-                cmd.Parameters.Add(new SqlParameter("@birth",birth ));
+                cmd.Parameters.Add(new SqlParameter("@date",date ));
                 cmd.Parameters.Add(new SqlParameter("@ID",ID ));
                 cmd.Parameters.Add(new SqlParameter("@adminID",adminID ));
                 cmd.ExecuteNonQuery();
@@ -231,7 +268,7 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@fName", fName));
                 cmd.Parameters.Add(new SqlParameter("@lName", lName));
                 cmd.Parameters.Add(new SqlParameter("@passport", passport));
-                cmd.Parameters.Add(new SqlParameter("@pass", pass));
+                cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                 cmd.Parameters.Add(new SqlParameter("@birth", birth));
                 cmd.Parameters.Add(new SqlParameter("@ID", ID));
                 cmd.Parameters.Add(new SqlParameter("@nationality", nationality));
@@ -245,6 +282,14 @@ namespace UI
         public void DeleteAircrafts(int[] idx)
         {
             string query = $"DELETE FROM Aircrafts WHERE AircraftID IN ({String.Join(",", idx)})";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteMonitor(int adminID, int aircraftID) { 
+            string query = $"DELETE FROM Monitor WHERE AdminID = {adminID} AND AircraftID = {aircraftID}";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.ExecuteNonQuery();

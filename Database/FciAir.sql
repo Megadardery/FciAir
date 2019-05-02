@@ -3,7 +3,7 @@ use FciAir;
 
 /*==============================================================*/
 /* DBMS name:      MySQL 4.0                                    */
-/* Created on:     24/4/2019 7:31:53 PM                         */
+/* Created on:     24/4/5019 7:31:53 PM                         */
 /* Modified by:    Ahmed Nasr Eldardery                         */
 /*==============================================================*/
 
@@ -15,8 +15,6 @@ drop table Customers;
 
 drop table Flights;
 
-drop table Pilots;
-
 drop table Aircrafts;
 
 drop table Admins;
@@ -27,10 +25,10 @@ drop table Admins;
 create table Admins
 (
    AdminID                      int                            identity(1,1)			  not null,
-   FirstName                    varchar(20)                    not null,
-   LastName                     varchar(20),
-   Username                     varchar(20)                    not null                    unique,
-   Password                     char(16)                       not null,
+   FirstName                    varchar(50)                    not null,
+   LastName                     varchar(50),
+   Username                     varchar(50)                    not null                    unique,
+   Password                     char(32)                       not null,
    primary key (AdminID)
 );
 
@@ -42,7 +40,10 @@ create table Aircrafts
    AircraftID                   int                            identity(1,1)			 not null,
    AdminID                      int                            not null,
    MaxSeats                     int,
-   Model                        varchar(20),
+   Model                        varchar(50),
+   PilotName                         varchar(50)                    not null,
+   Birthdate                    date,
+   Salary                       float(8),
    primary key (AircraftID)
 );
 
@@ -52,13 +53,13 @@ create table Aircrafts
 create table Customers
 (
    CustomerID                   int                            identity(1,1)			 not null,
-   FirstName                    varchar(20)                    not null,
-   LastName                     varchar(20),
+   FirstName                    varchar(50)                    not null,
+   LastName                     varchar(50),
    Passport                     int                            not null,
-   Nationality                  varchar(20),
+   Nationality                  varchar(50),
    Birthdate                    date,
-   Username                     varchar(20)                    not null                    unique,
-   Password                     char(16)                       not null,
+   Username                     varchar(50)                    not null                    unique,
+   Password                     char(32)                       not null,
    primary key (CustomerID)
 );
 
@@ -72,8 +73,8 @@ create table Flights
    DepartTime                   datetime,
    ArriveTime                   datetime,
    RequiredSeats                int,
-   Source                       varchar(20),
-   Destination                  varchar(20),
+   Source                       varchar(50),
+   Destination                  varchar(50),
    primary key (FlightID)
 );
 
@@ -88,18 +89,6 @@ create table Monitor
 );
 
 /*==============================================================*/
-/* Table: Pilots                                                */
-/*==============================================================*/
-create table Pilots
-(
-   AircraftID                   int                            not null,
-   Name                         varchar(20)                    not null,
-   Birthdate                    date,
-   Salary                       float(8),
-   primary key (AircraftID)
-);
-
-/*==============================================================*/
 /* Table: Tickets                                               */
 /*==============================================================*/
 create table Tickets
@@ -108,8 +97,8 @@ create table Tickets
    FlightID                     int                            not null,
    CustomerID                   int                            not null,
    Price						int							   not null,
-   AgeGroup						varchar(20),
-   Class                        varchar(20),
+   AgeGroup						varchar(50),
+   Class                        varchar(50),
    BookDate                     datetime,
    primary key (TicketID)
 );
@@ -126,12 +115,8 @@ alter table Monitor add constraint FK_Monitor foreign key (AdminID)
 alter table Monitor add constraint FK_Monitor2 foreign key (FlightID)
       references Flights (FlightID);
 
-alter table Pilots add constraint FK_DRIVENBY foreign key (AircraftID)
-      references Aircrafts (AircraftID);
-
 alter table Tickets add constraint FK_BOOK foreign key (CustomerID)
       references Customers (CustomerID);
 
 alter table Tickets add constraint FK_FOR foreign key (FlightID)
       references Flights (FlightID);
-

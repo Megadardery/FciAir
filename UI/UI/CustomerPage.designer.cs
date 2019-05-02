@@ -238,7 +238,6 @@
             this.btnBookFlight.TabIndex = 1;
             this.btnBookFlight.Text = "Book";
             this.btnBookFlight.UseVisualStyleBackColor = true;
-            this.btnBookFlight.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label1
             // 
@@ -322,9 +321,8 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(431, 421);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "User Info";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // groupBox3
             // 
@@ -380,6 +378,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(76, 112);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(120, 20);
@@ -393,7 +392,6 @@
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 28;
             this.label9.Text = "Nationality : ";
-            this.label9.Click += new System.EventHandler(this.Label9_Click);
             // 
             // textBox1
             // 
@@ -500,8 +498,8 @@
             this.ClientSize = new System.Drawing.Size(441, 460);
             this.Controls.Add(this.tabCustomerhandler);
             this.Name = "CustomerPage";
-            this.Text = "CustomerPage";
-            this.Load += new System.EventHandler(this.CustomerPage_Load);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "User Page";
             this.tabCustomerhandler.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

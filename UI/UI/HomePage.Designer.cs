@@ -61,7 +61,6 @@
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Login as";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // HomePage
             // 
@@ -71,9 +70,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "HomePage";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.HomePage_Load);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Fci AIR";
             this.ResumeLayout(false);
             this.PerformLayout();
 

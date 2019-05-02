@@ -17,11 +17,6 @@ namespace UI
             InitializeComponent();
         }
 
-        private void HomePage_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             AdminLogin al = new AdminLogin();
@@ -29,14 +24,11 @@ namespace UI
             this.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            CustomerLogin al = new CustomerLogin();
+            al.Show();
+            this.Hide();
         }
     }
 }

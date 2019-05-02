@@ -29,10 +29,10 @@ namespace UI
             }
             ll.SelectedIndex = 0;
         }
-
         public static void LoadListData(List<List<object>> data, System.Windows.Forms.ListView ll)
         {
-            ll.Items.Clear();
+            
+            ll.Clear();
             foreach (var item in data)
             {
                 var t = new System.Windows.Forms.ListViewItem();
@@ -42,6 +42,14 @@ namespace UI
                     t.SubItems.Add(item[i].ToString());
                 }
                 ll.Items.Add(t);
+            }
+        }
+        public static void LoadListData(List<List<object>> data, System.Windows.Forms.ListBox ll)
+        {
+            ll.Items.Clear();
+            foreach (var item in data)
+            {
+                ll.Items.Add(item[1]);
             }
         }
     }
