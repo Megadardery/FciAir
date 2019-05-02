@@ -49,5 +49,12 @@ namespace UI
             if (this.DialogResult != DialogResult.Yes)
                 Program.homePage.Show();
         }
+
+        private void BtnSignup_Click(object sender, EventArgs e)
+        {
+            CustomerSignUp a2 = new CustomerSignUp();
+            a2.Show();
+            this.Hide();
+        }
     }
 }

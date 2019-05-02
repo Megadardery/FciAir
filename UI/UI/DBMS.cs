@@ -183,7 +183,7 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@nationality", nationality));
                 cmd.Parameters.Add(new SqlParameter("@birthdate", birthdate));
                 cmd.Parameters.Add(new SqlParameter("@username", username));
-                cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
+                cmd.Parameters.Add(new SqlParameter("@pass", (pass)));
                 cmd.ExecuteNonQuery();
             }
         }
@@ -296,6 +296,27 @@ namespace UI
 
         }
 
+        public bool CheckUsername(string table,string username)
+        {
+            string query = $"select username from {table} where Username=@username";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                SqlDataReader reader = null;
+                try
+                {
+                    cmd.Parameters.Add(new SqlParameter("@username", username));
+                    reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                finally
+                {
+                    reader.Close();
+                }
+            }
+        }
 
         public void DeleteAircrafts(int[] idx)
         {
@@ -346,7 +367,7 @@ namespace UI
             {
                 sb.Append(hash[i].ToString("X2"));  //Convert the bytes to their HEX representation
             }
-
+            Console.WriteLine(sb);
             return sb.ToString();
 
         }
