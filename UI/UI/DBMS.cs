@@ -108,10 +108,10 @@ namespace UI
         {
             return LoginAs("Customer", username, pass);
         }
-        public List<List<object>> GetTableData(string tablename, string where = "1=1")
+        public List<List<object>> GetTableData(string tablename,string where = "1=1", string what = "*")
         {
             var ret = new List<List<object>>();
-            string query = $"SELECT * FROM {tablename} WHERE { where }";
+            string query = $"SELECT {what} FROM {tablename} WHERE {where}";
             using (var cmd = new SqlCommand(query, co))
             {
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -130,12 +130,33 @@ namespace UI
             return ret;
 
         }
+        public List<List<object>> SearchBy(string tablename, string whereLeft, string whereRight, string what = "*")
+        {
+            var ret = new List<List<object>>();
+            string query = $"SELECT {what} FROM {tablename} WHERE {whereLeft} = @whereRight";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.Parameters.Add(new SqlParameter("@whereRight", whereRight));
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var row = new List<object>();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                        row.Add(reader.GetValue(i));
 
-    
-        public List<string> GetTableColumns(string tablename)
+                    ret.Add(row);
+                }
+                reader.Close();
+
+            }
+            return ret;
+
+        }
+
+        public List<string> GetTableColumns(string tablename , string what = "*")
         {
             var ret = new List<string>();
-            string query = $"SELECT * FROM {tablename} WHERE 1=2";
+            string query = $"SELECT {what} FROM {tablename} WHERE 1=2";
             using (var cmd = new SqlCommand(query, co))
             {
                 SqlDataReader reader = cmd.ExecuteReader();

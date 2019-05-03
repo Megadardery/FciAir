@@ -87,3 +87,17 @@ C:\Users\Abdo\Documents\GitHub\FciAir\UI\UI\obj\Debug\UI.csproj.GenerateResource
 C:\Users\Abdo\Documents\GitHub\FciAir\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
 C:\Users\Abdo\Documents\GitHub\FciAir\UI\UI\obj\Debug\UI.exe
 C:\Users\Abdo\Documents\GitHub\FciAir\UI\UI\obj\Debug\UI.pdb
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\bin\Debug\UI.exe.config
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\bin\Debug\UI.exe
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\bin\Debug\UI.pdb
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.csprojResolveAssemblyReference.cache
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.AdminLogin.resources
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.AdminPage.resources
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.CustomerLogin.resources
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.CustomerPage.resources
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.CustomerSignUp.resources
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.HomePage.resources
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.Properties.Resources.resources
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.csproj.GenerateResource.Cache
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.exe
+C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.pdb

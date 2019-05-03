@@ -269,6 +269,7 @@
             this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cboSearch
             // 
@@ -285,6 +286,7 @@
             this.txtSearchBar.Name = "txtSearchBar";
             this.txtSearchBar.Size = new System.Drawing.Size(237, 20);
             this.txtSearchBar.TabIndex = 17;
+            this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
             // 
             // listVFlights
             // 
@@ -293,6 +295,7 @@
             this.listVFlights.Size = new System.Drawing.Size(405, 237);
             this.listVFlights.TabIndex = 16;
             this.listVFlights.UseCompatibleStateImageBehavior = false;
+            this.listVFlights.View = System.Windows.Forms.View.Details;
             // 
             // tabPage2
             // 
@@ -312,6 +315,7 @@
             this.listVMyFlights.Size = new System.Drawing.Size(424, 414);
             this.listVMyFlights.TabIndex = 0;
             this.listVMyFlights.UseCompatibleStateImageBehavior = false;
+            this.listVMyFlights.View = System.Windows.Forms.View.Details;
             // 
             // tabPage3
             // 
@@ -500,6 +504,7 @@
             this.Name = "CustomerPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Page";
+            this.Load += new System.EventHandler(this.CustomerPage_Load);
             this.tabCustomerhandler.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

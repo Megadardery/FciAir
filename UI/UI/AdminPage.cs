@@ -57,7 +57,7 @@ namespace UI
             Logic.LoadListColumns(cols, cmbSearchF);
 
             Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
-            return;
+            //return;
             
             cols = Program.dbms.GetTableColumns("Aircrafts");
             Logic.LoadListColumns(cols, lstAircrafts);
@@ -90,10 +90,7 @@ namespace UI
 
         }
 
-        private void txtSearchF_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+    
 
         private void btnClearF_Click(object sender, EventArgs e)
         {
@@ -187,6 +184,58 @@ namespace UI
             }
             txtMyOldPassword.Clear();
             txtMyNewPassword.Clear();
+        }
+
+        private void btnSearchF_Click(object sender, EventArgs e)
+        {
+            Logic.LoadListData(Program.dbms.SearchBy("Flights", cmbSearchF.Text, txtSearchF.Text), lstFlights);
+        }
+
+        private void cmbSearchF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchAC_Click(object sender, EventArgs e)
+        {
+            Logic.LoadListData(Program.dbms.SearchBy("Aircrafts", cmbSearchAC.Text, txtSearchAC.Text), lstAircrafts);
+
+        }
+
+        private void btnSearchC_Click(object sender, EventArgs e)
+        {
+            Logic.LoadListData(Program.dbms.SearchBy("Customers", cmbSearchC.Text, txtSearchC.Text), lstCustomers);
+        }
+
+        private void btnsearchT_Click(object sender, EventArgs e)
+        {
+            Logic.LoadListData(Program.dbms.SearchBy("Tickets", cmbSearchT.Text, txtSearchT.Text), lstTickets);
+
+        }
+        private void txtSearchF_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchF.Text == "") Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
+        }
+        private void txtSearchAC_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchAC.Text == "") Logic.LoadListData(Program.dbms.GetTableData("Aircrafts"), lstAircrafts);
+
+        }
+
+        private void txtSearchC_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchC.Text == "")  Logic.LoadListData(Program.dbms.GetTableData("Customers"), lstCustomers);
+
+        }
+
+        private void txtSearchT_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchT.Text == "") Logic.LoadListData(Program.dbms.GetTableData("Tickets"), lstTickets);
+        }
+
+        private void btnBackAdmin_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

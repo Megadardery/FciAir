@@ -51,7 +51,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(0, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name";
             // 
@@ -60,7 +60,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(0, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Last Name";
             // 
@@ -87,7 +87,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(0, 131);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Passport ID";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -95,9 +95,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(0, 157);
+            this.label6.Location = new System.Drawing.Point(1, 161);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Birth Date";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -109,7 +109,6 @@
             this.fName.Size = new System.Drawing.Size(276, 20);
             this.fName.TabIndex = 6;
             this.fName.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-
             // 
             // passPortID
             // 
@@ -177,7 +176,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(1, 192);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "nationality";
             // 

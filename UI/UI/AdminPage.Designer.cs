@@ -46,7 +46,7 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btnsearchT = new System.Windows.Forms.Button();
-            this.txtsearchT = new System.Windows.Forms.TextBox();
+            this.txtSearchT = new System.Windows.Forms.TextBox();
             this.lstTickets = new System.Windows.Forms.ListView();
             this.cmbSearchT = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -101,6 +101,7 @@
             this.cmbSearchC = new System.Windows.Forms.ComboBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnConfirmMonitor = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
@@ -129,7 +130,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.txtAddFirstName = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gbxAC.SuspendLayout();
@@ -194,6 +194,7 @@
             this.btnBackAdmin.TabIndex = 14;
             this.btnBackAdmin.Text = "Back";
             this.btnBackAdmin.UseVisualStyleBackColor = true;
+            this.btnBackAdmin.Click += new System.EventHandler(this.btnBackAdmin_Click);
             // 
             // txtnameP
             // 
@@ -283,7 +284,7 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.btnsearchT);
-            this.tabPage4.Controls.Add(this.txtsearchT);
+            this.tabPage4.Controls.Add(this.txtSearchT);
             this.tabPage4.Controls.Add(this.lstTickets);
             this.tabPage4.Controls.Add(this.cmbSearchT);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -302,13 +303,15 @@
             this.btnsearchT.TabIndex = 27;
             this.btnsearchT.Text = "Search";
             this.btnsearchT.UseVisualStyleBackColor = true;
+            this.btnsearchT.Click += new System.EventHandler(this.btnsearchT_Click);
             // 
-            // txtsearchT
+            // txtSearchT
             // 
-            this.txtsearchT.Location = new System.Drawing.Point(107, 7);
-            this.txtsearchT.Name = "txtsearchT";
-            this.txtsearchT.Size = new System.Drawing.Size(237, 20);
-            this.txtsearchT.TabIndex = 25;
+            this.txtSearchT.Location = new System.Drawing.Point(107, 7);
+            this.txtSearchT.Name = "txtSearchT";
+            this.txtSearchT.Size = new System.Drawing.Size(237, 20);
+            this.txtSearchT.TabIndex = 25;
+            this.txtSearchT.TextChanged += new System.EventHandler(this.txtSearchT_TextChanged);
             // 
             // lstTickets
             // 
@@ -382,6 +385,7 @@
             this.btnSearchAC.TabIndex = 23;
             this.btnSearchAC.Text = "Search";
             this.btnSearchAC.UseVisualStyleBackColor = true;
+            this.btnSearchAC.Click += new System.EventHandler(this.btnSearchAC_Click);
             // 
             // gbxAC
             // 
@@ -520,6 +524,7 @@
             this.txtSearchAC.Name = "txtSearchAC";
             this.txtSearchAC.Size = new System.Drawing.Size(237, 20);
             this.txtSearchAC.TabIndex = 18;
+            this.txtSearchAC.TextChanged += new System.EventHandler(this.txtSearchAC_TextChanged);
             // 
             // lstAircrafts
             // 
@@ -569,6 +574,7 @@
             this.btnSearchF.TabIndex = 15;
             this.btnSearchF.Text = "Search";
             this.btnSearchF.UseVisualStyleBackColor = true;
+            this.btnSearchF.Click += new System.EventHandler(this.btnSearchF_Click);
             // 
             // cmbSearchF
             // 
@@ -578,6 +584,7 @@
             this.cmbSearchF.Name = "cmbSearchF";
             this.cmbSearchF.Size = new System.Drawing.Size(95, 21);
             this.cmbSearchF.TabIndex = 14;
+            this.cmbSearchF.SelectedIndexChanged += new System.EventHandler(this.cmbSearchF_SelectedIndexChanged);
             // 
             // btnUpdateF
             // 
@@ -799,6 +806,7 @@
             this.btnSearchC.TabIndex = 31;
             this.btnSearchC.Text = "Search";
             this.btnSearchC.UseVisualStyleBackColor = true;
+            this.btnSearchC.Click += new System.EventHandler(this.btnSearchC_Click);
             // 
             // txtSearchC
             // 
@@ -806,6 +814,7 @@
             this.txtSearchC.Name = "txtSearchC";
             this.txtSearchC.Size = new System.Drawing.Size(237, 20);
             this.txtSearchC.TabIndex = 29;
+            this.txtSearchC.TextChanged += new System.EventHandler(this.txtSearchC_TextChanged);
             // 
             // lstCustomers
             // 
@@ -852,6 +861,15 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Monitoring Aircrafts";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(240, 18);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(60, 13);
+            this.label29.TabIndex = 28;
+            this.label29.Text = "Monitored :";
             // 
             // groupBox4
             // 
@@ -1120,15 +1138,6 @@
             this.txtAddFirstName.Size = new System.Drawing.Size(120, 20);
             this.txtAddFirstName.TabIndex = 6;
             // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(240, 18);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(60, 13);
-            this.label29.TabIndex = 28;
-            this.label29.Text = "Monitored :";
-            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1198,7 +1207,7 @@
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btnsearchT;
-        private System.Windows.Forms.TextBox txtsearchT;
+        private System.Windows.Forms.TextBox txtSearchT;
         private System.Windows.Forms.ListView lstTickets;
         private System.Windows.Forms.ComboBox cmbSearchT;
         private System.Windows.Forms.TabPage tabPage2;
