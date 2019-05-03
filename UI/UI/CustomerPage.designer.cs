@@ -55,11 +55,11 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMyPassport = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpMyBirthdate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMyNationality = new System.Windows.Forms.TextBox();
             this.txtMyNewPassword = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.btnSaveInfo = new System.Windows.Forms.Button();
@@ -369,11 +369,11 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtMyPassport);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
+            this.groupBox3.Controls.Add(this.dtpMyBirthdate);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.txtMyNationality);
             this.groupBox3.Controls.Add(this.txtMyNewPassword);
             this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Controls.Add(this.btnSaveInfo);
@@ -402,14 +402,14 @@
             this.label11.TabIndex = 14;
             this.label11.Text = "Passport :";
             // 
-            // textBox2
+            // txtMyPassport
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(282, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 15;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.txtMyPassport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMyPassport.Location = new System.Drawing.Point(282, 112);
+            this.txtMyPassport.Name = "txtMyPassport";
+            this.txtMyPassport.Size = new System.Drawing.Size(120, 20);
+            this.txtMyPassport.TabIndex = 15;
+            this.txtMyPassport.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // label10
             // 
@@ -420,13 +420,14 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "Birth Date :";
             // 
-            // dateTimePicker1
+            // dtpMyBirthdate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(76, 112);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(120, 20);
-            this.dateTimePicker1.TabIndex = 13;
+            this.dtpMyBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpMyBirthdate.Location = new System.Drawing.Point(76, 112);
+            this.dtpMyBirthdate.Name = "dtpMyBirthdate";
+            this.dtpMyBirthdate.Size = new System.Drawing.Size(120, 20);
+            this.dtpMyBirthdate.TabIndex = 13;
+            this.dtpMyBirthdate.ValueChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // label9
             // 
@@ -437,12 +438,13 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Nationality : ";
             // 
-            // textBox1
+            // txtMyNationality
             // 
-            this.textBox1.Location = new System.Drawing.Point(76, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtMyNationality.Location = new System.Drawing.Point(76, 82);
+            this.txtMyNationality.Name = "txtMyNationality";
+            this.txtMyNationality.Size = new System.Drawing.Size(120, 20);
+            this.txtMyNationality.TabIndex = 9;
+            this.txtMyNationality.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // txtMyNewPassword
             // 
@@ -452,6 +454,7 @@
             this.txtMyNewPassword.Size = new System.Drawing.Size(120, 20);
             this.txtMyNewPassword.TabIndex = 11;
             this.txtMyNewPassword.UseSystemPasswordChar = true;
+            this.txtMyNewPassword.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // label26
             // 
@@ -466,12 +469,14 @@
             // btnSaveInfo
             // 
             this.btnSaveInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSaveInfo.Enabled = false;
             this.btnSaveInfo.Location = new System.Drawing.Point(119, 142);
             this.btnSaveInfo.Name = "btnSaveInfo";
             this.btnSaveInfo.Size = new System.Drawing.Size(164, 23);
             this.btnSaveInfo.TabIndex = 16;
             this.btnSaveInfo.Text = "Save Info";
             this.btnSaveInfo.UseVisualStyleBackColor = true;
+            this.btnSaveInfo.Click += new System.EventHandler(this.btnSaveInfo_Click);
             // 
             // txtMyOldPassword
             // 
@@ -481,6 +486,7 @@
             this.txtMyOldPassword.Size = new System.Drawing.Size(120, 20);
             this.txtMyOldPassword.TabIndex = 7;
             this.txtMyOldPassword.UseSystemPasswordChar = true;
+            this.txtMyOldPassword.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // txtMyUsername
             // 
@@ -488,6 +494,7 @@
             this.txtMyUsername.Name = "txtMyUsername";
             this.txtMyUsername.Size = new System.Drawing.Size(120, 20);
             this.txtMyUsername.TabIndex = 5;
+            this.txtMyUsername.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // label16
             // 
@@ -515,6 +522,7 @@
             this.txtMyLastName.Name = "txtMyLastName";
             this.txtMyLastName.Size = new System.Drawing.Size(120, 20);
             this.txtMyLastName.TabIndex = 3;
+            this.txtMyLastName.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // label20
             // 
@@ -541,6 +549,7 @@
             this.txtMyFirstName.Name = "txtMyFirstName";
             this.txtMyFirstName.Size = new System.Drawing.Size(120, 20);
             this.txtMyFirstName.TabIndex = 1;
+            this.txtMyFirstName.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // btnBackAdmin
             // 
@@ -607,6 +616,7 @@
             this.Name = "CustomerPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Page";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomerPage_FormClosed);
             this.Load += new System.EventHandler(this.CustomerPage_Load);
             this.tabCustomerhandler.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -652,7 +662,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMyNationality;
         private System.Windows.Forms.TextBox txtMyNewPassword;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button btnSaveInfo;
@@ -665,9 +675,9 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtMyFirstName;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMyPassport;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpMyBirthdate;
         private System.Windows.Forms.Button btnBackAdmin;
         private System.Windows.Forms.Label lblIDCustomer;
         private System.Windows.Forms.Label label12;

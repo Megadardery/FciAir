@@ -1003,6 +1003,7 @@
             this.txtMyNewPassword.Size = new System.Drawing.Size(120, 20);
             this.txtMyNewPassword.TabIndex = 9;
             this.txtMyNewPassword.UseSystemPasswordChar = true;
+            this.txtMyNewPassword.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // label26
             // 
@@ -1016,6 +1017,7 @@
             // 
             // btnSaveInfo
             // 
+            this.btnSaveInfo.Enabled = false;
             this.btnSaveInfo.Location = new System.Drawing.Point(126, 108);
             this.btnSaveInfo.Name = "btnSaveInfo";
             this.btnSaveInfo.Size = new System.Drawing.Size(164, 23);
@@ -1032,6 +1034,7 @@
             this.txtMyOldPassword.Size = new System.Drawing.Size(120, 20);
             this.txtMyOldPassword.TabIndex = 7;
             this.txtMyOldPassword.UseSystemPasswordChar = true;
+            this.txtMyOldPassword.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // txtMyUsername
             // 
@@ -1039,6 +1042,7 @@
             this.txtMyUsername.Name = "txtMyUsername";
             this.txtMyUsername.Size = new System.Drawing.Size(120, 20);
             this.txtMyUsername.TabIndex = 5;
+            this.txtMyUsername.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // label16
             // 
@@ -1066,6 +1070,7 @@
             this.txtMyLastName.Name = "txtMyLastName";
             this.txtMyLastName.Size = new System.Drawing.Size(120, 20);
             this.txtMyLastName.TabIndex = 3;
+            this.txtMyLastName.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // label20
             // 
@@ -1092,6 +1097,7 @@
             this.txtMyFirstName.Name = "txtMyFirstName";
             this.txtMyFirstName.Size = new System.Drawing.Size(120, 20);
             this.txtMyFirstName.TabIndex = 1;
+            this.txtMyFirstName.TextChanged += new System.EventHandler(this.TextMyInfos_TextChanged);
             // 
             // groupBox1
             // 

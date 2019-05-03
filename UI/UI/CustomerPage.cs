@@ -67,6 +67,18 @@ namespace UI
             Logic.LoadListColumns(cols, listVMyFlights);
 
             Logic.LoadListData(Program.dbms.GetTableData(flightJOINticket, CustomerTicketsCond, CustomerFlightTicketsCols), listVMyFlights);
+
+
+            lblIDCustomer.Text = CustomerID.ToString();
+            List<object> userData = Program.dbms.GetTableData("Customers", $"CustomerID = { CustomerID }")[0];
+            lbluserCustomer.Text = userData[6].ToString();
+
+            txtMyFirstName.Text = userData[1].ToString();
+            txtMyLastName.Text = userData[2].ToString();
+            txtMyPassport.Text = userData[3].ToString();
+            txtMyNationality.Text = userData[4].ToString();
+            dtpMyBirthdate.Value = (DateTime)userData[5];
+            txtMyUsername.Text = userData[6].ToString();
         }
 
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
@@ -78,6 +90,60 @@ namespace UI
         private void listVFlights_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSaveInfo_Click(object sender, EventArgs e)
+        {
+            bool correct = Program.dbms.CheckPasswordCustomer(CustomerID, txtMyOldPassword.Text);
+            if (!correct)
+            {
+                MessageBox.Show("You have entered your previous password incorrectly", "Incorrect Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string pass = txtMyNewPassword.Text == "" ? txtMyOldPassword.Text : txtMyNewPassword.Text;
+                try
+                {
+                    Program.dbms.UpdateCustomer(CustomerID, txtMyPassport.Text, txtMyFirstName.Text, txtMyLastName.Text, txtMyUsername.Text, pass,txtMyNationality.Text,dtpMyBirthdate.Value);
+                    lbluserCustomer.Text = txtMyUsername.Text;
+
+                }
+                catch (SqlException ex)
+                {
+                    var reason = DBMS.ParseException(ex);
+                    switch (reason)
+                    {
+                        case DBMS.SqlErrorNumber.Duplication:
+                            MessageBox.Show(Logic.ErrorMessages.DuplicateUsername, "Edit Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        case DBMS.SqlErrorNumber.Truncation:
+                            MessageBox.Show(Logic.ErrorMessages.Truncation, "Edit Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+                        default:
+                            MessageBox.Show(ex.Message);
+                            break;
+                    }
+                }
+            }
+            txtMyOldPassword.Clear();
+            txtMyNewPassword.Clear();
+        }
+
+        private void TextMyInfos_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMyFirstName.Text=="" || txtMyLastName.Text=="" || txtMyPassport.Text == "" || txtMyNationality.Text == "" || txtMyUsername.Text == "" || txtMyOldPassword.Text=="" || dtpMyBirthdate.Value > DateTime.Now)
+            {
+                btnSaveInfo.Enabled = false;
+            }
+            else
+            {
+                btnSaveInfo.Enabled = true;
+            }
+        }
+
+        private void CustomerPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.homePage.Show();
         }
     }
 }

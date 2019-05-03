@@ -56,9 +56,18 @@ namespace UI
             co.Close();
             co.Dispose();
         }
-        public bool CheckPassword(int ID, string pass)
+        public bool CheckPasswordAdmin(int ID, string pass)
         {
-            string query = $"SELECT AdminID FROM Admins WHERE AdminID = @ID AND Password = @pass";
+            return CheckPasswordOf("Admin", ID, pass);
+        }
+
+        public bool CheckPasswordCustomer(int ID, string pass)
+        {
+            return CheckPasswordOf("Customer", ID, pass);
+        }
+        private bool CheckPasswordOf(string mytype,int ID, string pass)
+        {
+            string query = $"SELECT {mytype}ID FROM {mytype}s WHERE {mytype}ID = @ID AND Password = @pass";
             using (var cmd = new SqlCommand(query, co))
             {
                 SqlDataReader reader = null;
@@ -283,7 +292,7 @@ namespace UI
 
         public void UpdateAirCraft(int ID,int adminID, int seat, string model,string pName, DateTime date,int salary)
         {
-            string query = $"UPDATE Aircraft SET AdminID = @adminID, Model=@model, MaxSeat=@seat,PilotName = @pname, Birthdate = @date, Salary = @salary WHERE AircraftID=@ID";
+            string query = $"UPDATE Aircrafts SET AdminID = @adminID, Model=@model, MaxSeat=@seat,PilotName = @pname, Birthdate = @date, Salary = @salary WHERE AircraftID=@ID";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.Parameters.Add(new SqlParameter("@model",model ));
@@ -298,9 +307,9 @@ namespace UI
 
         }
 
-        public void UpdateCustomer(int ID, int passport, string fName, string lName, string userName,string pass, string nationality, DateTime birth)
+        public void UpdateCustomer(int ID, string passport, string fName, string lName, string userName,string pass, string nationality, DateTime birth)
         {
-            string query = $"UPDATE Customer SET Passport=@passport,FirstName=@fName,LastName=@lName,Password=@pass,Birthdate=@birth,Nationality=nationality,Userename=@userName WHERE CustomerID=@ID";
+            string query = $"UPDATE Customers SET Passport=@passport,FirstName=@fName,LastName=@lName,Password=@pass,Birthdate=@birth,Nationality=@nationality,Username=@userName WHERE CustomerID=@ID";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.Parameters.Add(new SqlParameter("@passport", passport));
@@ -314,28 +323,6 @@ namespace UI
                 cmd.ExecuteNonQuery();
             }
 
-        }
-
-        public bool CheckUsername(string table,string username)
-        {
-            string query = $"select username from {table} where Username=@username";
-            using (var cmd = new SqlCommand(query, co))
-            {
-                SqlDataReader reader = null;
-                try
-                {
-                    cmd.Parameters.Add(new SqlParameter("@username", username));
-                    reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                        return true;
-                    else
-                        return false;
-                }
-                finally
-                {
-                    reader.Close();
-                }
-            }
         }
 
         public void DeleteAircrafts(int[] idx)
@@ -400,6 +387,7 @@ namespace UI
             Duplication = 2627,             //a primary key (or any unique attribute) already exists
             Truncation = 8152,              //data is too long to be stored in the corresponding attribute
             NotInteger = 245,               //supplied string is not integer
+            Null = 515,                     //Cannot insert the value NULL into column
             Unknown = 0                     //Other types of errors
 
             /*

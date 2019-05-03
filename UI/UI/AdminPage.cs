@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -81,7 +82,7 @@ namespace UI
 
             lblIDAdmin.Text = AdminID.ToString();
             List<object> userData = Program.dbms.GetTableData("Admins", $"AdminID = { AdminID }")[0];
-            lbluserAdmin.Text = userData[1].ToString();
+            lbluserAdmin.Text = userData[3].ToString();
             txtMyFirstName.Text = userData[1].ToString();
             txtMyLastName.Text = userData[2].ToString();
             txtMyUsername.Text = userData[3].ToString();
@@ -177,10 +178,35 @@ namespace UI
 
         private void btnSaveInfo_Click(object sender, EventArgs e)
         {
-            bool correct = Program.dbms.CheckPassword(AdminID, txtMyOldPassword.Text);
+            bool correct = Program.dbms.CheckPasswordAdmin(AdminID, txtMyOldPassword.Text);
             if (!correct)
             {
                 MessageBox.Show("You have entered your previous password incorrectly", "Incorrect Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string pass = txtMyNewPassword.Text == "" ? txtMyOldPassword.Text : txtMyNewPassword.Text;
+                try
+                {
+                    Program.dbms.UpdateAdmin(AdminID, txtMyFirstName.Text, txtMyLastName.Text, txtMyUsername.Text, pass);
+                    lbluserAdmin.Text = txtMyUsername.Text;
+                }
+                catch (SqlException ex)
+                {
+                    var reason = DBMS.ParseException(ex);
+                    switch (reason)
+                    {
+                        case DBMS.SqlErrorNumber.Duplication:
+                            MessageBox.Show(Logic.ErrorMessages.DuplicateUsername, "Edit Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        case DBMS.SqlErrorNumber.Truncation:
+                            MessageBox.Show(Logic.ErrorMessages.Truncation, "Edit Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+                        default:
+                            MessageBox.Show(ex.Message);
+                            break;
+                    }
+                }
             }
             txtMyOldPassword.Clear();
             txtMyNewPassword.Clear();
@@ -236,6 +262,18 @@ namespace UI
         private void btnBackAdmin_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TextMyInfos_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMyFirstName.Text == "" || txtMyLastName.Text == "" || txtMyUsername.Text == "" || txtMyOldPassword.Text == "")
+            {
+                btnSaveInfo.Enabled = false;
+            }
+            else
+            {
+                btnSaveInfo.Enabled = true;
+            }
         }
     }
 }
