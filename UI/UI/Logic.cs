@@ -8,6 +8,13 @@ namespace UI
 {
     class Logic
     {
+        public static class ErrorMessages
+        {
+            public const string DuplicateUsername = "The username you entered already exists! Please choose another one.";
+            public const string DuplicatePrimaryKey = "This flight is already being monitored by you.";
+            public const string Truncation = "Some of the data you entered is too large to be stored in the database.";
+            public const string IntegerOnly = "Please check your input. It is not an integer.";
+        }
         public static void LoadListColumns(List<string> data, System.Windows.Forms.ListView ll)
         {
             ll.Columns.Clear();

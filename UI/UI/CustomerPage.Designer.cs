@@ -71,6 +71,11 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtMyFirstName = new System.Windows.Forms.TextBox();
+            this.btnBackAdmin = new System.Windows.Forms.Button();
+            this.lblIDCustomer = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lbluserCustomer = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabCustomerhandler.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -82,14 +87,17 @@
             // 
             // tabCustomerhandler
             // 
+            this.tabCustomerhandler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabCustomerhandler.Controls.Add(this.tabPage1);
             this.tabCustomerhandler.Controls.Add(this.tabPage2);
             this.tabCustomerhandler.Controls.Add(this.tabPage3);
-            this.tabCustomerhandler.Location = new System.Drawing.Point(3, 12);
+            this.tabCustomerhandler.Location = new System.Drawing.Point(3, 33);
             this.tabCustomerhandler.Name = "tabCustomerhandler";
             this.tabCustomerhandler.SelectedIndex = 0;
-            this.tabCustomerhandler.Size = new System.Drawing.Size(439, 447);
-            this.tabCustomerhandler.TabIndex = 0;
+            this.tabCustomerhandler.Size = new System.Drawing.Size(437, 427);
+            this.tabCustomerhandler.TabIndex = 5;
             // 
             // tabPage1
             // 
@@ -98,13 +106,15 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(431, 421);
+            this.tabPage1.Size = new System.Drawing.Size(429, 401);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Book Flight";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.lblTotalPrice);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
@@ -119,10 +129,10 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btnBookFlight);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 287);
+            this.groupBox2.Location = new System.Drawing.Point(6, 267);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(419, 145);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.Size = new System.Drawing.Size(417, 131);
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Book your Flight";
             // 
@@ -132,7 +142,7 @@
             this.lblTotalPrice.Location = new System.Drawing.Point(76, 107);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(53, 13);
-            this.lblTotalPrice.TabIndex = 18;
+            this.lblTotalPrice.TabIndex = 12;
             this.lblTotalPrice.Text = "bind price";
             // 
             // label7
@@ -141,7 +151,7 @@
             this.label7.Location = new System.Drawing.Point(6, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 13);
-            this.label7.TabIndex = 17;
+            this.label7.TabIndex = 11;
             this.label7.Text = "Total Price :";
             // 
             // label8
@@ -150,23 +160,25 @@
             this.label8.Location = new System.Drawing.Point(6, 74);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
-            this.label8.TabIndex = 16;
+            this.label8.TabIndex = 9;
             this.label8.Text = "Class :";
             // 
             // numericInfant
             // 
-            this.numericInfant.Location = new System.Drawing.Point(336, 20);
+            this.numericInfant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericInfant.Location = new System.Drawing.Point(334, 20);
             this.numericInfant.Name = "numericInfant";
             this.numericInfant.Size = new System.Drawing.Size(75, 20);
-            this.numericInfant.TabIndex = 15;
+            this.numericInfant.TabIndex = 5;
             this.numericInfant.Text = "0";
             // 
             // numericChild
             // 
-            this.numericChild.Location = new System.Drawing.Point(206, 20);
+            this.numericChild.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.numericChild.Location = new System.Drawing.Point(205, 20);
             this.numericChild.Name = "numericChild";
             this.numericChild.Size = new System.Drawing.Size(74, 20);
-            this.numericChild.TabIndex = 14;
+            this.numericChild.TabIndex = 3;
             this.numericChild.Text = "0";
             // 
             // numericAdult
@@ -174,16 +186,17 @@
             this.numericAdult.Location = new System.Drawing.Point(60, 20);
             this.numericAdult.Name = "numericAdult";
             this.numericAdult.Size = new System.Drawing.Size(77, 20);
-            this.numericAdult.TabIndex = 13;
+            this.numericAdult.TabIndex = 1;
             this.numericAdult.Text = "1";
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(333, 43);
+            this.label6.Location = new System.Drawing.Point(331, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 13);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 8;
             this.label6.Text = "under 2 years";
             // 
             // label5
@@ -192,50 +205,62 @@
             this.label5.Location = new System.Drawing.Point(57, 43);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
-            this.label5.TabIndex = 9;
+            this.label5.TabIndex = 6;
             this.label5.Text = "above 11 years";
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(203, 43);
+            this.label4.Location = new System.Drawing.Point(202, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 13);
-            this.label4.TabIndex = 8;
+            this.label4.TabIndex = 7;
             this.label4.Text = "2 : 11 years";
             // 
             // cboClass
             // 
+            this.cboClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboClass.FormattingEnabled = true;
+            this.cboClass.Items.AddRange(new object[] {
+            "Economy Class",
+            "Premium Economy",
+            "Business Class",
+            "First Class"});
             this.cboClass.Location = new System.Drawing.Point(60, 71);
             this.cboClass.Name = "cboClass";
-            this.cboClass.Size = new System.Drawing.Size(351, 21);
-            this.cboClass.TabIndex = 7;
+            this.cboClass.Size = new System.Drawing.Size(349, 21);
+            this.cboClass.TabIndex = 10;
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(283, 22);
+            this.label3.Location = new System.Drawing.Point(281, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Infant(s) :";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 22);
+            this.label2.Location = new System.Drawing.Point(142, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Child(ren) :";
             // 
             // btnBookFlight
             // 
-            this.btnBookFlight.Location = new System.Drawing.Point(335, 102);
+            this.btnBookFlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBookFlight.Location = new System.Drawing.Point(333, 102);
             this.btnBookFlight.Name = "btnBookFlight";
             this.btnBookFlight.Size = new System.Drawing.Size(75, 23);
-            this.btnBookFlight.TabIndex = 1;
+            this.btnBookFlight.TabIndex = 13;
             this.btnBookFlight.Text = "Book";
             this.btnBookFlight.UseVisualStyleBackColor = true;
             // 
@@ -245,30 +270,35 @@
             this.label1.Location = new System.Drawing.Point(6, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Adult(s) :";
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.cboSearch);
             this.groupBox1.Controls.Add(this.txtSearchBar);
             this.groupBox1.Controls.Add(this.listVFlights);
             this.groupBox1.Location = new System.Drawing.Point(6, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 283);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.Size = new System.Drawing.Size(417, 257);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Available Flights";
             // 
             // btnSearch
             // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Location = new System.Drawing.Point(336, 14);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 22);
-            this.btnSearch.TabIndex = 19;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cboSearch
             // 
@@ -276,23 +306,32 @@
             this.cboSearch.Location = new System.Drawing.Point(6, 15);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(90, 21);
-            this.cboSearch.TabIndex = 18;
+            this.cboSearch.TabIndex = 0;
             this.cboSearch.Text = "Search by";
             // 
             // txtSearchBar
             // 
+            this.txtSearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearchBar.Location = new System.Drawing.Point(97, 15);
             this.txtSearchBar.Name = "txtSearchBar";
             this.txtSearchBar.Size = new System.Drawing.Size(237, 20);
-            this.txtSearchBar.TabIndex = 17;
+            this.txtSearchBar.TabIndex = 1;
+            this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
             // 
             // listVFlights
             // 
+            this.listVFlights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listVFlights.FullRowSelect = true;
             this.listVFlights.Location = new System.Drawing.Point(6, 40);
             this.listVFlights.Name = "listVFlights";
-            this.listVFlights.Size = new System.Drawing.Size(405, 237);
-            this.listVFlights.TabIndex = 16;
+            this.listVFlights.Size = new System.Drawing.Size(405, 211);
+            this.listVFlights.TabIndex = 3;
             this.listVFlights.UseCompatibleStateImageBehavior = false;
+            this.listVFlights.View = System.Windows.Forms.View.Details;
+            this.listVFlights.SelectedIndexChanged += new System.EventHandler(this.listVFlights_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -300,7 +339,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(431, 421);
+            this.tabPage2.Size = new System.Drawing.Size(429, 401);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "My Flights";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -312,6 +351,7 @@
             this.listVMyFlights.Size = new System.Drawing.Size(424, 414);
             this.listVMyFlights.TabIndex = 0;
             this.listVMyFlights.UseCompatibleStateImageBehavior = false;
+            this.listVMyFlights.View = System.Windows.Forms.View.Details;
             // 
             // tabPage3
             // 
@@ -319,13 +359,15 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(431, 421);
+            this.tabPage3.Size = new System.Drawing.Size(429, 401);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "User Info";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.label10);
@@ -346,25 +388,27 @@
             this.groupBox3.Location = new System.Drawing.Point(5, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(420, 181);
-            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "My Info";
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(202, 115);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
-            this.label11.TabIndex = 32;
+            this.label11.TabIndex = 14;
             this.label11.Text = "Passport :";
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(282, 112);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 31;
+            this.textBox2.TabIndex = 15;
             this.textBox2.UseSystemPasswordChar = true;
             // 
             // label10
@@ -373,7 +417,7 @@
             this.label10.Location = new System.Drawing.Point(6, 115);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 13);
-            this.label10.TabIndex = 30;
+            this.label10.TabIndex = 12;
             this.label10.Text = "Birth Date :";
             // 
             // dateTimePicker1
@@ -382,7 +426,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(76, 112);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(120, 20);
-            this.dateTimePicker1.TabIndex = 29;
+            this.dateTimePicker1.TabIndex = 13;
             // 
             // label9
             // 
@@ -390,7 +434,7 @@
             this.label9.Location = new System.Drawing.Point(6, 85);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
-            this.label9.TabIndex = 28;
+            this.label9.TabIndex = 8;
             this.label9.Text = "Nationality : ";
             // 
             // textBox1
@@ -398,40 +442,44 @@
             this.textBox1.Location = new System.Drawing.Point(76, 82);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 27;
+            this.textBox1.TabIndex = 9;
             // 
             // txtMyNewPassword
             // 
+            this.txtMyNewPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMyNewPassword.Location = new System.Drawing.Point(282, 82);
             this.txtMyNewPassword.Name = "txtMyNewPassword";
             this.txtMyNewPassword.Size = new System.Drawing.Size(120, 20);
-            this.txtMyNewPassword.TabIndex = 26;
+            this.txtMyNewPassword.TabIndex = 11;
             this.txtMyNewPassword.UseSystemPasswordChar = true;
             // 
             // label26
             // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(199, 85);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(84, 13);
-            this.label26.TabIndex = 25;
+            this.label26.TabIndex = 10;
             this.label26.Text = "New Password :";
             // 
             // btnSaveInfo
             // 
+            this.btnSaveInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSaveInfo.Location = new System.Drawing.Point(119, 142);
             this.btnSaveInfo.Name = "btnSaveInfo";
             this.btnSaveInfo.Size = new System.Drawing.Size(164, 23);
-            this.btnSaveInfo.TabIndex = 24;
+            this.btnSaveInfo.TabIndex = 16;
             this.btnSaveInfo.Text = "Save Info";
             this.btnSaveInfo.UseVisualStyleBackColor = true;
             // 
             // txtMyOldPassword
             // 
+            this.txtMyOldPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMyOldPassword.Location = new System.Drawing.Point(282, 52);
             this.txtMyOldPassword.Name = "txtMyOldPassword";
             this.txtMyOldPassword.Size = new System.Drawing.Size(120, 20);
-            this.txtMyOldPassword.TabIndex = 23;
+            this.txtMyOldPassword.TabIndex = 7;
             this.txtMyOldPassword.UseSystemPasswordChar = true;
             // 
             // txtMyUsername
@@ -439,15 +487,16 @@
             this.txtMyUsername.Location = new System.Drawing.Point(76, 52);
             this.txtMyUsername.Name = "txtMyUsername";
             this.txtMyUsername.Size = new System.Drawing.Size(120, 20);
-            this.txtMyUsername.TabIndex = 22;
+            this.txtMyUsername.TabIndex = 5;
             // 
             // label16
             // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(202, 55);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 13);
-            this.label16.TabIndex = 21;
+            this.label16.TabIndex = 6;
             this.label16.Text = "Old Password :";
             // 
             // label17
@@ -456,23 +505,25 @@
             this.label17.Location = new System.Drawing.Point(6, 55);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(61, 13);
-            this.label17.TabIndex = 20;
+            this.label17.TabIndex = 4;
             this.label17.Text = "Username :";
             // 
             // txtMyLastName
             // 
+            this.txtMyLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMyLastName.Location = new System.Drawing.Point(282, 22);
             this.txtMyLastName.Name = "txtMyLastName";
             this.txtMyLastName.Size = new System.Drawing.Size(120, 20);
-            this.txtMyLastName.TabIndex = 19;
+            this.txtMyLastName.TabIndex = 3;
             // 
             // label20
             // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(202, 25);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 13);
-            this.label20.TabIndex = 11;
+            this.label20.TabIndex = 2;
             this.label20.Text = "Last Name :";
             // 
             // label21
@@ -481,7 +532,7 @@
             this.label21.Location = new System.Drawing.Point(6, 25);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(66, 13);
-            this.label21.TabIndex = 5;
+            this.label21.TabIndex = 0;
             this.label21.Text = "First Name : ";
             // 
             // txtMyFirstName
@@ -489,17 +540,74 @@
             this.txtMyFirstName.Location = new System.Drawing.Point(76, 22);
             this.txtMyFirstName.Name = "txtMyFirstName";
             this.txtMyFirstName.Size = new System.Drawing.Size(120, 20);
-            this.txtMyFirstName.TabIndex = 6;
+            this.txtMyFirstName.TabIndex = 1;
+            // 
+            // btnBackAdmin
+            // 
+            this.btnBackAdmin.Location = new System.Drawing.Point(5, 5);
+            this.btnBackAdmin.Name = "btnBackAdmin";
+            this.btnBackAdmin.Size = new System.Drawing.Size(43, 23);
+            this.btnBackAdmin.TabIndex = 0;
+            this.btnBackAdmin.Text = "Back";
+            this.btnBackAdmin.UseVisualStyleBackColor = true;
+            // 
+            // lblIDCustomer
+            // 
+            this.lblIDCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIDCustomer.AutoSize = true;
+            this.lblIDCustomer.Location = new System.Drawing.Point(379, 33);
+            this.lblIDCustomer.Name = "lblIDCustomer";
+            this.lblIDCustomer.Size = new System.Drawing.Size(41, 13);
+            this.lblIDCustomer.TabIndex = 4;
+            this.lblIDCustomer.Text = "bind ID";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(307, 33);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Customer ID :";
+            // 
+            // lbluserCustomer
+            // 
+            this.lbluserCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbluserCustomer.AutoSize = true;
+            this.lbluserCustomer.Location = new System.Drawing.Point(379, 9);
+            this.lbluserCustomer.Name = "lbluserCustomer";
+            this.lbluserCustomer.Size = new System.Drawing.Size(56, 13);
+            this.lbluserCustomer.TabIndex = 2;
+            this.lbluserCustomer.Text = "bind name";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(308, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Username :";
             // 
             // CustomerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 460);
+            this.ClientSize = new System.Drawing.Size(441, 461);
+            this.Controls.Add(this.btnBackAdmin);
+            this.Controls.Add(this.lblIDCustomer);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lbluserCustomer);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.tabCustomerhandler);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(700, 2000);
             this.Name = "CustomerPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Page";
+            this.Load += new System.EventHandler(this.CustomerPage_Load);
             this.tabCustomerhandler.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -511,6 +619,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -559,5 +668,10 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnBackAdmin;
+        private System.Windows.Forms.Label lblIDCustomer;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbluserCustomer;
+        private System.Windows.Forms.Label label13;
     }
 }

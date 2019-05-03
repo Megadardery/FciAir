@@ -51,7 +51,7 @@
             this.label2.Location = new System.Drawing.Point(12, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Password :";
             // 
             // txtUsername
@@ -59,7 +59,7 @@
             this.txtUsername.Location = new System.Drawing.Point(78, 38);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(294, 20);
-            this.txtUsername.TabIndex = 2;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.TextChanged += new System.EventHandler(this.Textboxes_TextChanged);
             // 
             // txtPassword

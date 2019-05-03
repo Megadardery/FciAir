@@ -31,21 +31,33 @@ namespace UI
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            bool b = false;
             try
             {
-                Program.dbms.InsertCustomer(fName.Text, lName.Text, int.Parse(passPortID.Text), nationality.Text, birth.Value, username.Text, pass.Text);
+                Program.dbms.InsertCustomer(fName.Text, lName.Text, passPortID.Text, nationality.Text, birth.Value, username.Text, pass.Text);
+                MessageBox.Show("Registration Successful!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             //if exception is caught alwayes enter the same exception
             catch (SqlException ee)
             {
-                MessageBox.Show(Program.dbms.ParseException(ee).ToString());
-                b = true;
+                var reason = DBMS.ParseException(ee);
+                switch (reason)
+                {
+                    case DBMS.SqlErrorNumber.Duplication:
+                        MessageBox.Show(Logic.ErrorMessages.DuplicateUsername, "Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    case DBMS.SqlErrorNumber.Truncation:
+                        MessageBox.Show(Logic.ErrorMessages.Truncation , "Registration", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    case DBMS.SqlErrorNumber.Unknown:
+                        MessageBox.Show(ee.Message, "Registration", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+
+                }
             }
-            if (!b)
+            catch (Exception ex)
             {
-                MessageBox.Show("regestraion Successful");
-                this.Close();
+                MessageBox.Show(ex.Message,"Registration",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -56,12 +68,12 @@ namespace UI
             if (fName.Text == "" || lName.Text == "" || passPortID.Text == "" || nationality.Text == "" || birth.Value > DateTime.Now || username.Text == "" || pass.Text == "")
                 button1.Enabled = false;
             else
-            {
-                if (birth.Value > DateTime.Now)
-                    MessageBox.Show("incorrect date");
+                button1.Enabled = true;
 
-                else button1.Enabled = true;
-            }
+        }
+
+        private void CustomerSignUp_Load(object sender, EventArgs e)
+        {
 
         }
     }

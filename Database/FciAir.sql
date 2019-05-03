@@ -7,18 +7,6 @@ use FciAir;
 /* Modified by:    Ahmed Nasr Eldardery                         */
 /*==============================================================*/
 
-drop table Tickets;
-
-drop table Monitor;
-
-drop table Customers;
-
-drop table Flights;
-
-drop table Aircrafts;
-
-drop table Admins;
-
 /*==============================================================*/
 /* Table: Admins                                                */
 /*==============================================================*/
@@ -55,7 +43,7 @@ create table Customers
    CustomerID                   int                            identity(1,1)			 not null,
    FirstName                    varchar(50)                    not null,
    LastName                     varchar(50),
-   Passport                     int                            not null,
+   Passport                     varchar(50)                    not null,
    Nationality                  varchar(50),
    Birthdate                    date,
    Username                     varchar(50)                    not null                    unique,

@@ -193,7 +193,7 @@ namespace UI
                 cmd.ExecuteNonQuery();
             }
         }
-        public void InsertCustomer(string fName, string lName, int passPort, string nationality, DateTime birthdate, string username, string pass)
+        public void InsertCustomer(string fName, string lName, string passPort, string nationality, DateTime birthdate, string username, string pass)
         {
             string query = $"INSERT INTO Customers VALUES(@fName, @lName, @passPort, @nationality, @birthdate, @username, @pass)";
             using (var cmd = new SqlCommand(query, co))
@@ -204,7 +204,7 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@nationality", nationality));
                 cmd.Parameters.Add(new SqlParameter("@birthdate", birthdate));
                 cmd.Parameters.Add(new SqlParameter("@username", username));
-                cmd.Parameters.Add(new SqlParameter("@pass", (pass)));
+                cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                 cmd.ExecuteNonQuery();
             }
         }
@@ -306,7 +306,6 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@passport", passport));
                 cmd.Parameters.Add(new SqlParameter("@fName", fName));
                 cmd.Parameters.Add(new SqlParameter("@lName", lName));
-                cmd.Parameters.Add(new SqlParameter("@passport", passport));
                 cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                 cmd.Parameters.Add(new SqlParameter("@birth", birth));
                 cmd.Parameters.Add(new SqlParameter("@ID", ID));
@@ -400,6 +399,7 @@ namespace UI
 
             Duplication = 2627,             //a primary key (or any unique attribute) already exists
             Truncation = 8152,              //data is too long to be stored in the corresponding attribute
+            NotInteger = 245,               //supplied string is not integer
             Unknown = 0                     //Other types of errors
 
             /*
@@ -413,7 +413,7 @@ namespace UI
 
         }
 
-        public SqlErrorNumber ParseException(SqlException t)
+        public static SqlErrorNumber ParseException(SqlException t)
         {
             switch (t.Number)
             {
@@ -423,6 +423,8 @@ namespace UI
                     return SqlErrorNumber.Duplication;
                 case (int)SqlErrorNumber.Truncation:
                     return SqlErrorNumber.Truncation;
+                case (int)SqlErrorNumber.NotInteger:
+                    return SqlErrorNumber.NotInteger;
                 default:
                     return SqlErrorNumber.Unknown;
             }

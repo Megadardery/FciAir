@@ -53,8 +53,7 @@ namespace UI
         private void BtnSignup_Click(object sender, EventArgs e)
         {
             CustomerSignUp a2 = new CustomerSignUp();
-            a2.Show();
-            this.Hide();
+            a2.ShowDialog();
         }
     }
 }

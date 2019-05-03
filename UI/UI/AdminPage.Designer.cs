@@ -153,7 +153,7 @@
             this.label1.Location = new System.Drawing.Point(308, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Username :";
             // 
             // lbluserAdmin
@@ -163,7 +163,7 @@
             this.lbluserAdmin.Location = new System.Drawing.Point(375, 9);
             this.lbluserAdmin.Name = "lbluserAdmin";
             this.lbluserAdmin.Size = new System.Drawing.Size(56, 13);
-            this.lbluserAdmin.TabIndex = 2;
+            this.lbluserAdmin.TabIndex = 1;
             this.lbluserAdmin.Text = "bind name";
             // 
             // label3
@@ -173,7 +173,7 @@
             this.label3.Location = new System.Drawing.Point(313, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Admin ID :";
             // 
             // lblIDAdmin
@@ -183,12 +183,12 @@
             this.lblIDAdmin.Location = new System.Drawing.Point(375, 33);
             this.lblIDAdmin.Name = "lblIDAdmin";
             this.lblIDAdmin.Size = new System.Drawing.Size(41, 13);
-            this.lblIDAdmin.TabIndex = 4;
+            this.lblIDAdmin.TabIndex = 3;
             this.lblIDAdmin.Text = "bind ID";
             // 
             // btnBackAdmin
             // 
-            this.btnBackAdmin.Location = new System.Drawing.Point(3, 4);
+            this.btnBackAdmin.Location = new System.Drawing.Point(5, 5);
             this.btnBackAdmin.Name = "btnBackAdmin";
             this.btnBackAdmin.Size = new System.Drawing.Size(43, 23);
             this.btnBackAdmin.TabIndex = 14;
@@ -300,7 +300,7 @@
             this.btnsearchT.Location = new System.Drawing.Point(350, 6);
             this.btnsearchT.Name = "btnsearchT";
             this.btnsearchT.Size = new System.Drawing.Size(72, 22);
-            this.btnsearchT.TabIndex = 27;
+            this.btnsearchT.TabIndex = 2;
             this.btnsearchT.Text = "Search";
             this.btnsearchT.UseVisualStyleBackColor = true;
             this.btnsearchT.Click += new System.EventHandler(this.btnsearchT_Click);
@@ -310,7 +310,7 @@
             this.txtSearchT.Location = new System.Drawing.Point(107, 7);
             this.txtSearchT.Name = "txtSearchT";
             this.txtSearchT.Size = new System.Drawing.Size(237, 20);
-            this.txtSearchT.TabIndex = 25;
+            this.txtSearchT.TabIndex = 1;
             this.txtSearchT.TextChanged += new System.EventHandler(this.txtSearchT_TextChanged);
             // 
             // lstTickets
@@ -320,7 +320,7 @@
             this.lstTickets.MultiSelect = false;
             this.lstTickets.Name = "lstTickets";
             this.lstTickets.Size = new System.Drawing.Size(416, 362);
-            this.lstTickets.TabIndex = 24;
+            this.lstTickets.TabIndex = 3;
             this.lstTickets.UseCompatibleStateImageBehavior = false;
             this.lstTickets.View = System.Windows.Forms.View.Details;
             // 
@@ -331,7 +331,7 @@
             this.cmbSearchT.Location = new System.Drawing.Point(6, 6);
             this.cmbSearchT.Name = "cmbSearchT";
             this.cmbSearchT.Size = new System.Drawing.Size(95, 21);
-            this.cmbSearchT.TabIndex = 26;
+            this.cmbSearchT.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -352,19 +352,21 @@
             // 
             // btnUpdateAC
             // 
+            this.btnUpdateAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdateAC.Location = new System.Drawing.Point(347, 365);
             this.btnUpdateAC.Name = "btnUpdateAC";
             this.btnUpdateAC.Size = new System.Drawing.Size(75, 28);
-            this.btnUpdateAC.TabIndex = 24;
+            this.btnUpdateAC.TabIndex = 6;
             this.btnUpdateAC.Text = "Add";
             this.btnUpdateAC.UseVisualStyleBackColor = true;
             // 
             // btnClearAC
             // 
+            this.btnClearAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearAC.Location = new System.Drawing.Point(347, 285);
             this.btnClearAC.Name = "btnClearAC";
             this.btnClearAC.Size = new System.Drawing.Size(75, 28);
-            this.btnClearAC.TabIndex = 20;
+            this.btnClearAC.TabIndex = 5;
             this.btnClearAC.Text = "Clear";
             this.btnClearAC.UseVisualStyleBackColor = true;
             // 
@@ -375,20 +377,23 @@
             this.cmbSearchAC.Location = new System.Drawing.Point(6, 6);
             this.cmbSearchAC.Name = "cmbSearchAC";
             this.cmbSearchAC.Size = new System.Drawing.Size(95, 21);
-            this.cmbSearchAC.TabIndex = 22;
+            this.cmbSearchAC.TabIndex = 0;
             // 
             // btnSearchAC
             // 
+            this.btnSearchAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearchAC.Location = new System.Drawing.Point(350, 6);
             this.btnSearchAC.Name = "btnSearchAC";
             this.btnSearchAC.Size = new System.Drawing.Size(72, 22);
-            this.btnSearchAC.TabIndex = 23;
+            this.btnSearchAC.TabIndex = 2;
             this.btnSearchAC.Text = "Search";
             this.btnSearchAC.UseVisualStyleBackColor = true;
             this.btnSearchAC.Click += new System.EventHandler(this.btnSearchAC_Click);
             // 
             // gbxAC
             // 
+            this.gbxAC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxAC.Controls.Add(this.btnEraseAC);
             this.gbxAC.Controls.Add(this.txtModel);
             this.gbxAC.Controls.Add(this.label11);
@@ -405,16 +410,17 @@
             this.gbxAC.Location = new System.Drawing.Point(6, 277);
             this.gbxAC.Name = "gbxAC";
             this.gbxAC.Size = new System.Drawing.Size(336, 116);
-            this.gbxAC.TabIndex = 19;
+            this.gbxAC.TabIndex = 4;
             this.gbxAC.TabStop = false;
             this.gbxAC.Text = "Aircraft";
             // 
             // btnEraseAC
             // 
+            this.btnEraseAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEraseAC.Location = new System.Drawing.Point(279, 0);
             this.btnEraseAC.Name = "btnEraseAC";
             this.btnEraseAC.Size = new System.Drawing.Size(51, 28);
-            this.btnEraseAC.TabIndex = 24;
+            this.btnEraseAC.TabIndex = 12;
             this.btnEraseAC.Text = "Erase";
             this.btnEraseAC.UseVisualStyleBackColor = true;
             // 
@@ -423,7 +429,7 @@
             this.txtModel.Location = new System.Drawing.Point(57, 34);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(95, 20);
-            this.txtModel.TabIndex = 40;
+            this.txtModel.TabIndex = 3;
             // 
             // label11
             // 
@@ -431,7 +437,7 @@
             this.label11.Location = new System.Drawing.Point(9, 37);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 13);
-            this.label11.TabIndex = 39;
+            this.label11.TabIndex = 2;
             this.label11.Text = "Model :";
             // 
             // numMaxSeats
@@ -439,7 +445,7 @@
             this.numMaxSeats.Location = new System.Drawing.Point(42, 84);
             this.numMaxSeats.Name = "numMaxSeats";
             this.numMaxSeats.Size = new System.Drawing.Size(73, 20);
-            this.numMaxSeats.TabIndex = 38;
+            this.numMaxSeats.TabIndex = 7;
             // 
             // label19
             // 
@@ -447,57 +453,63 @@
             this.label19.Location = new System.Drawing.Point(17, 66);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(135, 13);
-            this.label19.TabIndex = 37;
+            this.label19.TabIndex = 6;
             this.label19.Text = "Maximum number of seats :";
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(168, 91);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 13);
-            this.label7.TabIndex = 34;
+            this.label7.TabIndex = 10;
             this.label7.Text = "Pilot Salary";
             // 
             // dtpPilotBirthdate
             // 
+            this.dtpPilotBirthdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpPilotBirthdate.CustomFormat = "yyyy/MM/dd";
             this.dtpPilotBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpPilotBirthdate.Location = new System.Drawing.Point(244, 60);
             this.dtpPilotBirthdate.Name = "dtpPilotBirthdate";
             this.dtpPilotBirthdate.Size = new System.Drawing.Size(86, 20);
-            this.dtpPilotBirthdate.TabIndex = 33;
+            this.dtpPilotBirthdate.TabIndex = 9;
             // 
             // txtSalary
             // 
+            this.txtSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSalary.Location = new System.Drawing.Point(244, 88);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(86, 20);
-            this.txtSalary.TabIndex = 28;
+            this.txtSalary.TabIndex = 11;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(168, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 27;
+            this.label2.TabIndex = 8;
             this.label2.Text = "Pilot Birthdate:";
             // 
             // txtPilotName
             // 
+            this.txtPilotName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPilotName.Location = new System.Drawing.Point(244, 34);
             this.txtPilotName.Name = "txtPilotName";
             this.txtPilotName.Size = new System.Drawing.Size(86, 20);
-            this.txtPilotName.TabIndex = 26;
+            this.txtPilotName.TabIndex = 5;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(168, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 25;
+            this.label4.TabIndex = 4;
             this.label4.Text = "Pilot Name :";
             // 
             // lblAircraftID
@@ -506,7 +518,7 @@
             this.lblAircraftID.Location = new System.Drawing.Point(174, 16);
             this.lblAircraftID.Name = "lblAircraftID";
             this.lblAircraftID.Size = new System.Drawing.Size(41, 13);
-            this.lblAircraftID.TabIndex = 4;
+            this.lblAircraftID.TabIndex = 1;
             this.lblAircraftID.Text = "bind ID";
             // 
             // label15
@@ -515,25 +527,30 @@
             this.label15.Location = new System.Drawing.Point(105, 16);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 13);
-            this.label15.TabIndex = 3;
+            this.label15.TabIndex = 0;
             this.label15.Text = "Aircraft ID : ";
             // 
             // txtSearchAC
             // 
+            this.txtSearchAC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearchAC.Location = new System.Drawing.Point(107, 7);
             this.txtSearchAC.Name = "txtSearchAC";
             this.txtSearchAC.Size = new System.Drawing.Size(237, 20);
-            this.txtSearchAC.TabIndex = 18;
+            this.txtSearchAC.TabIndex = 1;
             this.txtSearchAC.TextChanged += new System.EventHandler(this.txtSearchAC_TextChanged);
             // 
             // lstAircrafts
             // 
+            this.lstAircrafts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstAircrafts.FullRowSelect = true;
             this.lstAircrafts.Location = new System.Drawing.Point(6, 33);
             this.lstAircrafts.MultiSelect = false;
             this.lstAircrafts.Name = "lstAircrafts";
             this.lstAircrafts.Size = new System.Drawing.Size(416, 237);
-            this.lstAircrafts.TabIndex = 17;
+            this.lstAircrafts.TabIndex = 3;
             this.lstAircrafts.UseCompatibleStateImageBehavior = false;
             this.lstAircrafts.View = System.Windows.Forms.View.Details;
             this.lstAircrafts.SelectedIndexChanged += new System.EventHandler(this.lstAircrafts_SelectedIndexChanged);
@@ -557,21 +574,23 @@
             // 
             // btnClearF
             // 
+            this.btnClearF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearF.Enabled = false;
             this.btnClearF.Location = new System.Drawing.Point(347, 285);
             this.btnClearF.Name = "btnClearF";
             this.btnClearF.Size = new System.Drawing.Size(75, 28);
-            this.btnClearF.TabIndex = 16;
+            this.btnClearF.TabIndex = 5;
             this.btnClearF.Text = "Clear";
             this.btnClearF.UseVisualStyleBackColor = true;
             this.btnClearF.Click += new System.EventHandler(this.btnClearF_Click);
             // 
             // btnSearchF
             // 
+            this.btnSearchF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearchF.Location = new System.Drawing.Point(350, 6);
             this.btnSearchF.Name = "btnSearchF";
             this.btnSearchF.Size = new System.Drawing.Size(72, 22);
-            this.btnSearchF.TabIndex = 15;
+            this.btnSearchF.TabIndex = 2;
             this.btnSearchF.Text = "Search";
             this.btnSearchF.UseVisualStyleBackColor = true;
             this.btnSearchF.Click += new System.EventHandler(this.btnSearchF_Click);
@@ -583,21 +602,24 @@
             this.cmbSearchF.Location = new System.Drawing.Point(6, 6);
             this.cmbSearchF.Name = "cmbSearchF";
             this.cmbSearchF.Size = new System.Drawing.Size(95, 21);
-            this.cmbSearchF.TabIndex = 14;
+            this.cmbSearchF.TabIndex = 0;
             this.cmbSearchF.SelectedIndexChanged += new System.EventHandler(this.cmbSearchF_SelectedIndexChanged);
             // 
             // btnUpdateF
             // 
+            this.btnUpdateF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdateF.Location = new System.Drawing.Point(347, 365);
             this.btnUpdateF.Name = "btnUpdateF";
             this.btnUpdateF.Size = new System.Drawing.Size(75, 28);
-            this.btnUpdateF.TabIndex = 12;
+            this.btnUpdateF.TabIndex = 6;
             this.btnUpdateF.Text = "Add";
             this.btnUpdateF.UseVisualStyleBackColor = true;
             this.btnUpdateF.Click += new System.EventHandler(this.btnUpdateF_Click);
             // 
             // gbxF
             // 
+            this.gbxF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxF.Controls.Add(this.btnEraseF);
             this.gbxF.Controls.Add(this.dtpArrive);
             this.gbxF.Controls.Add(this.dtpDepart);
@@ -616,52 +638,56 @@
             this.gbxF.Location = new System.Drawing.Point(6, 277);
             this.gbxF.Name = "gbxF";
             this.gbxF.Size = new System.Drawing.Size(336, 116);
-            this.gbxF.TabIndex = 11;
+            this.gbxF.TabIndex = 4;
             this.gbxF.TabStop = false;
             this.gbxF.Text = "Flight";
             // 
             // btnEraseF
             // 
+            this.btnEraseF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEraseF.Enabled = false;
             this.btnEraseF.Location = new System.Drawing.Point(279, 0);
             this.btnEraseF.Name = "btnEraseF";
             this.btnEraseF.Size = new System.Drawing.Size(51, 28);
-            this.btnEraseF.TabIndex = 16;
+            this.btnEraseF.TabIndex = 0;
             this.btnEraseF.Text = "Erase";
             this.btnEraseF.UseVisualStyleBackColor = true;
             this.btnEraseF.Click += new System.EventHandler(this.btnEraseF_Click);
             // 
             // dtpArrive
             // 
+            this.dtpArrive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpArrive.CustomFormat = "yyyy/MM/dd - HH:mm";
             this.dtpArrive.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpArrive.Location = new System.Drawing.Point(235, 63);
             this.dtpArrive.Name = "dtpArrive";
             this.dtpArrive.Size = new System.Drawing.Size(92, 20);
-            this.dtpArrive.TabIndex = 24;
+            this.dtpArrive.TabIndex = 10;
             // 
             // dtpDepart
             // 
+            this.dtpDepart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDepart.CustomFormat = "yyyy/MM/dd - HH:mm";
             this.dtpDepart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDepart.Location = new System.Drawing.Point(235, 89);
             this.dtpDepart.Name = "dtpDepart";
             this.dtpDepart.Size = new System.Drawing.Size(92, 20);
-            this.dtpDepart.TabIndex = 23;
+            this.dtpDepart.TabIndex = 14;
             // 
             // numRequiredSeats
             // 
+            this.numRequiredSeats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numRequiredSeats.Location = new System.Drawing.Point(263, 37);
             this.numRequiredSeats.Name = "numRequiredSeats";
             this.numRequiredSeats.Size = new System.Drawing.Size(64, 20);
-            this.numRequiredSeats.TabIndex = 22;
+            this.numRequiredSeats.TabIndex = 6;
             // 
             // txtDestination
             // 
             this.txtDestination.Location = new System.Drawing.Point(76, 88);
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.Size = new System.Drawing.Size(84, 20);
-            this.txtDestination.TabIndex = 21;
+            this.txtDestination.TabIndex = 12;
             // 
             // label14
             // 
@@ -669,16 +695,17 @@
             this.label14.Location = new System.Drawing.Point(8, 91);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(66, 13);
-            this.label14.TabIndex = 20;
+            this.label14.TabIndex = 11;
             this.label14.Text = "Destination :";
             // 
             // label12
             // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(166, 39);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 13);
-            this.label12.TabIndex = 13;
+            this.label12.TabIndex = 5;
             this.label12.Text = "RequiredSeats :";
             // 
             // txtSource
@@ -686,7 +713,7 @@
             this.txtSource.Location = new System.Drawing.Point(76, 62);
             this.txtSource.Name = "txtSource";
             this.txtSource.Size = new System.Drawing.Size(84, 20);
-            this.txtSource.TabIndex = 19;
+            this.txtSource.TabIndex = 8;
             // 
             // lblFlightID
             // 
@@ -694,16 +721,17 @@
             this.lblFlightID.Location = new System.Drawing.Point(174, 16);
             this.lblFlightID.Name = "lblFlightID";
             this.lblFlightID.Size = new System.Drawing.Size(41, 13);
-            this.lblFlightID.TabIndex = 4;
+            this.lblFlightID.TabIndex = 2;
             this.lblFlightID.Text = "bind ID";
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(166, 91);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 13);
-            this.label9.TabIndex = 7;
+            this.label9.TabIndex = 13;
             this.label9.Text = "DepartTime :";
             // 
             // label5
@@ -712,16 +740,17 @@
             this.label5.Location = new System.Drawing.Point(8, 65);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
-            this.label5.TabIndex = 11;
+            this.label5.TabIndex = 7;
             this.label5.Text = "Source :";
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(166, 66);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 13);
-            this.label13.TabIndex = 15;
+            this.label13.TabIndex = 9;
             this.label13.Text = "ArriveTime :";
             // 
             // label
@@ -730,7 +759,7 @@
             this.label.Location = new System.Drawing.Point(105, 16);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(55, 13);
-            this.label.TabIndex = 3;
+            this.label.TabIndex = 1;
             this.label.Text = "Flight ID : ";
             // 
             // label8
@@ -739,7 +768,7 @@
             this.label8.Location = new System.Drawing.Point(7, 39);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 13);
-            this.label8.TabIndex = 5;
+            this.label8.TabIndex = 3;
             this.label8.Text = "Aircraft ID : ";
             // 
             // txtAircraftID
@@ -747,31 +776,37 @@
             this.txtAircraftID.Location = new System.Drawing.Point(76, 36);
             this.txtAircraftID.Name = "txtAircraftID";
             this.txtAircraftID.Size = new System.Drawing.Size(84, 20);
-            this.txtAircraftID.TabIndex = 6;
+            this.txtAircraftID.TabIndex = 4;
             // 
             // txtSearchF
             // 
+            this.txtSearchF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearchF.Location = new System.Drawing.Point(107, 7);
             this.txtSearchF.Name = "txtSearchF";
             this.txtSearchF.Size = new System.Drawing.Size(237, 20);
-            this.txtSearchF.TabIndex = 2;
+            this.txtSearchF.TabIndex = 1;
             this.txtSearchF.TextChanged += new System.EventHandler(this.txtSearchF_TextChanged);
             // 
             // lstFlights
             // 
+            this.lstFlights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstFlights.FullRowSelect = true;
             this.lstFlights.Location = new System.Drawing.Point(6, 33);
             this.lstFlights.MultiSelect = false;
             this.lstFlights.Name = "lstFlights";
             this.lstFlights.Size = new System.Drawing.Size(416, 237);
-            this.lstFlights.TabIndex = 0;
+            this.lstFlights.TabIndex = 3;
             this.lstFlights.UseCompatibleStateImageBehavior = false;
             this.lstFlights.View = System.Windows.Forms.View.Details;
             this.lstFlights.SelectedIndexChanged += new System.EventHandler(this.lstFlights_SelectedIndexChanged);
             // 
             // tabAdmin
             // 
-            this.tabAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabAdmin.Controls.Add(this.tabPage1);
             this.tabAdmin.Controls.Add(this.tabPage2);
@@ -782,7 +817,7 @@
             this.tabAdmin.Name = "tabAdmin";
             this.tabAdmin.SelectedIndex = 0;
             this.tabAdmin.Size = new System.Drawing.Size(437, 427);
-            this.tabAdmin.TabIndex = 0;
+            this.tabAdmin.TabIndex = 4;
             // 
             // tabPage3
             // 
@@ -803,7 +838,7 @@
             this.btnSearchC.Location = new System.Drawing.Point(350, 6);
             this.btnSearchC.Name = "btnSearchC";
             this.btnSearchC.Size = new System.Drawing.Size(72, 22);
-            this.btnSearchC.TabIndex = 31;
+            this.btnSearchC.TabIndex = 2;
             this.btnSearchC.Text = "Search";
             this.btnSearchC.UseVisualStyleBackColor = true;
             this.btnSearchC.Click += new System.EventHandler(this.btnSearchC_Click);
@@ -813,7 +848,7 @@
             this.txtSearchC.Location = new System.Drawing.Point(107, 7);
             this.txtSearchC.Name = "txtSearchC";
             this.txtSearchC.Size = new System.Drawing.Size(237, 20);
-            this.txtSearchC.TabIndex = 29;
+            this.txtSearchC.TabIndex = 1;
             this.txtSearchC.TextChanged += new System.EventHandler(this.txtSearchC_TextChanged);
             // 
             // lstCustomers
@@ -823,7 +858,7 @@
             this.lstCustomers.MultiSelect = false;
             this.lstCustomers.Name = "lstCustomers";
             this.lstCustomers.Size = new System.Drawing.Size(416, 362);
-            this.lstCustomers.TabIndex = 28;
+            this.lstCustomers.TabIndex = 3;
             this.lstCustomers.UseCompatibleStateImageBehavior = false;
             this.lstCustomers.View = System.Windows.Forms.View.Details;
             // 
@@ -834,7 +869,7 @@
             this.cmbSearchC.Location = new System.Drawing.Point(6, 6);
             this.cmbSearchC.Name = "cmbSearchC";
             this.cmbSearchC.Size = new System.Drawing.Size(95, 21);
-            this.cmbSearchC.TabIndex = 30;
+            this.cmbSearchC.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -851,6 +886,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label29);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.btnRemoveMonitor);
@@ -858,17 +896,18 @@
             this.groupBox3.Location = new System.Drawing.Point(6, 152);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(416, 119);
-            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Monitoring Aircrafts";
             // 
             // label29
             // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(240, 18);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(60, 13);
-            this.label29.TabIndex = 28;
+            this.label29.TabIndex = 1;
             this.label29.Text = "Monitored :";
             // 
             // groupBox4
@@ -879,7 +918,7 @@
             this.groupBox4.Location = new System.Drawing.Point(9, 20);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 93);
-            this.groupBox4.TabIndex = 29;
+            this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Monitor";
             // 
@@ -899,7 +938,7 @@
             this.label28.Location = new System.Drawing.Point(6, 22);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(52, 13);
-            this.label28.TabIndex = 27;
+            this.label28.TabIndex = 0;
             this.label28.Text = "Flight ID: ";
             // 
             // txtFlightIDM
@@ -907,32 +946,37 @@
             this.txtFlightIDM.Location = new System.Drawing.Point(72, 19);
             this.txtFlightIDM.Name = "txtFlightIDM";
             this.txtFlightIDM.Size = new System.Drawing.Size(120, 20);
-            this.txtFlightIDM.TabIndex = 27;
+            this.txtFlightIDM.TabIndex = 1;
             this.txtFlightIDM.UseSystemPasswordChar = true;
             this.txtFlightIDM.TextChanged += new System.EventHandler(this.txtFlightIDM_TextChanged);
             // 
             // btnRemoveMonitor
             // 
+            this.btnRemoveMonitor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveMonitor.Enabled = false;
             this.btnRemoveMonitor.Location = new System.Drawing.Point(225, 90);
             this.btnRemoveMonitor.Name = "btnRemoveMonitor";
             this.btnRemoveMonitor.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveMonitor.TabIndex = 1;
+            this.btnRemoveMonitor.TabIndex = 3;
             this.btnRemoveMonitor.Text = "Remove";
             this.btnRemoveMonitor.UseVisualStyleBackColor = true;
             this.btnRemoveMonitor.Click += new System.EventHandler(this.btnRemoveMonitor_Click);
             // 
             // lstMyMonitors
             // 
+            this.lstMyMonitors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstMyMonitors.FormattingEnabled = true;
             this.lstMyMonitors.Location = new System.Drawing.Point(306, 18);
             this.lstMyMonitors.Name = "lstMyMonitors";
             this.lstMyMonitors.Size = new System.Drawing.Size(104, 95);
-            this.lstMyMonitors.TabIndex = 0;
+            this.lstMyMonitors.TabIndex = 2;
             this.lstMyMonitors.SelectedIndexChanged += new System.EventHandler(this.lstMyMonitors_SelectedIndexChanged);
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtMyNewPassword);
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.btnSaveInfo);
@@ -947,25 +991,27 @@
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(416, 140);
-            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "My Info";
             // 
             // txtMyNewPassword
             // 
+            this.txtMyNewPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMyNewPassword.Location = new System.Drawing.Point(282, 82);
             this.txtMyNewPassword.Name = "txtMyNewPassword";
             this.txtMyNewPassword.Size = new System.Drawing.Size(120, 20);
-            this.txtMyNewPassword.TabIndex = 26;
+            this.txtMyNewPassword.TabIndex = 9;
             this.txtMyNewPassword.UseSystemPasswordChar = true;
             // 
             // label26
             // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(199, 85);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(84, 13);
-            this.label26.TabIndex = 25;
+            this.label26.TabIndex = 8;
             this.label26.Text = "New Password :";
             // 
             // btnSaveInfo
@@ -973,17 +1019,18 @@
             this.btnSaveInfo.Location = new System.Drawing.Point(126, 108);
             this.btnSaveInfo.Name = "btnSaveInfo";
             this.btnSaveInfo.Size = new System.Drawing.Size(164, 23);
-            this.btnSaveInfo.TabIndex = 24;
+            this.btnSaveInfo.TabIndex = 10;
             this.btnSaveInfo.Text = "Save Info";
             this.btnSaveInfo.UseVisualStyleBackColor = true;
             this.btnSaveInfo.Click += new System.EventHandler(this.btnSaveInfo_Click);
             // 
             // txtMyOldPassword
             // 
+            this.txtMyOldPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMyOldPassword.Location = new System.Drawing.Point(282, 52);
             this.txtMyOldPassword.Name = "txtMyOldPassword";
             this.txtMyOldPassword.Size = new System.Drawing.Size(120, 20);
-            this.txtMyOldPassword.TabIndex = 23;
+            this.txtMyOldPassword.TabIndex = 7;
             this.txtMyOldPassword.UseSystemPasswordChar = true;
             // 
             // txtMyUsername
@@ -991,15 +1038,16 @@
             this.txtMyUsername.Location = new System.Drawing.Point(76, 52);
             this.txtMyUsername.Name = "txtMyUsername";
             this.txtMyUsername.Size = new System.Drawing.Size(120, 20);
-            this.txtMyUsername.TabIndex = 22;
+            this.txtMyUsername.TabIndex = 5;
             // 
             // label16
             // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(202, 55);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 13);
-            this.label16.TabIndex = 21;
+            this.label16.TabIndex = 6;
             this.label16.Text = "Old Password :";
             // 
             // label17
@@ -1008,23 +1056,25 @@
             this.label17.Location = new System.Drawing.Point(6, 55);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(61, 13);
-            this.label17.TabIndex = 20;
+            this.label17.TabIndex = 4;
             this.label17.Text = "Username :";
             // 
             // txtMyLastName
             // 
+            this.txtMyLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMyLastName.Location = new System.Drawing.Point(282, 22);
             this.txtMyLastName.Name = "txtMyLastName";
             this.txtMyLastName.Size = new System.Drawing.Size(120, 20);
-            this.txtMyLastName.TabIndex = 19;
+            this.txtMyLastName.TabIndex = 3;
             // 
             // label20
             // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(202, 25);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 13);
-            this.label20.TabIndex = 11;
+            this.label20.TabIndex = 2;
             this.label20.Text = "Last Name :";
             // 
             // label21
@@ -1033,7 +1083,7 @@
             this.label21.Location = new System.Drawing.Point(6, 25);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(66, 13);
-            this.label21.TabIndex = 5;
+            this.label21.TabIndex = 0;
             this.label21.Text = "First Name : ";
             // 
             // txtMyFirstName
@@ -1041,7 +1091,7 @@
             this.txtMyFirstName.Location = new System.Drawing.Point(76, 22);
             this.txtMyFirstName.Name = "txtMyFirstName";
             this.txtMyFirstName.Size = new System.Drawing.Size(120, 20);
-            this.txtMyFirstName.TabIndex = 6;
+            this.txtMyFirstName.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -1059,7 +1109,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 277);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(416, 116);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add new admin";
             // 
@@ -1069,16 +1119,17 @@
             this.btnAddAdmin.Location = new System.Drawing.Point(126, 84);
             this.btnAddAdmin.Name = "btnAddAdmin";
             this.btnAddAdmin.Size = new System.Drawing.Size(164, 23);
-            this.btnAddAdmin.TabIndex = 24;
+            this.btnAddAdmin.TabIndex = 8;
             this.btnAddAdmin.Text = "Add";
             this.btnAddAdmin.UseVisualStyleBackColor = true;
             // 
             // txtAddPassword
             // 
+            this.txtAddPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAddPassword.Location = new System.Drawing.Point(282, 53);
             this.txtAddPassword.Name = "txtAddPassword";
             this.txtAddPassword.Size = new System.Drawing.Size(120, 20);
-            this.txtAddPassword.TabIndex = 23;
+            this.txtAddPassword.TabIndex = 7;
             this.txtAddPassword.UseSystemPasswordChar = true;
             // 
             // txtAddUsername
@@ -1086,15 +1137,16 @@
             this.txtAddUsername.Location = new System.Drawing.Point(76, 53);
             this.txtAddUsername.Name = "txtAddUsername";
             this.txtAddUsername.Size = new System.Drawing.Size(120, 20);
-            this.txtAddUsername.TabIndex = 22;
+            this.txtAddUsername.TabIndex = 5;
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(202, 56);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 13);
-            this.label10.TabIndex = 21;
+            this.label10.TabIndex = 6;
             this.label10.Text = "Password :";
             // 
             // label6
@@ -1103,23 +1155,25 @@
             this.label6.Location = new System.Drawing.Point(6, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
-            this.label6.TabIndex = 20;
+            this.label6.TabIndex = 4;
             this.label6.Text = "Username :";
             // 
             // txtAddLastName
             // 
+            this.txtAddLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAddLastName.Location = new System.Drawing.Point(282, 22);
             this.txtAddLastName.Name = "txtAddLastName";
             this.txtAddLastName.Size = new System.Drawing.Size(120, 20);
-            this.txtAddLastName.TabIndex = 19;
+            this.txtAddLastName.TabIndex = 3;
             // 
             // label18
             // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(202, 25);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(64, 13);
-            this.label18.TabIndex = 11;
+            this.label18.TabIndex = 2;
             this.label18.Text = "Last Name :";
             // 
             // label25
@@ -1128,7 +1182,7 @@
             this.label25.Location = new System.Drawing.Point(6, 25);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(66, 13);
-            this.label25.TabIndex = 5;
+            this.label25.TabIndex = 0;
             this.label25.Text = "First Name : ";
             // 
             // txtAddFirstName
@@ -1136,19 +1190,21 @@
             this.txtAddFirstName.Location = new System.Drawing.Point(76, 22);
             this.txtAddFirstName.Name = "txtAddFirstName";
             this.txtAddFirstName.Size = new System.Drawing.Size(120, 20);
-            this.txtAddFirstName.TabIndex = 6;
+            this.txtAddFirstName.TabIndex = 1;
             // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 460);
+            this.ClientSize = new System.Drawing.Size(441, 461);
             this.Controls.Add(this.btnBackAdmin);
             this.Controls.Add(this.lblIDAdmin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbluserAdmin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabAdmin);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(700, 2000);
             this.Name = "AdminPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPage";

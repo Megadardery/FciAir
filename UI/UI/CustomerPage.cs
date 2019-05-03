@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace UI
 
         string CustomerTicketsCond ;
         string CustomerFlightCols = "FlightID,Source,Destination,DepartTime,ArriveTime";
-        string CustomerTicketsCols = "TicketID,FlightID,Price,AgeGroup,Class,BookDate";
+        string CustomerFlightTicketsCols = "TicketID,Tickets.FlightID,Source,Destination,DepartTime,ArriveTime,Price,AgeGroup,Class,BookDate";
         public CustomerPage(int id)
         {
             InitializeComponent();
@@ -30,13 +31,27 @@ namespace UI
             string searchBy = cboSearch.Text;
             string req = txtSearchBar.Text;
 
-
-            Logic.LoadListData(Program.dbms.SearchBy("Flights",searchBy,req,CustomerFlightCols), listVFlights);
+            try
+            {
+                Logic.LoadListData(Program.dbms.SearchBy("Flights",searchBy,req,CustomerFlightCols), listVFlights);
+            }
+            catch (SqlException ex)
+            {
+                var reason = DBMS.ParseException(ex);
+                if (reason == DBMS.SqlErrorNumber.NotInteger)
+                {
+                    MessageBox.Show(Logic.ErrorMessages.IntegerOnly, "Search", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void CustomerPage_Load(object sender, EventArgs e)
         {
-            
+            cboClass.SelectedIndex = 0;
 
             List<string> cols;
 
@@ -46,15 +61,22 @@ namespace UI
 
             Logic.LoadListData(Program.dbms.GetTableData("Flights","1=1" ,CustomerFlightCols), listVFlights);
 
-            cols = Program.dbms.GetTableColumns("Tickets", CustomerTicketsCols);
+            const string flightJOINticket = "Tickets JOIN Flights ON Tickets.FlightID = Flights.FlightID";
+
+            cols = Program.dbms.GetTableColumns(flightJOINticket, CustomerFlightTicketsCols);
             Logic.LoadListColumns(cols, listVMyFlights);
 
-            Logic.LoadListData(Program.dbms.GetTableData("Tickets", CustomerTicketsCond, CustomerTicketsCols), listVMyFlights);
+            Logic.LoadListData(Program.dbms.GetTableData(flightJOINticket, CustomerTicketsCond, CustomerFlightTicketsCols), listVMyFlights);
         }
 
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
         {
                 if (txtSearchBar.Text == "") Logic.LoadListData(Program.dbms.GetTableData("Flights", "1=1", CustomerFlightCols), listVFlights);
+
+        }
+
+        private void listVFlights_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
