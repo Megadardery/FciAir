@@ -145,5 +145,17 @@ namespace UI
         {
             Program.homePage.Show();
         }
+
+        private void btnDeleteAcc_Click(object sender, EventArgs e)
+        {
+            int[] ID;
+            DialogResult result = MessageBox.Show("Do you want to delete the account?","Delete Account",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                ID = new int[1]; ID[0] = int.Parse(lblIDCustomer.Text);
+                Program.dbms.DeleteCustomer(ID);
+                this.Close();
+            }
+        }
     }
 }

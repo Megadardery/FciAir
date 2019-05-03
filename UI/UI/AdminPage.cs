@@ -214,18 +214,34 @@ namespace UI
 
         private void btnSearchF_Click(object sender, EventArgs e)
         {
-            Logic.LoadListData(Program.dbms.SearchBy("Flights", cmbSearchF.Text, txtSearchF.Text), lstFlights);
+            if(cmbSearchF.Text.Equals("DepartTime") || cmbSearchF.Text.Equals("ArriveTime"))
+                Logic.LoadListData(Program.dbms.SearchByTime("Flights", cmbSearchF.Text, dtpFromF.Value, dtpToF.Value), lstFlights);
+            else
+                Logic.LoadListData(Program.dbms.SearchBy("Flights", cmbSearchF.Text, txtSearchF.Text), lstFlights);
         }
 
         private void cmbSearchF_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            txtSearchF.Text = dtpFromF.Text = dtpToF.Text = "";
+     
+            if (cmbSearchF.Text.Equals("DepartTime") || cmbSearchF.Text.Equals("ArriveTime"))
+            {
+                lblFromF.Visible = lblToF.Visible = true;
+                dtpFromF.Visible = dtpToF.Visible = true;
+                txtSearchF.Visible = false;
+            }
+            else
+            {
+                lblFromF.Visible = lblToF.Visible = false;
+                dtpFromF.Visible = dtpToF.Visible = false;
+                txtSearchF.Visible = true;
+            }
+            Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
         }
 
         private void btnSearchAC_Click(object sender, EventArgs e)
         {
             Logic.LoadListData(Program.dbms.SearchBy("Aircrafts", cmbSearchAC.Text, txtSearchAC.Text), lstAircrafts);
-
         }
 
         private void btnSearchC_Click(object sender, EventArgs e)
@@ -274,6 +290,74 @@ namespace UI
             {
                 btnSaveInfo.Enabled = true;
             }
+        }
+
+        private void btnClearAC_Click(object sender, EventArgs e)
+        {
+            lblAircraftID.Text = "";
+            txtModel.Text = "";
+            numMaxSeats.Value = 0;
+            txtPilotName.Text = "";
+            dtpPilotBirthdate.Text = "";
+            txtSalary.Text = "";
+
+            if (lstAircrafts.SelectedItems.Count > 0)
+                lstAircrafts.SelectedIndices.Clear();
+            else
+            {
+                //TODO if no item selected
+            }
+
+            btnEraseAC.Enabled = btnClearAC.Enabled = false;
+            btnUpdateAC.Text = "Add";
+        }
+
+        private void btnEraseAC_Click(object sender, EventArgs e)
+        {
+            //NOTE : an Error may happen due to the foreign keys
+            //should delete all flights, tickets and customer that related to this aircraft
+
+            int[] ID = new int[1];
+            ID[0] = int.Parse((lstAircrafts.SelectedItems[0].SubItems)[0].Text);
+            Program.dbms.DeleteAircrafts(ID);
+
+            lstAircrafts.Items.RemoveAt(lstAircrafts.Items.IndexOf(lstAircrafts.SelectedItems[0]));
+
+            btnClearAC.PerformClick();
+        }
+
+        private void btnUpdateAC_Click(object sender, EventArgs e)
+        {
+            if (lstAircrafts.SelectedItems.Count > 0)
+                Program.dbms.UpdateAirCraft(int.Parse(lblAircraftID.Text), AdminID, (int)numMaxSeats.Value, txtModel.Text, txtPilotName.Text, dtpPilotBirthdate.Value, int.Parse(txtSalary.Text));
+            else
+                Program.dbms.InsertAircraft(AdminID, (int)numMaxSeats.Value, txtModel.Text, txtPilotName.Text, dtpPilotBirthdate.Value, int.Parse(txtSalary.Text));
+
+            Console.Write("done");
+
+            Logic.LoadListData(Program.dbms.GetTableData("Aircrafts"), lstAircrafts);
+            btnClearAC.PerformClick();
+        }
+
+        private void btnEraseT_Click(object sender, EventArgs e)
+        {
+            if (lstTickets.SelectedItems.Count == 0) return;
+
+            int[] ID = new int[1];
+            ID[0] = int.Parse((lstTickets.SelectedItems[0].SubItems)[0].Text);
+            Program.dbms.DeleteTicket(ID);
+
+            lstTickets.Items.RemoveAt(lstTickets.Items.IndexOf(lstTickets.SelectedItems[0]));
+        }
+
+        private void lblFrom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbSearchAC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

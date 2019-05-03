@@ -101,3 +101,18 @@ C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.Properties.Resources.r
 C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.csproj.GenerateResource.Cache
 C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.exe
 C:\Users\belal\Desktop\Database\FciAir\UI\UI\obj\Debug\UI.pdb
+D:\Updating DB\FciAir-master\UI\UI\bin\Debug\UI.exe.config
+D:\Updating DB\FciAir-master\UI\UI\bin\Debug\UI.exe
+D:\Updating DB\FciAir-master\UI\UI\bin\Debug\UI.pdb
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.AdminLogin.resources
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.AdminPage.resources
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.CustomerLogin.resources
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.CustomerPage.resources
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.CustomerSignUp.resources
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.HomePage.resources
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.Properties.Resources.resources
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.exe
+D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.pdb

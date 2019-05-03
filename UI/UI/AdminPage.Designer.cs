@@ -45,6 +45,7 @@
             this.txtYP = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnEraseT = new System.Windows.Forms.Button();
             this.btnsearchT = new System.Windows.Forms.Button();
             this.txtSearchT = new System.Windows.Forms.TextBox();
             this.lstTickets = new System.Windows.Forms.ListView();
@@ -71,6 +72,10 @@
             this.txtSearchAC = new System.Windows.Forms.TextBox();
             this.lstAircrafts = new System.Windows.Forms.ListView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dtpToF = new System.Windows.Forms.DateTimePicker();
+            this.lblToF = new System.Windows.Forms.Label();
+            this.dtpFromF = new System.Windows.Forms.DateTimePicker();
+            this.lblFromF = new System.Windows.Forms.Label();
             this.btnClearF = new System.Windows.Forms.Button();
             this.btnSearchF = new System.Windows.Forms.Button();
             this.cmbSearchF = new System.Windows.Forms.ComboBox();
@@ -283,6 +288,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnEraseT);
             this.tabPage4.Controls.Add(this.btnsearchT);
             this.tabPage4.Controls.Add(this.txtSearchT);
             this.tabPage4.Controls.Add(this.lstTickets);
@@ -294,6 +300,16 @@
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Tickets";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnEraseT
+            // 
+            this.btnEraseT.Location = new System.Drawing.Point(6, 371);
+            this.btnEraseT.Name = "btnEraseT";
+            this.btnEraseT.Size = new System.Drawing.Size(416, 23);
+            this.btnEraseT.TabIndex = 4;
+            this.btnEraseT.Text = "Erase";
+            this.btnEraseT.UseVisualStyleBackColor = true;
+            this.btnEraseT.Click += new System.EventHandler(this.btnEraseT_Click);
             // 
             // btnsearchT
             // 
@@ -319,7 +335,7 @@
             this.lstTickets.Location = new System.Drawing.Point(6, 33);
             this.lstTickets.MultiSelect = false;
             this.lstTickets.Name = "lstTickets";
-            this.lstTickets.Size = new System.Drawing.Size(416, 362);
+            this.lstTickets.Size = new System.Drawing.Size(416, 332);
             this.lstTickets.TabIndex = 3;
             this.lstTickets.UseCompatibleStateImageBehavior = false;
             this.lstTickets.View = System.Windows.Forms.View.Details;
@@ -359,16 +375,19 @@
             this.btnUpdateAC.TabIndex = 6;
             this.btnUpdateAC.Text = "Add";
             this.btnUpdateAC.UseVisualStyleBackColor = true;
+            this.btnUpdateAC.Click += new System.EventHandler(this.btnUpdateAC_Click);
             // 
             // btnClearAC
             // 
             this.btnClearAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearAC.Enabled = false;
             this.btnClearAC.Location = new System.Drawing.Point(347, 285);
             this.btnClearAC.Name = "btnClearAC";
             this.btnClearAC.Size = new System.Drawing.Size(75, 28);
             this.btnClearAC.TabIndex = 5;
             this.btnClearAC.Text = "Clear";
             this.btnClearAC.UseVisualStyleBackColor = true;
+            this.btnClearAC.Click += new System.EventHandler(this.btnClearAC_Click);
             // 
             // cmbSearchAC
             // 
@@ -378,6 +397,7 @@
             this.cmbSearchAC.Name = "cmbSearchAC";
             this.cmbSearchAC.Size = new System.Drawing.Size(95, 21);
             this.cmbSearchAC.TabIndex = 0;
+            this.cmbSearchAC.SelectedIndexChanged += new System.EventHandler(this.cmbSearchAC_SelectedIndexChanged);
             // 
             // btnSearchAC
             // 
@@ -417,12 +437,14 @@
             // btnEraseAC
             // 
             this.btnEraseAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEraseAC.Enabled = false;
             this.btnEraseAC.Location = new System.Drawing.Point(279, 0);
             this.btnEraseAC.Name = "btnEraseAC";
             this.btnEraseAC.Size = new System.Drawing.Size(51, 28);
             this.btnEraseAC.TabIndex = 12;
             this.btnEraseAC.Text = "Erase";
             this.btnEraseAC.UseVisualStyleBackColor = true;
+            this.btnEraseAC.Click += new System.EventHandler(this.btnEraseAC_Click);
             // 
             // txtModel
             // 
@@ -557,6 +579,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dtpToF);
+            this.tabPage1.Controls.Add(this.lblToF);
+            this.tabPage1.Controls.Add(this.dtpFromF);
+            this.tabPage1.Controls.Add(this.lblFromF);
             this.tabPage1.Controls.Add(this.btnClearF);
             this.tabPage1.Controls.Add(this.btnSearchF);
             this.tabPage1.Controls.Add(this.cmbSearchF);
@@ -571,6 +597,49 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Flights";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dtpToF
+            // 
+            this.dtpToF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpToF.CustomFormat = "yyyy/MM/dd - HH:mm";
+            this.dtpToF.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpToF.Location = new System.Drawing.Point(260, 7);
+            this.dtpToF.Name = "dtpToF";
+            this.dtpToF.Size = new System.Drawing.Size(84, 20);
+            this.dtpToF.TabIndex = 16;
+            this.dtpToF.Visible = false;
+            // 
+            // lblToF
+            // 
+            this.lblToF.AutoSize = true;
+            this.lblToF.Location = new System.Drawing.Point(225, 10);
+            this.lblToF.Name = "lblToF";
+            this.lblToF.Size = new System.Drawing.Size(29, 13);
+            this.lblToF.TabIndex = 17;
+            this.lblToF.Text = " To :";
+            this.lblToF.Visible = false;
+            // 
+            // dtpFromF
+            // 
+            this.dtpFromF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFromF.CustomFormat = "yyyy/MM/dd - HH:mm";
+            this.dtpFromF.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFromF.Location = new System.Drawing.Point(140, 7);
+            this.dtpFromF.Name = "dtpFromF";
+            this.dtpFromF.Size = new System.Drawing.Size(81, 20);
+            this.dtpFromF.TabIndex = 15;
+            this.dtpFromF.Visible = false;
+            // 
+            // lblFromF
+            // 
+            this.lblFromF.AutoSize = true;
+            this.lblFromF.Location = new System.Drawing.Point(104, 10);
+            this.lblFromF.Name = "lblFromF";
+            this.lblFromF.Size = new System.Drawing.Size(36, 13);
+            this.lblFromF.TabIndex = 15;
+            this.lblFromF.Text = "From :";
+            this.lblFromF.Visible = false;
+            this.lblFromF.Click += new System.EventHandler(this.lblFrom_Click);
             // 
             // btnClearF
             // 
@@ -1353,5 +1422,10 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtAddFirstName;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button btnEraseT;
+        private System.Windows.Forms.DateTimePicker dtpFromF;
+        private System.Windows.Forms.Label lblFromF;
+        private System.Windows.Forms.DateTimePicker dtpToF;
+        private System.Windows.Forms.Label lblToF;
     }
 }

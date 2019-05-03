@@ -162,6 +162,30 @@ namespace UI
 
         }
 
+        public List<List<object>> SearchByTime(string tablename, string whereLeft, DateTime from, DateTime to, string what = "*")
+        {
+            var ret = new List<List<object>>();
+            string query = $"SELECT {what} FROM {tablename} WHERE {whereLeft} >= @from AND {whereLeft} <= @to";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.Parameters.Add(new SqlParameter("@from", from));
+                cmd.Parameters.Add(new SqlParameter("@to", to));
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var row = new List<object>();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                        row.Add(reader.GetValue(i));
+
+                    ret.Add(row);
+                }
+                reader.Close();
+
+            }
+            return ret;
+
+        }
+
         public List<string> GetTableColumns(string tablename , string what = "*")
         {
             var ret = new List<string>();
@@ -191,14 +215,17 @@ namespace UI
                 
             }
         }
-        public void InsertAircraft(int adminID, int maxSeat, string model)
+        public void InsertAircraft(int adminID, int maxSeat, string model, string pName, DateTime date, int salary)
         {
-            string query = $"INSERT INTO Aircrafts VALUES(@adminID, @maxSeat, @model)";
+            string query = $"INSERT INTO Aircrafts VALUES(@adminID, @maxSeat, @model, @pName, @date, @salary)";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.Parameters.Add(new SqlParameter("@adminID", adminID));
                 cmd.Parameters.Add(new SqlParameter("@maxSeat", maxSeat));
                 cmd.Parameters.Add(new SqlParameter("@model", model));
+                cmd.Parameters.Add(new SqlParameter("@pName", pName));
+                cmd.Parameters.Add(new SqlParameter("@date", date));
+                cmd.Parameters.Add(new SqlParameter("@salary", salary));
                 cmd.ExecuteNonQuery();
             }
         }
@@ -292,7 +319,7 @@ namespace UI
 
         public void UpdateAirCraft(int ID,int adminID, int seat, string model,string pName, DateTime date,int salary)
         {
-            string query = $"UPDATE Aircrafts SET AdminID = @adminID, Model=@model, MaxSeat=@seat,PilotName = @pname, Birthdate = @date, Salary = @salary WHERE AircraftID=@ID";
+            string query = $"UPDATE Aircrafts SET AdminID = @adminID, Model=@model, MaxSeats=@seat,PilotName = @pname, Birthdate = @date, Salary = @salary WHERE AircraftID=@ID";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.Parameters.Add(new SqlParameter("@model",model ));
@@ -344,6 +371,14 @@ namespace UI
         public void DeleteCustomer(int[] idx)
         {
             string query = $"DELETE FROM Customers WHERE CustomerID IN ({String.Join(",", idx)})";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void DeleteTicket(int[] idx)
+        {
+            string query = $"DELEtE FROM Tickets WHERE TicketID IN ({String.Join(",", idx)})";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.ExecuteNonQuery();

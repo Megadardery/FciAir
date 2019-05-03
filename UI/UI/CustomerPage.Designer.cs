@@ -76,6 +76,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.lbluserCustomer = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnDeleteAcc = new System.Windows.Forms.Button();
             this.tabCustomerhandler.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -348,7 +349,7 @@
             // 
             this.listVMyFlights.Location = new System.Drawing.Point(4, 4);
             this.listVMyFlights.Name = "listVMyFlights";
-            this.listVMyFlights.Size = new System.Drawing.Size(424, 414);
+            this.listVMyFlights.Size = new System.Drawing.Size(424, 394);
             this.listVMyFlights.TabIndex = 0;
             this.listVMyFlights.UseCompatibleStateImageBehavior = false;
             this.listVMyFlights.View = System.Windows.Forms.View.Details;
@@ -368,6 +369,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.btnDeleteAcc);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.txtMyPassport);
             this.groupBox3.Controls.Add(this.label10);
@@ -387,7 +389,7 @@
             this.groupBox3.Controls.Add(this.txtMyFirstName);
             this.groupBox3.Location = new System.Drawing.Point(5, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(420, 181);
+            this.groupBox3.Size = new System.Drawing.Size(420, 209);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "My Info";
@@ -470,9 +472,9 @@
             // 
             this.btnSaveInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSaveInfo.Enabled = false;
-            this.btnSaveInfo.Location = new System.Drawing.Point(119, 142);
+            this.btnSaveInfo.Location = new System.Drawing.Point(6, 151);
             this.btnSaveInfo.Name = "btnSaveInfo";
-            this.btnSaveInfo.Size = new System.Drawing.Size(164, 23);
+            this.btnSaveInfo.Size = new System.Drawing.Size(408, 23);
             this.btnSaveInfo.TabIndex = 16;
             this.btnSaveInfo.Text = "Save Info";
             this.btnSaveInfo.UseVisualStyleBackColor = true;
@@ -600,6 +602,17 @@
             this.label13.TabIndex = 1;
             this.label13.Text = "Username :";
             // 
+            // btnDeleteAcc
+            // 
+            this.btnDeleteAcc.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnDeleteAcc.Location = new System.Drawing.Point(6, 180);
+            this.btnDeleteAcc.Name = "btnDeleteAcc";
+            this.btnDeleteAcc.Size = new System.Drawing.Size(408, 23);
+            this.btnDeleteAcc.TabIndex = 17;
+            this.btnDeleteAcc.Text = "Delete Account";
+            this.btnDeleteAcc.UseVisualStyleBackColor = true;
+            this.btnDeleteAcc.Click += new System.EventHandler(this.btnDeleteAcc_Click);
+            // 
             // CustomerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,5 +696,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lbluserCustomer;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnDeleteAcc;
     }
 }
