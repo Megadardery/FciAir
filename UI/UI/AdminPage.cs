@@ -426,5 +426,9 @@ namespace UI
                 btnAddAdmin.Enabled = true;
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            this.AdminPage_Load(null, null);
+        }
     }
 }

@@ -192,6 +192,11 @@ namespace UI
                 Class = "First";
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            this.CustomerPage_Load(null, null);
+        }
+
         private void btnDeleteAcc_Click(object sender, EventArgs e)
         {
             int[] ID;

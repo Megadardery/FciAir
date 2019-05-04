@@ -135,6 +135,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.txtAddFirstName = new System.Windows.Forms.TextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gbxAC.SuspendLayout();
@@ -193,9 +194,9 @@
             // 
             // btnBackAdmin
             // 
-            this.btnBackAdmin.Location = new System.Drawing.Point(5, 5);
+            this.btnBackAdmin.Location = new System.Drawing.Point(5, 4);
             this.btnBackAdmin.Name = "btnBackAdmin";
-            this.btnBackAdmin.Size = new System.Drawing.Size(43, 23);
+            this.btnBackAdmin.Size = new System.Drawing.Size(78, 23);
             this.btnBackAdmin.TabIndex = 14;
             this.btnBackAdmin.Text = "Back";
             this.btnBackAdmin.UseVisualStyleBackColor = true;
@@ -1271,11 +1272,22 @@
             this.txtAddFirstName.TabIndex = 1;
             this.txtAddFirstName.TextChanged += new System.EventHandler(this.TextNewAdmin_TextChanged);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(89, 4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 15;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 461);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnBackAdmin);
             this.Controls.Add(this.lblIDAdmin);
             this.Controls.Add(this.label3);
@@ -1431,5 +1443,6 @@
         private System.Windows.Forms.Label lblFromF;
         private System.Windows.Forms.DateTimePicker dtpToF;
         private System.Windows.Forms.Label lblToF;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
