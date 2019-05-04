@@ -1,5 +1,8 @@
---create database FciAir;
-use FciAir;
+CREATE DATABASE FciAir
+
+GO
+
+USE FciAir
 
 /*==============================================================*/
 /* DBMS name:      MySQL 4.0                                    */
@@ -12,7 +15,7 @@ use FciAir;
 /*==============================================================*/
 create table Admins
 (
-   AdminID                      int                            identity(1,1)			  not null,
+   AdminID                      int                            not null,
    FirstName                    varchar(50)                    not null,
    LastName                     varchar(50),
    Username                     varchar(50)                    not null                    unique,
@@ -26,10 +29,10 @@ create table Admins
 create table Aircrafts
 (
    AircraftID                   int                            identity(1,1)			 not null,
-   AdminID                      int                            not null,
+   AdminID                      int,
    MaxSeats                     int,
    Model                        varchar(50),
-   PilotName                         varchar(50)                    not null,
+   PilotName                    varchar(50)                    not null,
    Birthdate                    date,
    Salary                       float(8),
    primary key (AircraftID)
@@ -40,7 +43,7 @@ create table Aircrafts
 /*==============================================================*/
 create table Customers
 (
-   CustomerID                   int                            identity(1,1)			 not null,
+   CustomerID                   int                            not null                identity(1,1),
    FirstName                    varchar(50)                    not null,
    LastName                     varchar(50),
    Passport                     varchar(50)                    not null,
@@ -81,24 +84,24 @@ create table Monitor
 /*==============================================================*/
 create table Tickets
 (
-   TicketID                     int                            identity(1,1)			 not null,
-   FlightID                     int                            not null,
-   CustomerID                   int                            not null,
-   Price						int							   not null,
-   AgeGroup						varchar(50),
+   TicketID                     int                      not null              identity(1,1),
+   FlightID                     int                      not null,
+   CustomerID                   int                      not null,
+   Price                        int							   not null,
+   AgeGroup						     varchar(50),
    Class                        varchar(50),
    BookDate                     datetime,
    primary key (TicketID)
 );
 
 alter table Aircrafts add constraint FK_ADD foreign key (AdminID)
-      references Admins (AdminID) ON DELETE CASCADE;
+      references Admins (AdminID) ON DELETE SET NULL;
 
 alter table Flights add constraint FK_HAVE foreign key (AircraftID)
       references Aircrafts (AircraftID) ON DELETE CASCADE;
 
 alter table Monitor add constraint FK_Monitor foreign key (AdminID)
-      references Admins (AdminID);
+      references Admins (AdminID) ON DELETE CASCADE;
 
 alter table Monitor add constraint FK_Monitor2 foreign key (FlightID)
       references Flights (FlightID) ON DELETE CASCADE;
