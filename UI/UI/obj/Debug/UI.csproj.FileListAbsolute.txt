@@ -116,3 +116,18 @@ D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
 D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
 D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.exe
 D:\Updating DB\FciAir-master\UI\UI\obj\Debug\UI.pdb
+E:\UI\UI\bin\Debug\UI.exe.config
+E:\UI\UI\bin\Debug\UI.exe
+E:\UI\UI\bin\Debug\UI.pdb
+E:\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
+E:\UI\UI\obj\Debug\UI.AdminLogin.resources
+E:\UI\UI\obj\Debug\UI.AdminPage.resources
+E:\UI\UI\obj\Debug\UI.CustomerLogin.resources
+E:\UI\UI\obj\Debug\UI.CustomerPage.resources
+E:\UI\UI\obj\Debug\UI.CustomerSignUp.resources
+E:\UI\UI\obj\Debug\UI.HomePage.resources
+E:\UI\UI\obj\Debug\UI.Properties.Resources.resources
+E:\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
+E:\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+E:\UI\UI\obj\Debug\UI.exe
+E:\UI\UI\obj\Debug\UI.pdb

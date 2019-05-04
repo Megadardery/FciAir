@@ -42,7 +42,7 @@ namespace UI
             }
             catch
             {
-                DialogResult response = MessageBox.Show("Unable to establis the connection, Please make sure you have it installed and properly configured.",
+                DialogResult response = MessageBox.Show("Unable to establish the connection, Please make sure you have it installed and properly configured.",
                   "Fatal Connection Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop);
 
                 if (response == DialogResult.Retry)

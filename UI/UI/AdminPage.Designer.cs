@@ -1016,7 +1016,6 @@
             this.txtFlightIDM.Name = "txtFlightIDM";
             this.txtFlightIDM.Size = new System.Drawing.Size(120, 20);
             this.txtFlightIDM.TabIndex = 1;
-            this.txtFlightIDM.UseSystemPasswordChar = true;
             this.txtFlightIDM.TextChanged += new System.EventHandler(this.txtFlightIDM_TextChanged);
             // 
             // btnRemoveMonitor
@@ -1197,6 +1196,7 @@
             this.btnAddAdmin.TabIndex = 8;
             this.btnAddAdmin.Text = "Add";
             this.btnAddAdmin.UseVisualStyleBackColor = true;
+            this.btnAddAdmin.Click += new System.EventHandler(this.btnAddAdmin_Click);
             // 
             // txtAddPassword
             // 
@@ -1206,6 +1206,7 @@
             this.txtAddPassword.Size = new System.Drawing.Size(120, 20);
             this.txtAddPassword.TabIndex = 7;
             this.txtAddPassword.UseSystemPasswordChar = true;
+            this.txtAddPassword.TextChanged += new System.EventHandler(this.TextNewAdmin_TextChanged);
             // 
             // txtAddUsername
             // 
@@ -1213,6 +1214,7 @@
             this.txtAddUsername.Name = "txtAddUsername";
             this.txtAddUsername.Size = new System.Drawing.Size(120, 20);
             this.txtAddUsername.TabIndex = 5;
+            this.txtAddUsername.TextChanged += new System.EventHandler(this.TextNewAdmin_TextChanged);
             // 
             // label10
             // 
@@ -1240,6 +1242,7 @@
             this.txtAddLastName.Name = "txtAddLastName";
             this.txtAddLastName.Size = new System.Drawing.Size(120, 20);
             this.txtAddLastName.TabIndex = 3;
+            this.txtAddLastName.TextChanged += new System.EventHandler(this.TextNewAdmin_TextChanged);
             // 
             // label18
             // 
@@ -1266,6 +1269,7 @@
             this.txtAddFirstName.Name = "txtAddFirstName";
             this.txtAddFirstName.Size = new System.Drawing.Size(120, 20);
             this.txtAddFirstName.TabIndex = 1;
+            this.txtAddFirstName.TextChanged += new System.EventHandler(this.TextNewAdmin_TextChanged);
             // 
             // AdminPage
             // 

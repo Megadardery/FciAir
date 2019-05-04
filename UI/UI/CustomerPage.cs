@@ -19,6 +19,9 @@ namespace UI
         string CustomerTicketsCond ;
         string CustomerFlightCols = "FlightID,Source,Destination,DepartTime,ArriveTime";
         string CustomerFlightTicketsCols = "TicketID,Tickets.FlightID,Source,Destination,DepartTime,ArriveTime,Price,AgeGroup,Class,BookDate";
+        string Class;
+        int FlightID,nAdult=1,nChild,nInfant;
+
         public CustomerPage(int id)
         {
             InitializeComponent();
@@ -33,7 +36,7 @@ namespace UI
 
             try
             {
-                Logic.LoadListData(Program.dbms.SearchBy("Flights",searchBy,req,CustomerFlightCols), listVFlights);
+                Logic.LoadListData(Program.dbms.SearchBy("Flights",searchBy,req,CustomerFlightCols), listFlights);
             }
             catch (SqlException ex)
             {
@@ -56,10 +59,10 @@ namespace UI
             List<string> cols;
 
             cols = Program.dbms.GetTableColumns("Flights",CustomerFlightCols);
-            Logic.LoadListColumns(cols, listVFlights);
+            Logic.LoadListColumns(cols, listFlights);
             Logic.LoadListColumns(cols, cboSearch);
 
-            Logic.LoadListData(Program.dbms.GetTableData("Flights","1=1" ,CustomerFlightCols), listVFlights);
+            Logic.LoadListData(Program.dbms.GetTableData("Flights","1=1" ,CustomerFlightCols), listFlights);
 
             const string flightJOINticket = "Tickets JOIN Flights ON Tickets.FlightID = Flights.FlightID";
 
@@ -69,7 +72,7 @@ namespace UI
             Logic.LoadListData(Program.dbms.GetTableData(flightJOINticket, CustomerTicketsCond, CustomerFlightTicketsCols), listVMyFlights);
 
 
-            lblIDCustomer.Text = CustomerID.ToString();
+            lblCustomerID.Text = CustomerID.ToString();
             List<object> userData = Program.dbms.GetTableData("Customers", $"CustomerID = { CustomerID }")[0];
             lbluserCustomer.Text = userData[6].ToString();
 
@@ -83,13 +86,18 @@ namespace UI
 
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
         {
-                if (txtSearchBar.Text == "") Logic.LoadListData(Program.dbms.GetTableData("Flights", "1=1", CustomerFlightCols), listVFlights);
+                if (txtSearchBar.Text == "") Logic.LoadListData(Program.dbms.GetTableData("Flights", "1=1", CustomerFlightCols), listFlights);
 
         }
 
         private void listVFlights_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listFlights.SelectedItems.Count > 0)
+            {
+                var selected = listFlights.SelectedItems[0].SubItems;
+                FlightID = int.Parse(selected[0].Text);
 
+            }
         }
 
         private void btnSaveInfo_Click(object sender, EventArgs e)
@@ -146,16 +154,81 @@ namespace UI
             Program.homePage.Show();
         }
 
+        private void btnBackAdmin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDeleteAcc_Click_1(object sender, EventArgs e)
+        {
+            int[] ID;
+            DialogResult result = MessageBox.Show("Do you want to delete the account?", "Delete Account", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                result = MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    ID = new int[1]; ID[0] = int.Parse(lblCustomerID.Text);
+                    Program.dbms.DeleteCustomer(ID);
+                    this.Close();
+                }
+            }
+        }
+
+        private void cboSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboClass.Text.Equals("Economy Class"))
+                Class = "Economy";
+            else if (cboClass.Text.Equals("Premium Economy"))
+                Class = "Premium Economy";
+            else if (cboClass.Text.Equals("Business Class"))
+                Class = "Business";
+            else
+                Class = "First";
+        }
+
         private void btnDeleteAcc_Click(object sender, EventArgs e)
         {
             int[] ID;
             DialogResult result = MessageBox.Show("Do you want to delete the account?","Delete Account",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
-                ID = new int[1]; ID[0] = int.Parse(lblIDCustomer.Text);
+                ID = new int[1]; ID[0] = int.Parse(lblCustomerID.Text);
                 Program.dbms.DeleteCustomer(ID);
                 this.Close();
             }
+        }
+        public void btn_clicked(object sender,EventArgs e)
+        {
+            nAdult = int.Parse(adultNumber.Text);
+            nChild = int.Parse(childNnmber.Text);
+            nInfant = int.Parse(infantNumber.Text);
+        }
+        private void BtnBookFlight_Click(object sender, EventArgs e)
+        {
+            if (listFlights.SelectedItems.Count == 0)
+                MessageBox.Show("you must select a flight");
+            else if (nAdult == 0 && nChild == 0 && nInfant == 0)
+                MessageBox.Show("please select the age group");
+            else if (cboClass.SelectedIndex < 0)
+                MessageBox.Show("please select the class");
+            else
+            {
+                string cbo = cboClass.Text.Substring(0, cboClass.Text.IndexOf(" "));
+
+                for(int i=0;i<nAdult;++i)
+                    Program.dbms.InsertTicket(FlightID,500,"Adult", int.Parse(lblCustomerID.Text), Class, DateTime.Now);
+                for(int i=0;i<nChild;++i)
+                    Program.dbms.InsertTicket(FlightID,400,"child", int.Parse(lblCustomerID.Text), Class, DateTime.Now);
+                for(int i=0;i<nInfant;++i)
+                    Program.dbms.InsertTicket(FlightID,300,"infant",int.Parse(lblCustomerID.Text), Class, DateTime.Now);
+            }
+
         }
     }
 }

@@ -153,7 +153,7 @@ namespace UI
 
         private void lstMyMonitors_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstMyMonitors.SelectedIndex > 0)
+            if (lstMyMonitors.SelectedIndex >= 0)
                 btnRemoveMonitor.Enabled = true;
             else
                 btnRemoveMonitor.Enabled = false;
@@ -162,6 +162,8 @@ namespace UI
         private void btnRemoveMonitor_Click(object sender, EventArgs e)
         {
             Program.dbms.DeleteMonitor(AdminID, int.Parse(lstMyMonitors.SelectedItem.ToString()));
+            Logic.LoadListData(Program.dbms.GetTableData("Monitor", $"AdminID = { AdminID }"), lstMyMonitors);
+            lstMyMonitors_SelectedIndexChanged(null, null);
         }
 
         private void txtFlightIDM_TextChanged(object sender, EventArgs e)
@@ -171,7 +173,31 @@ namespace UI
 
         private void btnConfirmMonitor_Click(object sender, EventArgs e)
         {
-            Program.dbms.InsertMonitor(AdminID, int.Parse(txtFlightIDM.Text));
+            try
+            {
+                Program.dbms.InsertMonitor(AdminID, int.Parse(txtFlightIDM.Text));
+                txtFlightIDM.Clear();
+            }
+            catch (SqlException ex)
+            {
+                var reason = DBMS.ParseException(ex);
+                switch (reason)
+                {
+                    case DBMS.SqlErrorNumber.Duplication:
+                        MessageBox.Show(Logic.ErrorMessages.DuplicatePrimaryKey, "Duplicate Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    case DBMS.SqlErrorNumber.ForeignKeyViolation:
+                        MessageBox.Show(Logic.ErrorMessages.ForeignViolation, "Flight doesn't exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    default:
+                        MessageBox.Show(ex.Message);
+                        break;
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Please enter a proper Flight ID", "Cannot parse data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             Logic.LoadListData(Program.dbms.GetTableData("Monitor", $"AdminID = { AdminID }"), lstMyMonitors);
 
         }
@@ -214,6 +240,9 @@ namespace UI
 
         private void btnSearchF_Click(object sender, EventArgs e)
         {
+            //if (txtSearchF.Text == "")
+                //return;
+
             if(cmbSearchF.Text.Equals("DepartTime") || cmbSearchF.Text.Equals("ArriveTime"))
                 Logic.LoadListData(Program.dbms.SearchByTime("Flights", cmbSearchF.Text, dtpFromF.Value, dtpToF.Value), lstFlights);
             else
@@ -359,5 +388,43 @@ namespace UI
         {
             
         }
+
+        private void btnAddAdmin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Program.dbms.InsertAdmin(txtAddFirstName.Text, txtAddLastName.Text, txtAddUsername.Text, txtAddPassword.Text);
+                MessageBox.Show("Admin registration is successful!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtAddFirstName.Clear();
+                txtAddLastName.Clear();
+                txtAddUsername.Clear();
+                txtAddPassword.Clear();
+            }
+            catch (SqlException ex)
+            {
+                var reason = DBMS.ParseException(ex);
+                switch (reason)
+                {
+                    case DBMS.SqlErrorNumber.Duplication:
+                        MessageBox.Show(Logic.ErrorMessages.DuplicateUsername, "Username already exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        break;
+                    case DBMS.SqlErrorNumber.Truncation:
+                        MessageBox.Show(Logic.ErrorMessages.Truncation, "Too long", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        break;
+                    default:
+                        MessageBox.Show(ex.Message);
+                        break;
+                }
+            }
+        }
+
+        private void TextNewAdmin_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAddFirstName.Text == "" || txtAddLastName.Text == "" || txtAddPassword.Text == "" || txtAddUsername.Text == "")
+                btnAddAdmin.Enabled = false;
+            else
+                btnAddAdmin.Enabled = true;
+        }
+
     }
 }

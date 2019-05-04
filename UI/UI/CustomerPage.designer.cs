@@ -31,12 +31,12 @@
             this.tabCustomerhandler = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblTotalPrice = new System.Windows.Forms.Label();
+            this.Price = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericInfant = new System.Windows.Forms.DomainUpDown();
-            this.numericChild = new System.Windows.Forms.DomainUpDown();
-            this.numericAdult = new System.Windows.Forms.DomainUpDown();
+            this.infantNumber = new System.Windows.Forms.DomainUpDown();
+            this.childNnmber = new System.Windows.Forms.DomainUpDown();
+            this.adultNumber = new System.Windows.Forms.DomainUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,11 +49,12 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.cboSearch = new System.Windows.Forms.ComboBox();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
-            this.listVFlights = new System.Windows.Forms.ListView();
+            this.listFlights = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.listVMyFlights = new System.Windows.Forms.ListView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteAcc = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtMyPassport = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -72,7 +73,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.txtMyFirstName = new System.Windows.Forms.TextBox();
             this.btnBackAdmin = new System.Windows.Forms.Button();
-            this.lblIDCustomer = new System.Windows.Forms.Label();
+            this.lblCustomerID = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lbluserCustomer = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -115,12 +116,12 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.lblTotalPrice);
+            this.groupBox2.Controls.Add(this.Price);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.numericInfant);
-            this.groupBox2.Controls.Add(this.numericChild);
-            this.groupBox2.Controls.Add(this.numericAdult);
+            this.groupBox2.Controls.Add(this.infantNumber);
+            this.groupBox2.Controls.Add(this.childNnmber);
+            this.groupBox2.Controls.Add(this.adultNumber);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
@@ -136,14 +137,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Book your Flight";
             // 
-            // lblTotalPrice
+            // Price
             // 
-            this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Location = new System.Drawing.Point(76, 107);
-            this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(53, 13);
-            this.lblTotalPrice.TabIndex = 12;
-            this.lblTotalPrice.Text = "bind price";
+            this.Price.AutoSize = true;
+            this.Price.Location = new System.Drawing.Point(76, 107);
+            this.Price.Name = "Price";
+            this.Price.Size = new System.Drawing.Size(53, 13);
+            this.Price.TabIndex = 12;
+            this.Price.Text = "bind price";
             // 
             // label7
             // 
@@ -163,31 +164,34 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Class :";
             // 
-            // numericInfant
+            // infantNumber
             // 
-            this.numericInfant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericInfant.Location = new System.Drawing.Point(334, 20);
-            this.numericInfant.Name = "numericInfant";
-            this.numericInfant.Size = new System.Drawing.Size(75, 20);
-            this.numericInfant.TabIndex = 5;
-            this.numericInfant.Text = "0";
+            this.infantNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.infantNumber.Location = new System.Drawing.Point(334, 20);
+            this.infantNumber.Name = "infantNumber";
+            this.infantNumber.Size = new System.Drawing.Size(75, 20);
+            this.infantNumber.TabIndex = 5;
+            this.infantNumber.Text = "0";
+            this.infantNumber.Click += new System.EventHandler(this.btn_clicked);
             // 
-            // numericChild
+            // childNnmber
             // 
-            this.numericChild.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.numericChild.Location = new System.Drawing.Point(205, 20);
-            this.numericChild.Name = "numericChild";
-            this.numericChild.Size = new System.Drawing.Size(74, 20);
-            this.numericChild.TabIndex = 3;
-            this.numericChild.Text = "0";
+            this.childNnmber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.childNnmber.Location = new System.Drawing.Point(205, 20);
+            this.childNnmber.Name = "childNnmber";
+            this.childNnmber.Size = new System.Drawing.Size(74, 20);
+            this.childNnmber.TabIndex = 3;
+            this.childNnmber.Text = "0";
+            this.childNnmber.Click += new System.EventHandler(this.btn_clicked);
             // 
-            // numericAdult
+            // adultNumber
             // 
-            this.numericAdult.Location = new System.Drawing.Point(60, 20);
-            this.numericAdult.Name = "numericAdult";
-            this.numericAdult.Size = new System.Drawing.Size(77, 20);
-            this.numericAdult.TabIndex = 1;
-            this.numericAdult.Text = "1";
+            this.adultNumber.Location = new System.Drawing.Point(60, 20);
+            this.adultNumber.Name = "adultNumber";
+            this.adultNumber.Size = new System.Drawing.Size(77, 20);
+            this.adultNumber.TabIndex = 1;
+            this.adultNumber.Text = "1";
+            this.adultNumber.Click += new System.EventHandler(this.btn_clicked);
             // 
             // label6
             // 
@@ -233,6 +237,7 @@
             this.cboClass.Name = "cboClass";
             this.cboClass.Size = new System.Drawing.Size(349, 21);
             this.cboClass.TabIndex = 10;
+            this.cboClass.SelectedIndexChanged += new System.EventHandler(this.cboClass_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -263,6 +268,7 @@
             this.btnBookFlight.TabIndex = 13;
             this.btnBookFlight.Text = "Book";
             this.btnBookFlight.UseVisualStyleBackColor = true;
+            this.btnBookFlight.Click += new System.EventHandler(this.BtnBookFlight_Click);
             // 
             // label1
             // 
@@ -281,7 +287,7 @@
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.cboSearch);
             this.groupBox1.Controls.Add(this.txtSearchBar);
-            this.groupBox1.Controls.Add(this.listVFlights);
+            this.groupBox1.Controls.Add(this.listFlights);
             this.groupBox1.Location = new System.Drawing.Point(6, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(417, 257);
@@ -308,6 +314,7 @@
             this.cboSearch.Size = new System.Drawing.Size(90, 21);
             this.cboSearch.TabIndex = 0;
             this.cboSearch.Text = "Search by";
+            this.cboSearch.SelectedIndexChanged += new System.EventHandler(this.cboSearch_SelectedIndexChanged);
             // 
             // txtSearchBar
             // 
@@ -319,19 +326,19 @@
             this.txtSearchBar.TabIndex = 1;
             this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
             // 
-            // listVFlights
+            // listFlights
             // 
-            this.listVFlights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listFlights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listVFlights.FullRowSelect = true;
-            this.listVFlights.Location = new System.Drawing.Point(6, 40);
-            this.listVFlights.Name = "listVFlights";
-            this.listVFlights.Size = new System.Drawing.Size(405, 211);
-            this.listVFlights.TabIndex = 3;
-            this.listVFlights.UseCompatibleStateImageBehavior = false;
-            this.listVFlights.View = System.Windows.Forms.View.Details;
-            this.listVFlights.SelectedIndexChanged += new System.EventHandler(this.listVFlights_SelectedIndexChanged);
+            this.listFlights.FullRowSelect = true;
+            this.listFlights.Location = new System.Drawing.Point(6, 40);
+            this.listFlights.Name = "listFlights";
+            this.listFlights.Size = new System.Drawing.Size(405, 211);
+            this.listFlights.TabIndex = 3;
+            this.listFlights.UseCompatibleStateImageBehavior = false;
+            this.listFlights.View = System.Windows.Forms.View.Details;
+            this.listFlights.SelectedIndexChanged += new System.EventHandler(this.listVFlights_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -368,6 +375,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.btnDeleteAcc);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.txtMyPassport);
             this.groupBox3.Controls.Add(this.label10);
@@ -387,10 +395,21 @@
             this.groupBox3.Controls.Add(this.txtMyFirstName);
             this.groupBox3.Location = new System.Drawing.Point(5, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(420, 181);
-            this.groupBox3.TabIndex = 0;
+            this.groupBox3.Size = new System.Drawing.Size(420, 209);
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "My Info";
+            // 
+            // btnDeleteAcc
+            // 
+            this.btnDeleteAcc.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnDeleteAcc.Location = new System.Drawing.Point(6, 180);
+            this.btnDeleteAcc.Name = "btnDeleteAcc";
+            this.btnDeleteAcc.Size = new System.Drawing.Size(408, 23);
+            this.btnDeleteAcc.TabIndex = 17;
+            this.btnDeleteAcc.Text = "Delete Account";
+            this.btnDeleteAcc.UseVisualStyleBackColor = true;
+            this.btnDeleteAcc.Click += new System.EventHandler(this.btnDeleteAcc_Click_1);
             // 
             // label11
             // 
@@ -470,9 +489,9 @@
             // 
             this.btnSaveInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSaveInfo.Enabled = false;
-            this.btnSaveInfo.Location = new System.Drawing.Point(119, 142);
+            this.btnSaveInfo.Location = new System.Drawing.Point(6, 151);
             this.btnSaveInfo.Name = "btnSaveInfo";
-            this.btnSaveInfo.Size = new System.Drawing.Size(164, 23);
+            this.btnSaveInfo.Size = new System.Drawing.Size(408, 23);
             this.btnSaveInfo.TabIndex = 16;
             this.btnSaveInfo.Text = "Save Info";
             this.btnSaveInfo.UseVisualStyleBackColor = true;
@@ -559,16 +578,17 @@
             this.btnBackAdmin.TabIndex = 0;
             this.btnBackAdmin.Text = "Back";
             this.btnBackAdmin.UseVisualStyleBackColor = true;
+            this.btnBackAdmin.Click += new System.EventHandler(this.btnBackAdmin_Click);
             // 
-            // lblIDCustomer
+            // lblCustomerID
             // 
-            this.lblIDCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblIDCustomer.AutoSize = true;
-            this.lblIDCustomer.Location = new System.Drawing.Point(379, 33);
-            this.lblIDCustomer.Name = "lblIDCustomer";
-            this.lblIDCustomer.Size = new System.Drawing.Size(41, 13);
-            this.lblIDCustomer.TabIndex = 4;
-            this.lblIDCustomer.Text = "bind ID";
+            this.lblCustomerID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCustomerID.AutoSize = true;
+            this.lblCustomerID.Location = new System.Drawing.Point(379, 33);
+            this.lblCustomerID.Name = "lblCustomerID";
+            this.lblCustomerID.Size = new System.Drawing.Size(41, 13);
+            this.lblCustomerID.TabIndex = 4;
+            this.lblCustomerID.Text = "bind ID";
             // 
             // label12
             // 
@@ -606,7 +626,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 461);
             this.Controls.Add(this.btnBackAdmin);
-            this.Controls.Add(this.lblIDCustomer);
+            this.Controls.Add(this.lblCustomerID);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lbluserCustomer);
             this.Controls.Add(this.label13);
@@ -638,12 +658,12 @@
         private System.Windows.Forms.TabControl tabCustomerhandler;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lblTotalPrice;
+        private System.Windows.Forms.Label Price;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DomainUpDown numericInfant;
-        private System.Windows.Forms.DomainUpDown numericChild;
-        private System.Windows.Forms.DomainUpDown numericAdult;
+        private System.Windows.Forms.DomainUpDown infantNumber;
+        private System.Windows.Forms.DomainUpDown childNnmber;
+        private System.Windows.Forms.DomainUpDown adultNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -656,11 +676,21 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox cboSearch;
         private System.Windows.Forms.TextBox txtSearchBar;
-        private System.Windows.Forms.ListView listVFlights;
+        private System.Windows.Forms.ListView listFlights;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListView listVMyFlights;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnBackAdmin;
+        private System.Windows.Forms.Label lblCustomerID;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbluserCustomer;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnDeleteAcc;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtMyPassport;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dtpMyBirthdate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtMyNationality;
         private System.Windows.Forms.TextBox txtMyNewPassword;
@@ -674,14 +704,5 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtMyFirstName;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtMyPassport;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtpMyBirthdate;
-        private System.Windows.Forms.Button btnBackAdmin;
-        private System.Windows.Forms.Label lblIDCustomer;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lbluserCustomer;
-        private System.Windows.Forms.Label label13;
     }
 }

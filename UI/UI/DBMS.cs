@@ -271,14 +271,16 @@ namespace UI
             }
         }
      
-        public void InsertTicket(int flightID, int customerID, string Class, DateTime book)
+        public void InsertTicket(int flightID, int price,string ageGroup,int customerID, string Clas, DateTime book)
         {
-            string query = $"INSERT INTO Tickets VALUES (@flightID, @customerID, @Class, @book)";
+            string query = $"INSERT INTO Tickets VALUES (@flightID, @customerID, @price, @ageGroup, @Clas, @book)";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.Parameters.Add(new SqlParameter("@flightID", flightID));
                 cmd.Parameters.Add(new SqlParameter("@customerID", customerID));
-                cmd.Parameters.Add(new SqlParameter("@Class", Class));
+                cmd.Parameters.Add(new SqlParameter("@price", price));
+                cmd.Parameters.Add(new SqlParameter("@ageGroup", ageGroup));
+                cmd.Parameters.Add(new SqlParameter("@Clas", Clas));
                 cmd.Parameters.Add(new SqlParameter("@book", book));
                 cmd.ExecuteNonQuery();
             }
@@ -361,8 +363,8 @@ namespace UI
             }
         }
 
-        public void DeleteMonitor(int adminID, int aircraftID) { 
-            string query = $"DELETE FROM Monitor WHERE AdminID = {adminID} AND AircraftID = {aircraftID}";
+        public void DeleteMonitor(int adminID, int flightID) { 
+            string query = $"DELETE FROM Monitor WHERE AdminID = {adminID} AND FlightID = {flightID}";
             using (var cmd = new SqlCommand(query, co))
             {
                 cmd.ExecuteNonQuery();

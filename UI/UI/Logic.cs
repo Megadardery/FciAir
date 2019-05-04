@@ -14,6 +14,7 @@ namespace UI
             public const string DuplicatePrimaryKey = "This flight is already being monitored by you.";
             public const string Truncation = "Some of the data you entered is too large to be stored in the database.";
             public const string IntegerOnly = "Please check your input. It is not an integer.";
+            public const string ForeignViolation = "The ID you entered does not correspond to any entity registed in our database.";
         }
         public static void LoadListColumns(List<string> data, System.Windows.Forms.ListView ll)
         {
