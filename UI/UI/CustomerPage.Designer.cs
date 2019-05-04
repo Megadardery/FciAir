@@ -78,6 +78,10 @@
             this.lbluserCustomer = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.lblFrom = new System.Windows.Forms.Label();
             this.tabCustomerhandler.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -285,8 +289,12 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.dtpTo);
             this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.lblTo);
+            this.groupBox1.Controls.Add(this.dtpFrom);
             this.groupBox1.Controls.Add(this.cboSearch);
+            this.groupBox1.Controls.Add(this.lblFrom);
             this.groupBox1.Controls.Add(this.txtSearchBar);
             this.groupBox1.Controls.Add(this.listFlights);
             this.groupBox1.Location = new System.Drawing.Point(6, 4);
@@ -356,7 +364,7 @@
             // 
             this.listVMyFlights.Location = new System.Drawing.Point(4, 4);
             this.listVMyFlights.Name = "listVMyFlights";
-            this.listVMyFlights.Size = new System.Drawing.Size(424, 414);
+            this.listVMyFlights.Size = new System.Drawing.Size(424, 394);
             this.listVMyFlights.TabIndex = 0;
             this.listVMyFlights.UseCompatibleStateImageBehavior = false;
             this.listVMyFlights.View = System.Windows.Forms.View.Details;
@@ -631,6 +639,48 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // dtpTo
+            // 
+            this.dtpTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpTo.CustomFormat = "yyyy/MM/dd - HH:mm";
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTo.Location = new System.Drawing.Point(250, 15);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(84, 20);
+            this.dtpTo.TabIndex = 20;
+            this.dtpTo.Visible = false;
+            // 
+            // lblTo
+            // 
+            this.lblTo.AutoSize = true;
+            this.lblTo.Location = new System.Drawing.Point(218, 18);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(29, 13);
+            this.lblTo.TabIndex = 21;
+            this.lblTo.Text = " To :";
+            this.lblTo.Visible = false;
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFrom.CustomFormat = "yyyy/MM/dd - HH:mm";
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFrom.Location = new System.Drawing.Point(133, 15);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(81, 20);
+            this.dtpFrom.TabIndex = 18;
+            this.dtpFrom.Visible = false;
+            // 
+            // lblFrom
+            // 
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.Location = new System.Drawing.Point(97, 18);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(36, 13);
+            this.lblFrom.TabIndex = 19;
+            this.lblFrom.Text = "From :";
+            this.lblFrom.Visible = false;
+            // 
             // CustomerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,5 +767,9 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtMyFirstName;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.Label lblTo;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
+        private System.Windows.Forms.Label lblFrom;
     }
 }

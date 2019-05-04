@@ -244,25 +244,25 @@ namespace UI
                 //return;
 
             if(cmbSearchF.Text.Equals("DepartTime") || cmbSearchF.Text.Equals("ArriveTime"))
-                Logic.LoadListData(Program.dbms.SearchByTime("Flights", cmbSearchF.Text, dtpFromF.Value, dtpToF.Value), lstFlights);
+                Logic.LoadListData(Program.dbms.SearchByTime("Flights", cmbSearchF.Text, dtpFrom.Value, dtpTo.Value), lstFlights);
             else
                 Logic.LoadListData(Program.dbms.SearchBy("Flights", cmbSearchF.Text, txtSearchF.Text), lstFlights);
         }
 
         private void cmbSearchF_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtSearchF.Text = dtpFromF.Text = dtpToF.Text = "";
+            txtSearchF.Text = dtpFrom.Text = dtpTo.Text = "";
      
             if (cmbSearchF.Text.Equals("DepartTime") || cmbSearchF.Text.Equals("ArriveTime"))
             {
-                lblFromF.Visible = lblToF.Visible = true;
-                dtpFromF.Visible = dtpToF.Visible = true;
+                lblFrom.Visible = lblTo.Visible = true;
+                dtpFrom.Visible = dtpTo.Visible = true;
                 txtSearchF.Visible = false;
             }
             else
             {
-                lblFromF.Visible = lblToF.Visible = false;
-                dtpFromF.Visible = dtpToF.Visible = false;
+                lblFrom.Visible = lblTo.Visible = false;
+                dtpFrom.Visible = dtpTo.Visible = false;
                 txtSearchF.Visible = true;
             }
             Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);

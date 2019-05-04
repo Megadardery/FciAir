@@ -72,10 +72,10 @@
             this.txtSearchAC = new System.Windows.Forms.TextBox();
             this.lstAircrafts = new System.Windows.Forms.ListView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dtpToF = new System.Windows.Forms.DateTimePicker();
-            this.lblToF = new System.Windows.Forms.Label();
-            this.dtpFromF = new System.Windows.Forms.DateTimePicker();
-            this.lblFromF = new System.Windows.Forms.Label();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.lblFrom = new System.Windows.Forms.Label();
             this.btnClearF = new System.Windows.Forms.Button();
             this.btnSearchF = new System.Windows.Forms.Button();
             this.cmbSearchF = new System.Windows.Forms.ComboBox();
@@ -580,10 +580,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dtpToF);
-            this.tabPage1.Controls.Add(this.lblToF);
-            this.tabPage1.Controls.Add(this.dtpFromF);
-            this.tabPage1.Controls.Add(this.lblFromF);
+            this.tabPage1.Controls.Add(this.dtpTo);
+            this.tabPage1.Controls.Add(this.lblTo);
+            this.tabPage1.Controls.Add(this.dtpFrom);
+            this.tabPage1.Controls.Add(this.lblFrom);
             this.tabPage1.Controls.Add(this.btnClearF);
             this.tabPage1.Controls.Add(this.btnSearchF);
             this.tabPage1.Controls.Add(this.cmbSearchF);
@@ -599,48 +599,48 @@
             this.tabPage1.Text = "Flights";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dtpToF
+            // dtpTo
             // 
-            this.dtpToF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpToF.CustomFormat = "yyyy/MM/dd - HH:mm";
-            this.dtpToF.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpToF.Location = new System.Drawing.Point(260, 7);
-            this.dtpToF.Name = "dtpToF";
-            this.dtpToF.Size = new System.Drawing.Size(84, 20);
-            this.dtpToF.TabIndex = 16;
-            this.dtpToF.Visible = false;
+            this.dtpTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpTo.CustomFormat = "yyyy/MM/dd - HH:mm";
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTo.Location = new System.Drawing.Point(260, 7);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(84, 20);
+            this.dtpTo.TabIndex = 16;
+            this.dtpTo.Visible = false;
             // 
-            // lblToF
+            // lblTo
             // 
-            this.lblToF.AutoSize = true;
-            this.lblToF.Location = new System.Drawing.Point(225, 10);
-            this.lblToF.Name = "lblToF";
-            this.lblToF.Size = new System.Drawing.Size(29, 13);
-            this.lblToF.TabIndex = 17;
-            this.lblToF.Text = " To :";
-            this.lblToF.Visible = false;
+            this.lblTo.AutoSize = true;
+            this.lblTo.Location = new System.Drawing.Point(225, 10);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(29, 13);
+            this.lblTo.TabIndex = 17;
+            this.lblTo.Text = " To :";
+            this.lblTo.Visible = false;
             // 
-            // dtpFromF
+            // dtpFrom
             // 
-            this.dtpFromF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpFromF.CustomFormat = "yyyy/MM/dd - HH:mm";
-            this.dtpFromF.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFromF.Location = new System.Drawing.Point(140, 7);
-            this.dtpFromF.Name = "dtpFromF";
-            this.dtpFromF.Size = new System.Drawing.Size(81, 20);
-            this.dtpFromF.TabIndex = 15;
-            this.dtpFromF.Visible = false;
+            this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFrom.CustomFormat = "yyyy/MM/dd - HH:mm";
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFrom.Location = new System.Drawing.Point(140, 7);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(81, 20);
+            this.dtpFrom.TabIndex = 15;
+            this.dtpFrom.Visible = false;
             // 
-            // lblFromF
+            // lblFrom
             // 
-            this.lblFromF.AutoSize = true;
-            this.lblFromF.Location = new System.Drawing.Point(104, 10);
-            this.lblFromF.Name = "lblFromF";
-            this.lblFromF.Size = new System.Drawing.Size(36, 13);
-            this.lblFromF.TabIndex = 15;
-            this.lblFromF.Text = "From :";
-            this.lblFromF.Visible = false;
-            this.lblFromF.Click += new System.EventHandler(this.lblFrom_Click);
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.Location = new System.Drawing.Point(104, 10);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(36, 13);
+            this.lblFrom.TabIndex = 15;
+            this.lblFrom.Text = "From :";
+            this.lblFrom.Visible = false;
+            this.lblFrom.Click += new System.EventHandler(this.lblFrom_Click);
             // 
             // btnClearF
             // 
@@ -1439,10 +1439,10 @@
         private System.Windows.Forms.TextBox txtAddFirstName;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button btnEraseT;
-        private System.Windows.Forms.DateTimePicker dtpFromF;
-        private System.Windows.Forms.Label lblFromF;
-        private System.Windows.Forms.DateTimePicker dtpToF;
-        private System.Windows.Forms.Label lblToF;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
+        private System.Windows.Forms.Label lblFrom;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.Button btnRefresh;
     }
 }

@@ -19,7 +19,7 @@ namespace UI
         string CustomerTicketsCond ;
         string CustomerFlightCols = "FlightID,Source,Destination,DepartTime,ArriveTime";
         string CustomerFlightTicketsCols = "TicketID,Tickets.FlightID,Source,Destination,DepartTime,ArriveTime,Price,AgeGroup,Class,BookDate";
-        string Class;
+        string Class = "Economy";
         int FlightID,nAdult=1,nChild,nInfant;
 
         public CustomerPage(int id)
@@ -36,7 +36,10 @@ namespace UI
 
             try
             {
-                Logic.LoadListData(Program.dbms.SearchBy("Flights",searchBy,req,CustomerFlightCols), listFlights);
+                if (cboSearch.Text.Equals("DepartTime") || cboSearch.Text.Equals("ArriveTime"))
+                    Logic.LoadListData(Program.dbms.SearchByTime("Flights", searchBy, dtpFrom.Value, dtpTo.Value, CustomerFlightCols), listFlights);
+                else
+                    Logic.LoadListData(Program.dbms.SearchBy("Flights", searchBy, req, CustomerFlightCols), listFlights);
             }
             catch (SqlException ex)
             {
@@ -177,7 +180,20 @@ namespace UI
 
         private void cboSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            txtSearchBar.Text = dtpFrom.Text = dtpTo.Text = "";
+            if (cboSearch.Text.Equals("DepartTime") || cboSearch.Text.Equals("ArriveTime"))
+            {
+                lblFrom.Visible = lblTo.Visible = true;
+                dtpFrom.Visible = dtpTo.Visible = true;
+                txtSearchBar.Visible = false;
+            }
+            else
+            {
+                lblFrom.Visible = lblTo.Visible = false;
+                dtpFrom.Visible = dtpTo.Visible = false;
+                txtSearchBar.Visible = true;
+            }
+            Logic.LoadListData(Program.dbms.GetTableData("Flights", "1=1", CustomerFlightCols), listFlights);
         }
 
         private void cboClass_SelectedIndexChanged(object sender, EventArgs e)
