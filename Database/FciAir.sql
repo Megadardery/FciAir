@@ -72,7 +72,7 @@ create table Flights
 create table Monitor
 (
    AdminID                      int                            not null,
-   FlightID                     int                            not null,
+   FlightID                     int,
    primary key (AdminID, FlightID)
 );
 
@@ -92,19 +92,19 @@ create table Tickets
 );
 
 alter table Aircrafts add constraint FK_ADD foreign key (AdminID)
-      references Admins (AdminID);
+      references Admins (AdminID) ON DELETE CASCADE;
 
 alter table Flights add constraint FK_HAVE foreign key (AircraftID)
-      references Aircrafts (AircraftID);
+      references Aircrafts (AircraftID) ON DELETE CASCADE;
 
 alter table Monitor add constraint FK_Monitor foreign key (AdminID)
       references Admins (AdminID);
 
 alter table Monitor add constraint FK_Monitor2 foreign key (FlightID)
-      references Flights (FlightID);
+      references Flights (FlightID) ON DELETE CASCADE;
 
 alter table Tickets add constraint FK_BOOK foreign key (CustomerID)
-      references Customers (CustomerID);
+      references Customers (CustomerID) ON DELETE CASCADE;
 
 alter table Tickets add constraint FK_FOR foreign key (FlightID)
-      references Flights (FlightID);
+      references Flights (FlightID) ON DELETE CASCADE;
