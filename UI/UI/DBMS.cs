@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
 using System.Text;
-using System.Windows.Forms;
 
 namespace UI
 {
@@ -29,9 +27,19 @@ namespace UI
 
         
             co.Open();
-    
-    
         }
+        /// <summary>
+        /// Closes the connection to the server and the database.
+        /// </summary>
+        public void CloseConnection()
+        {
+            co.Close();
+            co.Dispose();
+        }
+
+        /// <summary>
+        /// Runs the sql query to create the FciAir database.
+        /// </summary>
         public static void CreateDatabase()
         {
             var builder = new SqlConnectionStringBuilder();
@@ -45,145 +53,120 @@ namespace UI
                 myco.Open();
                 using (var cmd = new SqlCommand(Properties.Resources.createDatabase, myco))
                     cmd.ExecuteNonQuery();
-                using (var cmd = new SqlCommand(Properties.Resources.createDatabaseTables, myco))
-                    cmd.ExecuteNonQuery();
 
                 myco.Close();
             }
         }
-        public void CloseConnection()
+
+        #region Admin/Customer Password Checking
+
+        private bool CheckPasswordOf(string mytype, int ID, string pass)
         {
-            co.Close();
-            co.Dispose();
+            string query = $"SELECT {mytype}ID FROM {mytype}s WHERE {mytype}ID = @ID AND Password = @pass";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                cmd.Parameters.Add(new SqlParameter("@ID", ID));
+                cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
+
+                //if the result set is empty.. ie. the password is incorrect 'ExecuteScalar' returns null
+                return cmd.ExecuteScalar() != null;
+            }
         }
+
+        /// <summary>
+        /// Checks if the Admin with the specified ID has the specified password
+        /// </summary>
+        /// <returns>True if the password is correct, False otherwise</returns>
         public bool CheckPasswordAdmin(int ID, string pass)
         {
             return CheckPasswordOf("Admin", ID, pass);
         }
 
+        /// <summary>
+        /// Checks if the Customer with the specified ID has the specified password
+        /// </summary>
+        /// <returns>True if the password is correct, False otherwise</returns>
         public bool CheckPasswordCustomer(int ID, string pass)
         {
             return CheckPasswordOf("Customer", ID, pass);
         }
-        private bool CheckPasswordOf(string mytype,int ID, string pass)
-        {
-            string query = $"SELECT {mytype}ID FROM {mytype}s WHERE {mytype}ID = @ID AND Password = @pass";
-            using (var cmd = new SqlCommand(query, co))
-            {
-                SqlDataReader reader = null;
-                try
-                {
-                    cmd.Parameters.Add(new SqlParameter("@ID", ID));
-                    cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
-                    reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                        return true;
-                    else
-                        return false;
-                }
-                finally
-                {
-                    reader.Close();
-                }
-            }
-        }
-        public int LoginAs(string mytype, string username, string pass)
+
+
+        #endregion
+
+        #region Admin/Customer Login
+        private int LoginAs(string mytype, string username, string pass)
         {
             string query = $"SELECT {mytype}ID FROM {mytype}s WHERE Username = @username AND Password = @pass";
             using (var cmd = new SqlCommand(query, co))
             {
-                SqlDataReader reader = null;
-                try
-                {
-                    cmd.Parameters.Add(new SqlParameter("@username", username));
-                    cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
-                    reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                        return (int)reader.GetValue(0);
-                    else
-                        return -1;
-                }
-                finally
-                {
-                    reader.Close();
-                }
+                cmd.Parameters.Add(new SqlParameter("@username", username));
+                cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
+
+                object ret = cmd.ExecuteScalar();
+                if (ret == null)
+                    return -1;
+                else
+                    return (int)ret;
             }
         }
+        /// <summary>
+        /// Login the admin with the specified username and password
+        /// </summary>
+        /// <returns>The AdminID of the user if successful, -1 if not.</returns>
         public int LoginAdmin(string username, string pass)
         {
             return LoginAs("Admin", username, pass);
         }
+        /// <summary>
+        /// Login the customer with the specified username and password
+        /// </summary>
+        /// <returns>The CustomerID of the user if successful, -1 if not.</returns>
         public int LoginCustomer(string username, string pass)
         {
             return LoginAs("Customer", username, pass);
         }
-        public List<List<object>> GetTableData(string tablename,string where = "1=1", string what = "*")
+        #endregion
+
+        #region Fetch Data
+        private List<List<object>> GetTableData(string tablename, string where, string what, SqlParameter[] param)
         {
             var ret = new List<List<object>>();
             string query = $"SELECT {what} FROM {tablename} WHERE {where}";
             using (var cmd = new SqlCommand(query, co))
             {
-                SqlDataReader reader = cmd.ExecuteReader();
+                if (param != null) cmd.Parameters.AddRange(param);
 
-                while (reader.Read())
+                using (var reader = cmd.ExecuteReader())
                 {
-                    var row = new List<object>();
-                    for (int i = 0; i < reader.FieldCount; i++)
-                        row.Add(reader.GetValue(i));
+                    while (reader.Read())
+                    {
+                        var row = new List<object>();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                            row.Add(reader.GetValue(i));
 
-                    ret.Add(row);
+                        ret.Add(row);
+                    }
                 }
-                reader.Close();
-
             }
             return ret;
+        }
 
+        public List<List<object>> GetTableData(string tablename, string where = "1=1", string what = "*")
+        {
+            return GetTableData(tablename, where, what, null);
         }
         public List<List<object>> SearchBy(string tablename, string whereLeft, string whereRight, string what = "*")
         {
-            var ret = new List<List<object>>();
-            string query = $"SELECT {what} FROM {tablename} WHERE {whereLeft} = @whereRight";
-            using (var cmd = new SqlCommand(query, co))
-            {
-                cmd.Parameters.Add(new SqlParameter("@whereRight", whereRight));
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    var row = new List<object>();
-                    for (int i = 0; i < reader.FieldCount; i++)
-                        row.Add(reader.GetValue(i));
-
-                    ret.Add(row);
-                }
-                reader.Close();
-
-            }
-            return ret;
-
+            return GetTableData(tablename, $"{whereLeft} = @whereRight", what,
+                new SqlParameter[] { new SqlParameter("@whereRight", whereRight) });
         }
 
         public List<List<object>> SearchByTime(string tablename, string whereLeft, DateTime from, DateTime to, string what = "*")
         {
-            var ret = new List<List<object>>();
-            string query = $"SELECT {what} FROM {tablename} WHERE {whereLeft} >= @from AND {whereLeft} <= @to";
-            using (var cmd = new SqlCommand(query, co))
-            {
-                cmd.Parameters.Add(new SqlParameter("@from", from));
-                cmd.Parameters.Add(new SqlParameter("@to", to));
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    var row = new List<object>();
-                    for (int i = 0; i < reader.FieldCount; i++)
-                        row.Add(reader.GetValue(i));
-
-                    ret.Add(row);
-                }
-                reader.Close();
-
-            }
-            return ret;
-
+            return GetTableData(tablename, $"{whereLeft} >= @from AND {whereLeft} <= @to", what,
+               new SqlParameter[] { new SqlParameter("@from", from),
+                                    new SqlParameter("@to", to) });
         }
 
         public List<string> GetTableColumns(string tablename , string what = "*")
@@ -192,16 +175,18 @@ namespace UI
             string query = $"SELECT {what} FROM {tablename} WHERE 1=2";
             using (var cmd = new SqlCommand(query, co))
             {
-                SqlDataReader reader = cmd.ExecuteReader();
-                for (int i = 0; i < reader.FieldCount; i++)
+                using (var reader = cmd.ExecuteReader())
                 {
-                    ret.Add(reader.GetName(i));
+                    for (int i = 0; i < reader.FieldCount; i++)
+                        ret.Add(reader.GetName(i));
                 }
-                reader.Close();
             }
             return ret;
         }
-        
+        #endregion
+
+        #region Inserts
+
         public void InsertAdmin(string fName, string lName, string username, string pass)
         {
             string query = $"INSERT INTO Admins VALUES(@fName, @lName, @username, @pass)";
@@ -212,7 +197,7 @@ namespace UI
                 cmd.Parameters.Add(new SqlParameter("@username", username));
                 cmd.Parameters.Add(new SqlParameter("@pass", HashPassword(pass)));
                 cmd.ExecuteNonQuery();
-                
+
             }
         }
         public void InsertAircraft(int adminID, int maxSeat, string model, string pName, DateTime date, int salary)
@@ -270,8 +255,8 @@ namespace UI
                 cmd.ExecuteNonQuery();
             }
         }
-     
-        public void InsertTicket(int flightID, int price,string ageGroup,int customerID, string Clas, DateTime book)
+
+        public void InsertTicket(int flightID, int price, string ageGroup, int customerID, string Clas, DateTime book)
         {
             string query = $"INSERT INTO Tickets VALUES (@flightID, @customerID, @price, @ageGroup, @Clas, @book)";
             using (var cmd = new SqlCommand(query, co))
@@ -287,7 +272,11 @@ namespace UI
         }
 
 
-        public void UpdateAdmin(int ID,string fName, string lName,string userName,string pass)
+        #endregion
+
+        #region Updates
+
+        public void UpdateAdmin(int ID, string fName, string lName, string userName, string pass)
         {
             string query = $"UPDATE Admins SET FirstName=@fName,LastName=@lName,Username=@userName,Password=@pass WHERE AdminID=@ID";
             using (var cmd = new SqlCommand(query, co))
@@ -302,41 +291,41 @@ namespace UI
 
         }
 
-        public void UpdateFlight(int ID,int AirID, DateTime depart,DateTime arrive ,int seat,string source,string dest)
+        public void UpdateFlight(int ID, int AirID, DateTime depart, DateTime arrive, int seat, string source, string dest)
         {
             string query = $"UPDATE Flights SET DepartTime=@depart,ArriveTime=@arrive,RequiredSeats=@seat,Source=@source,Destination=@dest,AircraftID=@AirID WHERE FlightID=@ID";
             using (var cmd = new SqlCommand(query, co))
             {
-                cmd.Parameters.Add(new SqlParameter("@depart",depart ));
-                cmd.Parameters.Add(new SqlParameter("@arrive",arrive ));
-                cmd.Parameters.Add(new SqlParameter("@seat",seat ));
-                cmd.Parameters.Add(new SqlParameter("@source",source ));
-                cmd.Parameters.Add(new SqlParameter("@dest",dest ));
-                cmd.Parameters.Add(new SqlParameter("@AirID",AirID ));
-                cmd.Parameters.Add(new SqlParameter("@ID",ID ));
+                cmd.Parameters.Add(new SqlParameter("@depart", depart));
+                cmd.Parameters.Add(new SqlParameter("@arrive", arrive));
+                cmd.Parameters.Add(new SqlParameter("@seat", seat));
+                cmd.Parameters.Add(new SqlParameter("@source", source));
+                cmd.Parameters.Add(new SqlParameter("@dest", dest));
+                cmd.Parameters.Add(new SqlParameter("@AirID", AirID));
+                cmd.Parameters.Add(new SqlParameter("@ID", ID));
                 cmd.ExecuteNonQuery();
             }
 
         }
 
-        public void UpdateAirCraft(int ID,int adminID, int seat, string model,string pName, DateTime date,int salary)
+        public void UpdateAirCraft(int ID, int adminID, int seat, string model, string pName, DateTime date, int salary)
         {
             string query = $"UPDATE Aircrafts SET AdminID = @adminID, Model=@model, MaxSeats=@seat,PilotName = @pname, Birthdate = @date, Salary = @salary WHERE AircraftID=@ID";
             using (var cmd = new SqlCommand(query, co))
             {
-                cmd.Parameters.Add(new SqlParameter("@model",model ));
-                cmd.Parameters.Add(new SqlParameter("@pName",pName ));
-                cmd.Parameters.Add(new SqlParameter("@seat",seat ));
-                cmd.Parameters.Add(new SqlParameter("@salary",salary ));
-                cmd.Parameters.Add(new SqlParameter("@date",date ));
-                cmd.Parameters.Add(new SqlParameter("@ID",ID ));
-                cmd.Parameters.Add(new SqlParameter("@adminID",adminID ));
+                cmd.Parameters.Add(new SqlParameter("@model", model));
+                cmd.Parameters.Add(new SqlParameter("@pName", pName));
+                cmd.Parameters.Add(new SqlParameter("@seat", seat));
+                cmd.Parameters.Add(new SqlParameter("@salary", salary));
+                cmd.Parameters.Add(new SqlParameter("@date", date));
+                cmd.Parameters.Add(new SqlParameter("@ID", ID));
+                cmd.Parameters.Add(new SqlParameter("@adminID", adminID));
                 cmd.ExecuteNonQuery();
             }
 
         }
 
-        public void UpdateCustomer(int ID, string passport, string fName, string lName, string userName,string pass, string nationality, DateTime birth)
+        public void UpdateCustomer(int ID, string passport, string fName, string lName, string userName, string pass, string nationality, DateTime birth)
         {
             string query = $"UPDATE Customers SET Passport=@passport,FirstName=@fName,LastName=@lName,Password=@pass,Birthdate=@birth,Nationality=@nationality,Username=@userName WHERE CustomerID=@ID";
             using (var cmd = new SqlCommand(query, co))
@@ -354,6 +343,9 @@ namespace UI
 
         }
 
+        #endregion
+
+        #region Deletes
         public void DeleteAircrafts(int[] idx)
         {
             string query = $"DELETE FROM Aircrafts WHERE AircraftID IN ({String.Join(",", idx)})";
@@ -363,7 +355,8 @@ namespace UI
             }
         }
 
-        public void DeleteMonitor(int adminID, int flightID) { 
+        public void DeleteMonitor(int adminID, int flightID)
+        {
             string query = $"DELETE FROM Monitor WHERE AdminID = {adminID} AND FlightID = {flightID}";
             using (var cmd = new SqlCommand(query, co))
             {
@@ -394,55 +387,25 @@ namespace UI
                 cmd.ExecuteNonQuery();
             }
         }
+        #endregion
 
-        public int getAirID(int ID)
+
+        public int GetFlightMaxSeats(int FlightID)
         {
-            string query = $"SELECT AircraftID FROM Flights WHERE FlightID={ID}";
-            using(var cmd=new SqlCommand(query, co))
+            string query = $"SELECT MaxSeats FROM Aircrafts JOIN Flights ON Aircrafts.AircraftID = Flights.AircraftID WHERE FlightID = { FlightID }";
+            using (var cmd = new SqlCommand(query, co))
             {
-                var reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    int ret = int.Parse(reader.GetValue(0).ToString());
-                    reader.Close();
-                    return ret;
-                }
-                reader.Close();
-                return -1;
+                return (int)cmd.ExecuteScalar();
             }
         }
 
-        public int getSeats(int ID)
+        public int GetFlightReservedSeats(int FlightID)
         {
-            string query = $"SELECT MaxSeats FROM Aircrafts WHERE AircraftID = {ID}";
+            //LEFT JOIN here because we need this function to return 0 if the flight does not have any reserved seats
+            string query = $"SELECT COUNT(TicketID) FROM Flights LEFT JOIN Tickets ON Flights.FlightID = Tickets.FlightID WHERE Flights.FlightID = {FlightID} GROUP BY Flights.FlightID";
             using (var cmd = new SqlCommand(query, co))
             {
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    int ret = int.Parse(reader.GetValue(0).ToString());
-                    reader.Close();
-                    return ret;
-                }
-                reader.Close();
-                return -1;
-            }
-        }
-
-        public int getTicketsN(int ID)
-        {
-            string query = $"SELECT COUNT(TicketID)FROM Flights JOIN Tickets ON Flights.FlightID = Tickets.FlightID WHERE Flights.FlightID = {ID} GROUP BY Flights.FlightID";
-            using (var cmd = new SqlCommand(query, co))
-            {
-                var reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    int ret = int.Parse(reader.GetValue(0).ToString());
-                    reader.Close();
-                    return ret;
-                }
-                reader.Close();
-                return -1;
+                return (int)cmd.ExecuteScalar();
             }
         }
 
@@ -454,8 +417,9 @@ namespace UI
         /// <returns>a string representing the uppercase hexadecimal representation of the MD5 Hash.</returns>
         public string HashPassword(string pass)
         {
+            
             byte[] passBytes = System.Text.Encoding.UTF8.GetBytes(pass);
-            byte[] hash = MD5.Create().ComputeHash(passBytes);
+            byte[] hash = System.Security.Cryptography.MD5.Create().ComputeHash(passBytes);
 
             StringBuilder sb = new StringBuilder();
 
@@ -463,9 +427,7 @@ namespace UI
             {
                 sb.Append(hash[i].ToString("X2"));  //Convert the bytes to their HEX representation
             }
-            Console.WriteLine(sb);
             return sb.ToString();
-
         }
 
         public enum SqlErrorNumber

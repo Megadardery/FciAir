@@ -398,7 +398,6 @@
             this.cmbSearchAC.Name = "cmbSearchAC";
             this.cmbSearchAC.Size = new System.Drawing.Size(95, 21);
             this.cmbSearchAC.TabIndex = 0;
-            this.cmbSearchAC.SelectedIndexChanged += new System.EventHandler(this.cmbSearchAC_SelectedIndexChanged);
             // 
             // btnSearchAC
             // 
@@ -640,7 +639,6 @@
             this.lblFrom.TabIndex = 15;
             this.lblFrom.Text = "From :";
             this.lblFrom.Visible = false;
-            this.lblFrom.Click += new System.EventHandler(this.lblFrom_Click);
             // 
             // btnClearF
             // 
@@ -748,6 +746,11 @@
             // 
             this.numRequiredSeats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numRequiredSeats.Location = new System.Drawing.Point(263, 37);
+            this.numRequiredSeats.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numRequiredSeats.Name = "numRequiredSeats";
             this.numRequiredSeats.Size = new System.Drawing.Size(64, 20);
             this.numRequiredSeats.TabIndex = 6;
@@ -1298,7 +1301,7 @@
             this.MaximumSize = new System.Drawing.Size(700, 2000);
             this.Name = "AdminPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminPage";
+            this.Text = "Admin Page";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminPage_FormClosed);
             this.Load += new System.EventHandler(this.AdminPage_Load);
             this.tabPage4.ResumeLayout(false);

@@ -90,7 +90,6 @@
             this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Passport ID :";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -100,7 +99,6 @@
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Birthdate :";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // fName
             // 
@@ -211,8 +209,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CustomerSignUp";
-            this.Text = "CustomerSignUp";
-            this.Load += new System.EventHandler(this.CustomerSignUp_Load);
+            this.Text = "Customer Sign Up";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -61,34 +61,28 @@ namespace UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CREATE DATABASE FciAir.
+        ///   Looks up a localized string similar to if exists (select * from sysdatabases where name=&apos;FciAir&apos;)
+        ///begin
+        ///  drop database FciAir
+        ///end
+        ///
+        ///create database FciAir
+        ///
+        ///GO
+        ///
+        ///USE FciAir
+        ///
+        ////*==============================================================*/
+        ////* DBMS name:      MySQL 4.0                                    */
+        ////* Created on:     24/4/5019 7:31:53 PM                         */
+        ////* Modified by:    Ahmed Nasr Eldardery                         */
+        ////*==============================================================*/
+        ///
+        ////*======================== [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string createDatabase {
             get {
                 return ResourceManager.GetString("createDatabase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to use FciAir;
-        ///
-        ///create table Admins
-        ///(
-        ///   AdminID                      int                            identity(1,1)			  not null,
-        ///   FirstName                    varchar(50)                    not null,
-        ///   LastName                     varchar(50),
-        ///   Username                     varchar(50)                    not null                    unique,
-        ///   Password                     char(32)                       not null,
-        ///   primary key (AdminID)
-        ///);
-        ///
-        ///create table Aircrafts
-        ///(
-        ///   AircraftID                [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string createDatabaseTables {
-            get {
-                return ResourceManager.GetString("createDatabaseTables", resourceCulture);
             }
         }
     }

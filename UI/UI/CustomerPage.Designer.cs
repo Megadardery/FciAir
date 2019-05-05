@@ -34,9 +34,9 @@
             this.Price = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.infantNumber = new System.Windows.Forms.DomainUpDown();
-            this.childNnmber = new System.Windows.Forms.DomainUpDown();
-            this.adultNumber = new System.Windows.Forms.DomainUpDown();
+            this.infantNumber = new System.Windows.Forms.NumericUpDown();
+            this.childNumber = new System.Windows.Forms.NumericUpDown();
+            this.adultNumber = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -85,6 +85,9 @@
             this.tabCustomerhandler.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infantNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.childNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adultNumber)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -125,7 +128,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.infantNumber);
-            this.groupBox2.Controls.Add(this.childNnmber);
+            this.groupBox2.Controls.Add(this.childNumber);
             this.groupBox2.Controls.Add(this.adultNumber);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
@@ -147,7 +150,7 @@
             this.Price.AutoSize = true;
             this.Price.Location = new System.Drawing.Point(76, 107);
             this.Price.Name = "Price";
-            this.Price.Size = new System.Drawing.Size(53, 13);
+            this.Price.Size = new System.Drawing.Size(25, 13);
             this.Price.TabIndex = 12;
             this.Price.Text = "100";
             // 
@@ -176,18 +179,16 @@
             this.infantNumber.Name = "infantNumber";
             this.infantNumber.Size = new System.Drawing.Size(75, 20);
             this.infantNumber.TabIndex = 5;
-            this.infantNumber.Text = "0";
-            this.infantNumber.Click += new System.EventHandler(this.btn_clicked);
+            this.infantNumber.ValueChanged += new System.EventHandler(this.GroupValue_Changed);
             // 
-            // childNnmber
+            // childNumber
             // 
-            this.childNnmber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.childNnmber.Location = new System.Drawing.Point(205, 20);
-            this.childNnmber.Name = "childNnmber";
-            this.childNnmber.Size = new System.Drawing.Size(74, 20);
-            this.childNnmber.TabIndex = 3;
-            this.childNnmber.Text = "0";
-            this.childNnmber.Click += new System.EventHandler(this.btn_clicked);
+            this.childNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.childNumber.Location = new System.Drawing.Point(205, 20);
+            this.childNumber.Name = "childNumber";
+            this.childNumber.Size = new System.Drawing.Size(74, 20);
+            this.childNumber.TabIndex = 3;
+            this.childNumber.ValueChanged += new System.EventHandler(this.GroupValue_Changed);
             // 
             // adultNumber
             // 
@@ -195,8 +196,8 @@
             this.adultNumber.Name = "adultNumber";
             this.adultNumber.Size = new System.Drawing.Size(77, 20);
             this.adultNumber.TabIndex = 1;
-            this.adultNumber.Text = "1";
-            this.adultNumber.Click += new System.EventHandler(this.btn_clicked);
+            this.adultNumber.Value = 1;
+            this.adultNumber.ValueChanged += new System.EventHandler(this.GroupValue_Changed);
             // 
             // label6
             // 
@@ -302,7 +303,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Available Flights";
-            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // dtpTo
             // 
@@ -362,7 +362,7 @@
             this.lblFrom.AutoSize = true;
             this.lblFrom.Location = new System.Drawing.Point(97, 18);
             this.lblFrom.Name = "lblFrom";
-            this.lblFrom.Size = new System.Drawing.Size(38, 13);
+            this.lblFrom.Size = new System.Drawing.Size(36, 13);
             this.lblFrom.TabIndex = 19;
             this.lblFrom.Text = "From :";
             this.lblFrom.Visible = false;
@@ -383,6 +383,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listFlights.FullRowSelect = true;
+            this.listFlights.HideSelection = false;
             this.listFlights.Location = new System.Drawing.Point(6, 40);
             this.listFlights.Name = "listFlights";
             this.listFlights.Size = new System.Drawing.Size(405, 211);
@@ -450,7 +451,6 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "My Info";
-            this.groupBox3.Enter += new System.EventHandler(this.GroupBox3_Enter);
             // 
             // btnDeleteAcc
             // 
@@ -461,7 +461,7 @@
             this.btnDeleteAcc.TabIndex = 17;
             this.btnDeleteAcc.Text = "Delete Account";
             this.btnDeleteAcc.UseVisualStyleBackColor = true;
-            this.btnDeleteAcc.Click += new System.EventHandler(this.btnDeleteAcc_Click_1);
+            this.btnDeleteAcc.Click += new System.EventHandler(this.btnDeleteAcc_Click);
             // 
             // label11
             // 
@@ -681,48 +681,6 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            //
-           // dtpTo
-           //
-           this.dtpTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-           this.dtpTo.CustomFormat = "yyyy/MM/dd - HH:mm";
-           this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-           this.dtpTo.Location = new System.Drawing.Point(250, 15);
-           this.dtpTo.Name = "dtpTo";
-           this.dtpTo.Size = new System.Drawing.Size(84, 20);
-           this.dtpTo.TabIndex = 20;
-           this.dtpTo.Visible = false;
-           //
-           // lblTo
-           //
-           this.lblTo.AutoSize = true;
-           this.lblTo.Location = new System.Drawing.Point(218, 18);
-           this.lblTo.Name = "lblTo";
-           this.lblTo.Size = new System.Drawing.Size(29, 13);
-           this.lblTo.TabIndex = 21;
-           this.lblTo.Text = " To :";
-           this.lblTo.Visible = false;
-           //
-           // dtpFrom
-           //
-           this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-           this.dtpFrom.CustomFormat = "yyyy/MM/dd - HH:mm";
-           this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-           this.dtpFrom.Location = new System.Drawing.Point(133, 15);
-           this.dtpFrom.Name = "dtpFrom";
-           this.dtpFrom.Size = new System.Drawing.Size(81, 20);
-           this.dtpFrom.TabIndex = 18;
-           this.dtpFrom.Visible = false;
-           //
-           // lblFrom
-           //
-           this.lblFrom.AutoSize = true;
-           this.lblFrom.Location = new System.Drawing.Point(97, 18); 
-           this.lblFrom.Name = "lblFrom";
-           this.lblFrom.Size = new System.Drawing.Size(36, 13);
-           this.lblFrom.TabIndex = 19;
-           this.lblFrom.Text = "From :";
-           this.lblFrom.Visible = false;
             // 
             // CustomerPage
             // 
@@ -747,6 +705,9 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infantNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.childNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adultNumber)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -766,9 +727,9 @@
         private System.Windows.Forms.Label Price;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DomainUpDown infantNumber;
-        private System.Windows.Forms.DomainUpDown childNnmber;
-        private System.Windows.Forms.DomainUpDown adultNumber;
+        private System.Windows.Forms.NumericUpDown infantNumber;
+        private System.Windows.Forms.NumericUpDown childNumber;
+        private System.Windows.Forms.NumericUpDown adultNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

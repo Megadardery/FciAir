@@ -21,6 +21,7 @@ namespace UI
         string CustomerFlightTicketsCols = "TicketID,Tickets.FlightID,Source,Destination,DepartTime,ArriveTime,Price,AgeGroup,Class,BookDate";
         int FlightID,nAdult=1,nChild,nInfant,totalPrice,seats,totalN,maxSeat;
 
+        const int AdultPrice = 1000, ChildPrice = 500, InfantPrice = 350;
 
         public CustomerPage(int id)
         {
@@ -38,7 +39,7 @@ namespace UI
             {
                 if (cboSearch.Text.Equals("DepartTime") || cboSearch.Text.Equals("ArriveTime"))
                     Logic.LoadListData(Program.dbms.SearchByTime("Flights", searchBy, dtpFrom.Value, dtpTo.Value, CustomerFlightCols), listFlights);
-                else
+                else if (req != "")
                     Logic.LoadListData(Program.dbms.SearchBy("Flights", searchBy, req, CustomerFlightCols), listFlights);
             }
             catch (SqlException ex)
@@ -85,6 +86,8 @@ namespace UI
             txtMyNationality.Text = userData[4].ToString();
             dtpMyBirthdate.Value = (DateTime)userData[5];
             txtMyUsername.Text = userData[6].ToString();
+
+            GroupValue_Changed(null, null);
         }
 
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
@@ -99,8 +102,8 @@ namespace UI
             {
                 var selected = listFlights.SelectedItems[0].SubItems;
                 FlightID = int.Parse(selected[0].Text);
-                seats = Program.dbms.getTicketsN(FlightID);
-                maxSeat = Program.dbms.getSeats(Program.dbms.getAirID(FlightID));
+                seats = Program.dbms.GetFlightReservedSeats(FlightID);
+                maxSeat = Program.dbms.GetFlightMaxSeats(FlightID);
             }
         }
 
@@ -162,27 +165,17 @@ namespace UI
         {
             this.Close();
         }
-
-        private void GroupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GroupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDeleteAcc_Click_1(object sender, EventArgs e)
+        
+        private void btnDeleteAcc_Click(object sender, EventArgs e)
         {
             int[] ID;
-            DialogResult result = MessageBox.Show("Do you want to delete the account?", "Delete Account", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
+            DialogResult result = MessageBox.Show("Do you want to delete the account?", "Delete Account", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 result = MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
-                    ID = new int[1]; ID[0] = int.Parse(lblCustomerID.Text);
+                    ID = new int[1]; ID[0] = CustomerID;
                     Program.dbms.DeleteCustomer(ID);
                     this.Close();
                 }
@@ -210,55 +203,51 @@ namespace UI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             this.CustomerPage_Load(null, null);
-        }
 
-        private void btnDeleteAcc_Click(object sender, EventArgs e)
-        {
-            int[] ID;
-            DialogResult result = MessageBox.Show("Do you want to delete the account?","Delete Account",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
-            {
-                ID = new int[1]; ID[0] = int.Parse(lblCustomerID.Text);
-                Program.dbms.DeleteCustomer(ID);
-                this.Close();
-            }
         }
-        public void btn_clicked(object sender,EventArgs e)
+        
+        public void GroupValue_Changed(object sender,EventArgs e)
         {
-            nAdult = int.Parse(adultNumber.Text);
-            nChild = int.Parse(childNnmber.Text);
-            nInfant = int.Parse(infantNumber.Text);
-            totalPrice = nAdult * 100 + nChild * 50 + nInfant * 30;
+            nAdult = (int)adultNumber.Value;
+            nChild = (int)childNumber.Value;
+            nInfant = (int)infantNumber.Value;
+            totalPrice = nAdult * AdultPrice + nChild * ChildPrice + nInfant * InfantPrice;
             Price.Text = totalPrice.ToString();
             totalN = nAdult + nChild + nInfant;
         }
         private void BtnBookFlight_Click(object sender, EventArgs e)
         {
             if (listFlights.SelectedItems.Count == 0)
-                MessageBox.Show("You must select a flight");
+                MessageBox.Show("You must select a flight","Flight not selected",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
 
             else if (nAdult == 0)
-                MessageBox.Show("There should be 1 adult at least", "age group error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There must be one adult at least", "Age Group Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             else if (cboClass.SelectedIndex < 0)
-                MessageBox.Show("Please select the class");
+                MessageBox.Show("Please select the class","Class Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
 
             else if (seats + totalN > maxSeat)
-                MessageBox.Show($"You have reached maximum number of seats.", "Maximum size", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"This flight does not have enough available seats for your resevation! Sorry about this", "Maximum size", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
             else
             {
+                //Get the name of the class with out the 'class' identifier.
                 string cbo = cboClass.Text.Substring(0, cboClass.Text.IndexOf(" "));
 
                 for (int i = 0; i < nAdult; ++i)
-                    Program.dbms.InsertTicket(FlightID, totalPrice, "Adult", int.Parse(lblCustomerID.Text), cbo, DateTime.Now);
+                    Program.dbms.InsertTicket(FlightID, AdultPrice, "Adult", CustomerID, cbo, DateTime.Now);
                 for (int i = 0; i < nChild; ++i)
-                    Program.dbms.InsertTicket(FlightID, totalPrice, "child", int.Parse(lblCustomerID.Text), cbo, DateTime.Now);
+                    Program.dbms.InsertTicket(FlightID, ChildPrice, "child", CustomerID, cbo, DateTime.Now);
                 for (int i = 0; i < nInfant; ++i)
-                    Program.dbms.InsertTicket(FlightID, totalPrice, "infant", int.Parse(lblCustomerID.Text), cbo, DateTime.Now);
+                    Program.dbms.InsertTicket(FlightID, InfantPrice, "infant", CustomerID, cbo, DateTime.Now);
 
-                MessageBox.Show($"Regestration successful.","Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Regestration is successful!","Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                adultNumber.Value = 1;
+                childNumber.Value = 0;
+                infantNumber.Value = 0;
+                GroupValue_Changed(null, null);
             }
 
         }

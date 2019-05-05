@@ -110,13 +110,18 @@ namespace UI
 
         private void btnEraseF_Click(object sender, EventArgs e)
         {
-            int[] ID = new int[1];
-            ID[0] = int.Parse((lstFlights.SelectedItems[0].SubItems)[0].Text);
-            Program.dbms.DeleteFlight(ID);
+            var result = MessageBox.Show("Are you sure you want to delete this aircraft? This will cause all of its flights and all the tickets on these flights to be removed as well!", "Delete Aircraft", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            lstFlights.Items.RemoveAt(lstFlights.Items.IndexOf(lstFlights.SelectedItems[0]));
+            if (result == DialogResult.Yes)
+            {
+                int[] ID = new int[1];
+                ID[0] = int.Parse(lstFlights.SelectedItems[0].SubItems[0].Text);
+                Program.dbms.DeleteFlight(ID);
 
-            btnClearF.PerformClick();
+                btnClearF.PerformClick();
+
+                AdminPage_Load(null, null);
+            }
         }
 
         private void btnUpdateF_Click(object sender, EventArgs e)
@@ -194,7 +199,7 @@ namespace UI
                         break;
                 }
             }
-            catch (Exception ee)
+            catch
             {
                 MessageBox.Show("Please enter a proper Flight ID", "Cannot parse data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -345,14 +350,18 @@ namespace UI
         {
             //NOTE : an Error may happen due to the foreign keys
             //should delete all flights, tickets and customer that related to this aircraft
+            var result = MessageBox.Show("Are you sure you want to delete this aircraft? This will cause all of its flights and all the tickets on these flights to be removed as well!", "Delete Aircraft", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            int[] ID = new int[1];
-            ID[0] = int.Parse((lstAircrafts.SelectedItems[0].SubItems)[0].Text);
-            Program.dbms.DeleteAircrafts(ID);
+            if (result == DialogResult.Yes)
+            {
+                int[] ID = new int[1];
+                ID[0] = int.Parse((lstAircrafts.SelectedItems[0].SubItems)[0].Text);
+                Program.dbms.DeleteAircrafts(ID);
 
-            lstAircrafts.Items.RemoveAt(lstAircrafts.Items.IndexOf(lstAircrafts.SelectedItems[0]));
+                btnClearAC.PerformClick();
 
-            btnClearAC.PerformClick();
+                AdminPage_Load(null, null);
+            }
         }
 
         private void btnUpdateAC_Click(object sender, EventArgs e)
@@ -372,21 +381,15 @@ namespace UI
         {
             if (lstTickets.SelectedItems.Count == 0) return;
 
-            int[] ID = new int[1];
-            ID[0] = int.Parse((lstTickets.SelectedItems[0].SubItems)[0].Text);
-            Program.dbms.DeleteTicket(ID);
+            var result = MessageBox.Show("Are you sure you want to delete this ticket?", "Delete Ticket", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int[] ID = new int[1];
+                ID[0] = int.Parse((lstTickets.SelectedItems[0].SubItems)[0].Text);
+                Program.dbms.DeleteTicket(ID);
 
-            lstTickets.Items.RemoveAt(lstTickets.Items.IndexOf(lstTickets.SelectedItems[0]));
-        }
-
-        private void lblFrom_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbSearchAC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+                AdminPage_Load(null, null);
+            }
         }
 
         private void btnAddAdmin_Click(object sender, EventArgs e)

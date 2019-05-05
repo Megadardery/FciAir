@@ -13,22 +13,11 @@ namespace UI
 {
     public partial class CustomerSignUp : Form
     {
-        SqlException ee = null;
         public CustomerSignUp()
         {
             InitializeComponent();
         }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void Button1_Click(object sender, EventArgs e)
         {
             try
@@ -72,9 +61,5 @@ namespace UI
 
         }
 
-        private void CustomerSignUp_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
