@@ -452,6 +452,7 @@
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(95, 20);
             this.txtModel.TabIndex = 3;
+            this.txtModel.TextChanged += new System.EventHandler(this.TextAircrafts_TextChanged);
             // 
             // label11
             // 
@@ -505,6 +506,7 @@
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(86, 20);
             this.txtSalary.TabIndex = 11;
+            this.txtSalary.TextChanged += new System.EventHandler(this.TextAircrafts_TextChanged);
             // 
             // label2
             // 
@@ -523,6 +525,7 @@
             this.txtPilotName.Name = "txtPilotName";
             this.txtPilotName.Size = new System.Drawing.Size(86, 20);
             this.txtPilotName.TabIndex = 5;
+            this.txtPilotName.TextChanged += new System.EventHandler(this.TextAircrafts_TextChanged);
             // 
             // label4
             // 
@@ -761,6 +764,7 @@
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.Size = new System.Drawing.Size(84, 20);
             this.txtDestination.TabIndex = 12;
+            this.txtDestination.TextChanged += new System.EventHandler(this.TextFlights_TextChanged);
             // 
             // label14
             // 
@@ -787,6 +791,7 @@
             this.txtSource.Name = "txtSource";
             this.txtSource.Size = new System.Drawing.Size(84, 20);
             this.txtSource.TabIndex = 8;
+            this.txtSource.TextChanged += new System.EventHandler(this.TextFlights_TextChanged);
             // 
             // lblFlightID
             // 
@@ -850,6 +855,7 @@
             this.txtAircraftID.Name = "txtAircraftID";
             this.txtAircraftID.Size = new System.Drawing.Size(84, 20);
             this.txtAircraftID.TabIndex = 4;
+            this.txtAircraftID.TextChanged += new System.EventHandler(this.TextFlights_TextChanged);
             // 
             // txtSearchF
             // 
@@ -1194,6 +1200,7 @@
             // btnAddAdmin
             // 
             this.btnAddAdmin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAddAdmin.Enabled = false;
             this.btnAddAdmin.Location = new System.Drawing.Point(126, 84);
             this.btnAddAdmin.Name = "btnAddAdmin";
             this.btnAddAdmin.Size = new System.Drawing.Size(164, 23);

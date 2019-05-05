@@ -126,13 +126,40 @@ namespace UI
 
         private void btnUpdateF_Click(object sender, EventArgs e)
         {
-            if (lstFlights.SelectedItems.Count > 0)
-                Program.dbms.UpdateFlight(int.Parse(lblFlightID.Text),int.Parse(txtAircraftID.Text), dtpDepart.Value, dtpArrive.Value, (int)numRequiredSeats.Value, txtSource.Text, txtDestination.Text);
-            else
-                Program.dbms.InsertFlight(int.Parse(txtAircraftID.Text),dtpDepart.Value,dtpArrive.Value,(int)numRequiredSeats.Value,txtSource.Text,txtDestination.Text);
+            try
+            {
+                if (lstFlights.SelectedItems.Count > 0)
+                    Program.dbms.UpdateFlight(int.Parse(lblFlightID.Text),int.Parse(txtAircraftID.Text), dtpDepart.Value, dtpArrive.Value, (int)numRequiredSeats.Value, txtSource.Text, txtDestination.Text);
+                else
+                    Program.dbms.InsertFlight(int.Parse(txtAircraftID.Text),dtpDepart.Value,dtpArrive.Value,(int)numRequiredSeats.Value,txtSource.Text,txtDestination.Text);
 
-            Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
-            btnClearF.PerformClick();
+                Logic.LoadListData(Program.dbms.GetTableData("Flights"), lstFlights);
+                btnClearF.PerformClick();
+            }
+            catch(SqlException ex)
+            {
+                var reason = DBMS.ParseException(ex);
+                switch (reason)
+                {
+                    case DBMS.SqlErrorNumber.ForeignKeyViolation:
+                        MessageBox.Show(Logic.ErrorMessages.ForeignViolation, "Aircraft doesn't exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        break;
+
+                    case DBMS.SqlErrorNumber.Truncation:
+                        MessageBox.Show(Logic.ErrorMessages.Truncation, "Too long", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        break;
+
+                    default:
+                        MessageBox.Show(ex.Message);
+                        break;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please check your input.","Bad input",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+
+        
         }
 
         private void lstAircrafts_SelectedIndexChanged(object sender, EventArgs e)
@@ -366,15 +393,34 @@ namespace UI
 
         private void btnUpdateAC_Click(object sender, EventArgs e)
         {
-            if (lstAircrafts.SelectedItems.Count > 0)
-                Program.dbms.UpdateAirCraft(int.Parse(lblAircraftID.Text), AdminID, (int)numMaxSeats.Value, txtModel.Text, txtPilotName.Text, dtpPilotBirthdate.Value, int.Parse(txtSalary.Text));
-            else
-                Program.dbms.InsertAircraft(AdminID, (int)numMaxSeats.Value, txtModel.Text, txtPilotName.Text, dtpPilotBirthdate.Value, int.Parse(txtSalary.Text));
+            try
+            {
 
-            Console.Write("done");
-
-            Logic.LoadListData(Program.dbms.GetTableData("Aircrafts"), lstAircrafts);
-            btnClearAC.PerformClick();
+                if (lstAircrafts.SelectedItems.Count > 0)
+                    Program.dbms.UpdateAircraft(int.Parse(lblAircraftID.Text), AdminID, (int)numMaxSeats.Value, txtModel.Text, txtPilotName.Text, dtpPilotBirthdate.Value, int.Parse(txtSalary.Text));
+                else
+                    Program.dbms.InsertAircraft(AdminID, (int)numMaxSeats.Value, txtModel.Text, txtPilotName.Text, dtpPilotBirthdate.Value, int.Parse(txtSalary.Text));
+                
+                Logic.LoadListData(Program.dbms.GetTableData("Aircrafts"), lstAircrafts);
+                btnClearAC.PerformClick();
+            }
+            catch (SqlException ex)
+            {
+                var reason = DBMS.ParseException(ex);
+                switch (reason)
+                {
+                    case DBMS.SqlErrorNumber.Truncation:
+                        MessageBox.Show(Logic.ErrorMessages.Truncation, "Too long", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        break;
+                    default:
+                        MessageBox.Show(ex.Message);
+                        break;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please check your input.", "Bad input", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnEraseT_Click(object sender, EventArgs e)
@@ -433,5 +479,22 @@ namespace UI
         {
             this.AdminPage_Load(null, null);
         }
+
+        private void TextFlights_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAircraftID.Text == "" || txtSource.Text == "" || txtDestination.Text == "")
+                btnUpdateF.Enabled = false;
+            else
+                btnUpdateF.Enabled = true;
+        }
+
+        private void TextAircrafts_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPilotName.Text == "" || txtSalary.Text == "" || txtModel.Text == "")
+                btnUpdateAC.Enabled = false;
+            else
+                btnUpdateAC.Enabled = true;
+        }
+
     }
 }

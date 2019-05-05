@@ -308,7 +308,7 @@ namespace UI
 
         }
 
-        public void UpdateAirCraft(int ID, int adminID, int seat, string model, string pName, DateTime date, int salary)
+        public void UpdateAircraft(int ID, int adminID, int seat, string model, string pName, DateTime date, int salary)
         {
             string query = $"UPDATE Aircrafts SET AdminID = @adminID, Model=@model, MaxSeats=@seat,PilotName = @pname, Birthdate = @date, Salary = @salary WHERE AircraftID=@ID";
             using (var cmd = new SqlCommand(query, co))
