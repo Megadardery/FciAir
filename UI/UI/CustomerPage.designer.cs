@@ -46,8 +46,12 @@
             this.btnBookFlight = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.cboSearch = new System.Windows.Forms.ComboBox();
+            this.lblFrom = new System.Windows.Forms.Label();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.listFlights = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -77,6 +81,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.lbluserCustomer = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.tabCustomerhandler.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -144,7 +149,7 @@
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(53, 13);
             this.Price.TabIndex = 12;
-            this.Price.Text = "bind price";
+            this.Price.Text = "100";
             // 
             // label7
             // 
@@ -237,7 +242,6 @@
             this.cboClass.Name = "cboClass";
             this.cboClass.Size = new System.Drawing.Size(349, 21);
             this.cboClass.TabIndex = 10;
-            this.cboClass.SelectedIndexChanged += new System.EventHandler(this.cboClass_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -284,8 +288,12 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.dtpTo);
             this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.lblTo);
+            this.groupBox1.Controls.Add(this.dtpFrom);
             this.groupBox1.Controls.Add(this.cboSearch);
+            this.groupBox1.Controls.Add(this.lblFrom);
             this.groupBox1.Controls.Add(this.txtSearchBar);
             this.groupBox1.Controls.Add(this.listFlights);
             this.groupBox1.Location = new System.Drawing.Point(6, 4);
@@ -294,6 +302,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Available Flights";
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpTo.CustomFormat = "yyyy/MM/dd - HH:mm";
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTo.Location = new System.Drawing.Point(250, 15);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(84, 20);
+            this.dtpTo.TabIndex = 20;
+            this.dtpTo.Visible = false;
             // 
             // btnSearch
             // 
@@ -306,6 +326,27 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // lblTo
+            // 
+            this.lblTo.AutoSize = true;
+            this.lblTo.Location = new System.Drawing.Point(218, 18);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(29, 13);
+            this.lblTo.TabIndex = 21;
+            this.lblTo.Text = " To :";
+            this.lblTo.Visible = false;
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFrom.CustomFormat = "yyyy/MM/dd - HH:mm";
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFrom.Location = new System.Drawing.Point(133, 15);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(81, 20);
+            this.dtpFrom.TabIndex = 18;
+            this.dtpFrom.Visible = false;
+            // 
             // cboSearch
             // 
             this.cboSearch.FormattingEnabled = true;
@@ -315,6 +356,16 @@
             this.cboSearch.TabIndex = 0;
             this.cboSearch.Text = "Search by";
             this.cboSearch.SelectedIndexChanged += new System.EventHandler(this.cboSearch_SelectedIndexChanged);
+            // 
+            // lblFrom
+            // 
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.Location = new System.Drawing.Point(97, 18);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(38, 13);
+            this.lblFrom.TabIndex = 19;
+            this.lblFrom.Text = "From :";
+            this.lblFrom.Visible = false;
             // 
             // txtSearchBar
             // 
@@ -355,7 +406,7 @@
             // 
             this.listVMyFlights.Location = new System.Drawing.Point(4, 4);
             this.listVMyFlights.Name = "listVMyFlights";
-            this.listVMyFlights.Size = new System.Drawing.Size(424, 414);
+            this.listVMyFlights.Size = new System.Drawing.Size(424, 394);
             this.listVMyFlights.TabIndex = 0;
             this.listVMyFlights.UseCompatibleStateImageBehavior = false;
             this.listVMyFlights.View = System.Windows.Forms.View.Details;
@@ -399,6 +450,7 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "My Info";
+            this.groupBox3.Enter += new System.EventHandler(this.GroupBox3_Enter);
             // 
             // btnDeleteAcc
             // 
@@ -574,7 +626,7 @@
             // 
             this.btnBackAdmin.Location = new System.Drawing.Point(5, 5);
             this.btnBackAdmin.Name = "btnBackAdmin";
-            this.btnBackAdmin.Size = new System.Drawing.Size(43, 23);
+            this.btnBackAdmin.Size = new System.Drawing.Size(78, 23);
             this.btnBackAdmin.TabIndex = 0;
             this.btnBackAdmin.Text = "Back";
             this.btnBackAdmin.UseVisualStyleBackColor = true;
@@ -620,11 +672,64 @@
             this.label13.TabIndex = 1;
             this.label13.Text = "Username :";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(89, 5);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            //
+           // dtpTo
+           //
+           this.dtpTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+           this.dtpTo.CustomFormat = "yyyy/MM/dd - HH:mm";
+           this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+           this.dtpTo.Location = new System.Drawing.Point(250, 15);
+           this.dtpTo.Name = "dtpTo";
+           this.dtpTo.Size = new System.Drawing.Size(84, 20);
+           this.dtpTo.TabIndex = 20;
+           this.dtpTo.Visible = false;
+           //
+           // lblTo
+           //
+           this.lblTo.AutoSize = true;
+           this.lblTo.Location = new System.Drawing.Point(218, 18);
+           this.lblTo.Name = "lblTo";
+           this.lblTo.Size = new System.Drawing.Size(29, 13);
+           this.lblTo.TabIndex = 21;
+           this.lblTo.Text = " To :";
+           this.lblTo.Visible = false;
+           //
+           // dtpFrom
+           //
+           this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+           this.dtpFrom.CustomFormat = "yyyy/MM/dd - HH:mm";
+           this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+           this.dtpFrom.Location = new System.Drawing.Point(133, 15);
+           this.dtpFrom.Name = "dtpFrom";
+           this.dtpFrom.Size = new System.Drawing.Size(81, 20);
+           this.dtpFrom.TabIndex = 18;
+           this.dtpFrom.Visible = false;
+           //
+           // lblFrom
+           //
+           this.lblFrom.AutoSize = true;
+           this.lblFrom.Location = new System.Drawing.Point(97, 18); 
+           this.lblFrom.Name = "lblFrom";
+           this.lblFrom.Size = new System.Drawing.Size(36, 13);
+           this.lblFrom.TabIndex = 19;
+           this.lblFrom.Text = "From :";
+           this.lblFrom.Visible = false;
+            // 
             // CustomerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 461);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnBackAdmin);
             this.Controls.Add(this.lblCustomerID);
             this.Controls.Add(this.label12);
@@ -704,5 +809,10 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtMyFirstName;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.Label lblTo;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
+        private System.Windows.Forms.Label lblFrom;
     }
 }

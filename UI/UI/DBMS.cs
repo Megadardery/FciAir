@@ -395,6 +395,58 @@ namespace UI
             }
         }
 
+        public int getAirID(int ID)
+        {
+            string query = $"SELECT AircraftID FROM Flights WHERE FlightID={ID}";
+            using(var cmd=new SqlCommand(query, co))
+            {
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    int ret = int.Parse(reader.GetValue(0).ToString());
+                    reader.Close();
+                    return ret;
+                }
+                reader.Close();
+                return -1;
+            }
+        }
+
+        public int getSeats(int ID)
+        {
+            string query = $"SELECT MaxSeats FROM Aircrafts WHERE AircraftID = {ID}";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    int ret = int.Parse(reader.GetValue(0).ToString());
+                    reader.Close();
+                    return ret;
+                }
+                reader.Close();
+                return -1;
+            }
+        }
+
+        public int getTicketsN(int ID)
+        {
+            string query = $"SELECT COUNT(TicketID)FROM Flights JOIN Tickets ON Flights.FlightID = Tickets.FlightID WHERE Flights.FlightID = {ID} GROUP BY Flights.FlightID";
+            using (var cmd = new SqlCommand(query, co))
+            {
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    int ret = int.Parse(reader.GetValue(0).ToString());
+                    reader.Close();
+                    return ret;
+                }
+                reader.Close();
+                return -1;
+            }
+        }
+
+
         /// <summary>
         /// Use the MD5 algorithm to hash the given password to a 256 bit (32 characters) hashed code.
         /// </summary>
