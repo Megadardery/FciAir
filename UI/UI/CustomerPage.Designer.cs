@@ -196,7 +196,11 @@
             this.adultNumber.Name = "adultNumber";
             this.adultNumber.Size = new System.Drawing.Size(77, 20);
             this.adultNumber.TabIndex = 1;
-            this.adultNumber.Value = 1;
+            this.adultNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.adultNumber.ValueChanged += new System.EventHandler(this.GroupValue_Changed);
             // 
             // label6
@@ -349,12 +353,12 @@
             // 
             // cboSearch
             // 
+            this.cboSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearch.FormattingEnabled = true;
             this.cboSearch.Location = new System.Drawing.Point(6, 15);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(90, 21);
             this.cboSearch.TabIndex = 0;
-            this.cboSearch.Text = "Search by";
             this.cboSearch.SelectedIndexChanged += new System.EventHandler(this.cboSearch_SelectedIndexChanged);
             // 
             // lblFrom
