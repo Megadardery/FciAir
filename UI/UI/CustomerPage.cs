@@ -28,6 +28,7 @@ namespace UI
             InitializeComponent();
             CustomerID = id;
             CustomerTicketsCond = "CustomerID = " + CustomerID;
+            this.Icon = UI.Properties.Resources.myico;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

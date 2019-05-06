@@ -85,5 +85,15 @@ namespace UI.Properties {
                 return ResourceManager.GetString("createDatabase", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon myico {
+            get {
+                object obj = ResourceManager.GetObject("myico", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

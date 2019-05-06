@@ -237,4 +237,8 @@ alter table Tickets add constraint FK_BOOK foreign key (CustomerID)
 alter table Tickets add constraint FK_FOR foreign key (FlightID)
       references Flights (FlightID) ON DELETE CASCADE;</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="myico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\myico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

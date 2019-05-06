@@ -15,6 +15,7 @@ namespace UI
         public AdminLogin()
         {
             InitializeComponent();
+            this.Icon = UI.Properties.Resources.myico;
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)

@@ -16,6 +16,7 @@ namespace UI
         public CustomerSignUp()
         {
             InitializeComponent();
+            this.Icon = UI.Properties.Resources.myico;
         }
         
         private void Button1_Click(object sender, EventArgs e)

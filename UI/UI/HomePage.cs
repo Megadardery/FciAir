@@ -15,6 +15,7 @@ namespace UI
         public HomePage()
         {
             InitializeComponent();
+            this.Icon = UI.Properties.Resources.myico;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,6 +30,16 @@ namespace UI
             CustomerLogin al = new CustomerLogin();
             al.Show();
             this.Hide();
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

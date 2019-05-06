@@ -18,6 +18,7 @@ namespace UI
         {
             InitializeComponent();
             AdminID = id;
+            this.Icon = UI.Properties.Resources.myico;
         }
 
         private void ClearFlightData()
