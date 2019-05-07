@@ -4,9 +4,9 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{6B04DBF4-1FA9-444B-BF55-6EB91DA6CCD1}" Name="FciSkyConceptual" Selected="Yes" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="FciSkyConceptual.cdm"/>
-		<Model Expanded="Yes" ID="{87D4351C-8D50-4672-A00E-1B6156471D51}" Name="FciSkyConceptual" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="FciSkyConceptual.pdm"/>
-		<Model Expanded="Yes" ID="{A3DD17BF-5BF7-4B28-91F6-56BE3BB9F8D2}" Name="FciSkyConceptual" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="FciSkyConceptual.ldm"/>
+		<Model Expanded="Yes" ID="{6B04DBF4-1FA9-444B-BF55-6EB91DA6CCD1}" Name="FciSkyConceptual" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="FciSkyConceptual.cdm"/>
+		<Model Expanded="Yes" ID="{5A8E57A3-112A-4506-ABA1-5B8991D6E4D3}" Name="FciSkyLogical" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="FciSkyLogical.ldm"/>
+		<Model Expanded="Yes" ID="{773D53CD-AE84-4BEF-AA52-569BC6D110BD}" Name="FciSkyPhysical" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="FciSkyPhysical.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
