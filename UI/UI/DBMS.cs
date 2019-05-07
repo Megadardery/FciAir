@@ -9,24 +9,31 @@ namespace UI
     class DBMS
     {
         private SqlConnection co;
-
+        private SqlConnectionStringBuilder builder;
         /// <summary>
         /// Establish a new instance of the Data Base Management System communicator.
         /// This starts the connection to the DataSource "localhost" and to the database "FciAir"
         /// </summary>
         public DBMS()
         {
-            var builder = new SqlConnectionStringBuilder();
+            builder = new SqlConnectionStringBuilder();
             builder.IntegratedSecurity = true;
 
             builder.DataSource = "localhost";
-            builder.InitialCatalog = "FciAir";
 
             co = new SqlConnection();
             co.ConnectionString = builder.ConnectionString;
-
-        
+        }
+        /// <summary>
+        /// Tries to open the connection
+        /// </summary>
+        public void OpenConnection()
+        {
             co.Open();
+        }
+        public void SwitchToFci()
+        {
+            co.ChangeDatabase("FciAir");
         }
         /// <summary>
         /// Closes the connection to the server and the database.
@@ -40,22 +47,16 @@ namespace UI
         /// <summary>
         /// Runs the sql query to create the FciAir database.
         /// </summary>
-        public static void CreateDatabase()
+        public void CreateDatabase()
         {
-            var builder = new SqlConnectionStringBuilder();
-            builder.IntegratedSecurity = true;
-
-            builder.DataSource = "localhost";
-
-            using (var myco = new SqlConnection())
+            try
             {
-                myco.ConnectionString = builder.ConnectionString;
-                myco.Open();
-                using (var cmd = new SqlCommand(Properties.Resources.createDatabase, myco))
+                using (var cmd = new SqlCommand(Properties.Resources.CreateDatabaseInitial, co))
                     cmd.ExecuteNonQuery();
-
-                myco.Close();
+                using (var cmd = new SqlCommand(Properties.Resources.createDatabase, co))
+                    cmd.ExecuteNonQuery();
             }
+            catch { }
         }
 
         #region Admin/Customer Password Checking

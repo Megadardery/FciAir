@@ -61,16 +61,7 @@ namespace UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to if exists (select * from sysdatabases where name=&apos;FciAir&apos;)
-        ///begin
-        ///  drop database FciAir
-        ///end
-        ///
-        ///create database FciAir
-        ///
-        ///GO
-        ///
-        ///USE FciAir
+        ///   Looks up a localized string similar to use FciAir;
         ///
         ////*==============================================================*/
         ////* DBMS name:      MySQL 4.0                                    */
@@ -78,11 +69,22 @@ namespace UI.Properties {
         ////* Modified by:    Ahmed Nasr Eldardery                         */
         ////*==============================================================*/
         ///
-        ////*======================== [rest of string was truncated]&quot;;.
+        ////*==============================================================*/
+        ////* Table: Admins                                                */
+        ////*================= [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string createDatabase {
             get {
                 return ResourceManager.GetString("createDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to create database FciAir;.
+        /// </summary>
+        internal static string CreateDatabaseInitial {
+            get {
+                return ResourceManager.GetString("CreateDatabaseInitial", resourceCulture);
             }
         }
         

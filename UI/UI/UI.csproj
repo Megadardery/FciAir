@@ -131,15 +131,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\favicon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\smallicon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\appicon.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\myico.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

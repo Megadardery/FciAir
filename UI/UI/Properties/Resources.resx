@@ -118,16 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="createDatabase" xml:space="preserve">
-    <value>if exists (select * from sysdatabases where name='FciAir')
-begin
-  drop database FciAir
-end
-
-create database FciAir
-
-GO
-
-USE FciAir
+    <value>use FciAir;
 
 /*==============================================================*/
 /* DBMS name:      MySQL 4.0                                    */
@@ -235,7 +226,12 @@ alter table Tickets add constraint FK_BOOK foreign key (CustomerID)
       references Customers (CustomerID) ON DELETE CASCADE;
 
 alter table Tickets add constraint FK_FOR foreign key (FlightID)
-      references Flights (FlightID) ON DELETE CASCADE;</value>
+      references Flights (FlightID) ON DELETE CASCADE;
+
+insert into [dbo].[Admins] values ('ADMIN','ADMIN','admin','21232F297A57A5A743894A0E4A801FC3')</value>
+  </data>
+  <data name="CreateDatabaseInitial" xml:space="preserve">
+    <value>create database FciAir;</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="myico" type="System.Resources.ResXFileRef, System.Windows.Forms">
