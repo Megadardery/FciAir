@@ -146,3 +146,8 @@ C:\Users\mamdo\OneDrive\Desktop\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
 C:\Users\mamdo\OneDrive\Desktop\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
 C:\Users\mamdo\OneDrive\Desktop\UI\UI\obj\Debug\UI.exe
 C:\Users\mamdo\OneDrive\Desktop\UI\UI\obj\Debug\UI.pdb
+D:\Programming\Github\FciAir\UI\UI\obj\Debug\RdlCompile.cache
+D:\Programming\Github\FciAir\UI\UI\obj\Debug\RdlCompile.compiled
+D:\Programming\Github\FciAir\UI\UI\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Programming\Github\FciAir\UI\UI\obj\Debug\UI.ReportViewer.resources
+D:\Programming\Github\FciAir\UI\UI\obj\Debug\UI.csproj.CopyComplete

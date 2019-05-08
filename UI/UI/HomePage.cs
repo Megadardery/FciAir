@@ -41,5 +41,11 @@ namespace UI
         {
             this.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.Show();
+        }
     }
 }
